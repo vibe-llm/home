@@ -26,5 +26,5 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
-  base: '/vibe-llm/', // 设置为 GitHub Pages 上的仓库名称
+  base: '/home/', // 设置为 GitHub Pages 上的仓库名称
 }));
