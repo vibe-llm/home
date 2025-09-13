@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Github, Twitter, Mail } from "lucide-react";
 import ContactUsForm from "./ContactUsForm";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
@@ -36,9 +37,9 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Product</h4>
             <ul className="space-y-3 text-muted-foreground">
-              <li><a href="/building" className="hover:text-primary transition-colors">API Documentation</a></li>
+              <li><Link to="/building" className="hover:text-primary transition-colors">API Documentation</Link></li>
               <li><a href="#pricing" className="hover:text-primary transition-colors">Pricing</a></li>
-              <li><a href="/building" className="hover:text-primary transition-colors">Status Page</a></li>
+              <li><Link to="/building" className="hover:text-primary transition-colors">Status Page</Link></li>
             </ul>
           </div>
           
@@ -46,7 +47,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Developers</h4>
             <ul className="space-y-3 text-muted-foreground">
-              <li><a href="/quick-start" className="hover:text-primary transition-colors">Quick Start</a></li>
+              <li><Link to="/quick-start" className="hover:text-primary transition-colors">Quick Start</Link></li>
             </ul>
           </div>
           
@@ -69,8 +70,8 @@ const Footer = () => {
               © 2025 Vibe LLM. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm text-muted-foreground">
-              <a href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</a>
+              <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>

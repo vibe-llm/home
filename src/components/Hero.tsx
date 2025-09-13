@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Code, DollarSign } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 import SignupForm from "./SignupForm";
-
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const [isSignupFormOpen, setIsSignupFormOpen] = useState(false);
 
   return (
@@ -69,7 +70,7 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               className="border-primary/30 text-foreground hover:bg-primary/5 text-lg px-8 py-6 h-auto"
-              onClick={() => window.location.href = '/dashboard'}
+              onClick={() => navigate('/dashboard')}
             >
               Already a User
             </Button>

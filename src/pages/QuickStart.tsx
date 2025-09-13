@@ -2,8 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Code, Mail, Terminal, Play, ArrowLeft, Copy, Check } from "lucide-react";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const QuickStart = () => {
+  const navigate = useNavigate();
   const [copiedIndex, setCopiedIndex] = useState<string | null>(null);
 
   const copyToClipboard = async (text: string, index: string) => {
@@ -72,12 +74,12 @@ const QuickStart = () => {
           
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Connect Claude Code with Vibe LLM in just 5 simple steps.{" "}
-            <a 
-              href="/" 
+            <Link
+              to="/"
               className="text-primary hover:text-primary/80 underline transition-colors"
             >
               Back to Vibe LLM
-            </a>
+            </Link>
           </p>
         </div>
 
@@ -159,7 +161,7 @@ const QuickStart = () => {
           <Button 
             size="lg" 
             className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 h-auto"
-            onClick={() => window.location.href = '/'}
+            onClick={() => navigate('/')}
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
             Back to Vibe LLM

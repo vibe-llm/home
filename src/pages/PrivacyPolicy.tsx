@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Shield, ArrowLeft, Lock, Eye, Database, UserCheck, FileText, Mail } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const PrivacyPolicy = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gradient-hero py-16 px-6">
       <div className="max-w-4xl mx-auto">
@@ -147,7 +149,7 @@ const PrivacyPolicy = () => {
           <Button 
             size="lg" 
             className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 h-auto"
-            onClick={() => window.location.href = '/'}
+            onClick={() => navigate('/')}
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
             Back to Vibe LLM

@@ -18,7 +18,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/vibe-llm">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/building" element={<Building />} />

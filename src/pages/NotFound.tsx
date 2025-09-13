@@ -1,10 +1,11 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import astronautImage from "@/assets/404-astronaut.png";
 
 const NotFound = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
@@ -38,7 +39,7 @@ const NotFound = () => {
         <Button 
           size="lg" 
           className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 h-auto"
-          onClick={() => window.location.href = '/'}
+          onClick={() => navigate('/')}
         >
           Take me home
         </Button>
