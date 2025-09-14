@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { User, CreditCard, DollarSign, ArrowLeft, CheckCircle, ExternalLink } from "lucide-react";
 import { UserWallet, walletHelpers } from "@/lib/user_crm";
-import { API_CONFIG, buildApiUrl } from "@/config/api";
+import { API_CONFIG, buildApiUrl, apiRequestWithFallback } from "@/config/api";
 import { useNavigate } from "react-router-dom";
 
 const UserDashboard = () => {
@@ -22,7 +22,11 @@ const UserDashboard = () => {
   const fetchWalletData = async (userEmail: string, userApiToken: string) => {
     try {
       const params = new URLSearchParams({ email: userEmail });
-      const response = await fetch(buildApiUrl(API_CONFIG.ENDPOINTS.USER_WALLET, params));
+      const response = await apiRequestWithFallback(
+        API_CONFIG.ENDPOINTS.USER_WALLET,
+        { method: 'GET' },
+        params
+      );
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -32,6 +36,10 @@ const UserDashboard = () => {
       return data as UserWallet;
     } catch (err) {
       console.error('Error fetching wallet data:', err);
+      // Provide more specific error message for CORS issues
+      if (err instanceof Error && err.message.includes('CORS')) {
+        throw new Error('Unable to connect to the API. This may be due to browser security restrictions when accessing the site from GitHub Pages.');
+      }
       throw err;
     }
   };

@@ -22,7 +22,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle } from "lucide-react";
-import { API_CONFIG, buildApiUrl } from "@/config/api";
+import { API_CONFIG, apiRequestWithFallback } from "@/config/api";
 
 const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -62,10 +62,11 @@ const SignupForm: React.FC<SignupFormProps> = ({ isOpen, onOpenChange }) => {
         phone: data.phone || ''
       });
       
-      const response = await fetch(buildApiUrl(API_CONFIG.ENDPOINTS.SIGNUP_WAITLIST, params), {
-        method: 'GET',
-        headers: API_CONFIG.DEFAULT_HEADERS,
-      });
+      const response = await apiRequestWithFallback(
+        API_CONFIG.ENDPOINTS.SIGNUP_WAITLIST,
+        { method: 'GET' },
+        params
+      );
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -82,9 +83,14 @@ const SignupForm: React.FC<SignupFormProps> = ({ isOpen, onOpenChange }) => {
       }, 3000);
       
     } catch (error) {
+      // Provide specific error message for CORS issues
+      const errorMessage = error instanceof Error && error.message.includes('CORS')
+        ? "Unable to connect to the API due to browser security restrictions. Please try again or contact support."
+        : "Something went wrong. Please try again.";
+        
       toast({
         title: "Error",
-        description: "Something went wrong. Please try again.",
+        description: errorMessage,
         variant: "destructive",
       });
     }
