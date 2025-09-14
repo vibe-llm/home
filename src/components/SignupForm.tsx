@@ -22,7 +22,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle } from "lucide-react";
-import { API_CONFIG, apiRequestWithFallback } from "@/config/api";
+import { API_CONFIG, apiRequest } from "@/config/api";
 
 const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -62,7 +62,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ isOpen, onOpenChange }) => {
         phone: data.phone || ''
       });
       
-      const response = await apiRequestWithFallback(
+      const response = await apiRequest(
         API_CONFIG.ENDPOINTS.SIGNUP_WAITLIST,
         { method: 'GET' },
         params

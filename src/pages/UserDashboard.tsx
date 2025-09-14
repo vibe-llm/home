@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { User, CreditCard, DollarSign, ArrowLeft, CheckCircle, ExternalLink } from "lucide-react";
 import { UserWallet, walletHelpers } from "@/lib/user_crm";
-import { API_CONFIG, buildApiUrl, apiRequestWithFallback } from "@/config/api";
+import { API_CONFIG, apiRequest } from "@/config/api";
 import { useNavigate } from "react-router-dom";
 
 const UserDashboard = () => {
@@ -22,7 +22,7 @@ const UserDashboard = () => {
   const fetchWalletData = async (userEmail: string, userApiToken: string) => {
     try {
       const params = new URLSearchParams({ email: userEmail });
-      const response = await apiRequestWithFallback(
+      const response = await apiRequest(
         API_CONFIG.ENDPOINTS.USER_WALLET,
         { method: 'GET' },
         params
