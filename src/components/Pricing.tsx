@@ -36,14 +36,14 @@ const Pricing = () => {
                   <div className="text-xs text-muted-foreground">per 1M tokens</div>
                 </div>
                 <div className="text-center relative pt-6">
-                  <div className="font-semibold text-sm text-primary">OpenAI GPT-5</div>
-                  <div className="text-xs text-muted-foreground">per 1M tokens</div>
-                </div>
-                <div className="text-center relative pt-6">
                   <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 bg-gradient-primary text-primary-foreground px-2 py-1 rounded-full text-xs font-semibold whitespace-nowrap">
                     BEST VALUE
                   </div>
                   <div className="font-semibold text-sm text-primary">Vibe LLM</div>
+                  <div className="text-xs text-muted-foreground">per 1M tokens</div>
+                </div>
+                <div className="text-center relative pt-6">
+                  <div className="font-semibold text-sm text-primary">OpenAI GPT-5</div>
                   <div className="text-xs text-muted-foreground">per 1M tokens</div>
                 </div>
               </div>
@@ -55,15 +55,15 @@ const Pricing = () => {
                 <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
                   <div className="text-sm font-medium">≤ 200K tokens</div>
                   <div className="text-center font-bold text-destructive">$3.00</div>
-                  <div className="text-center font-bold text-destructive">$1.25</div>
                   <div className="text-center font-bold text-primary">$0.60</div>
+                  <div className="text-center font-bold text-destructive">$1.25</div>
                 </div>
                 
                 <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
                   <div className="text-sm font-medium">{`> 200K tokens`}</div>
                   <div className="text-center font-bold text-destructive">$6.00</div>
-                  <div className="text-center font-bold text-destructive">$1.25</div>
                   <div className="text-center font-bold text-primary">$0.90</div>
+                  <div className="text-center font-bold text-destructive">$1.25</div>
                 </div>
               </div>
 
@@ -74,15 +74,15 @@ const Pricing = () => {
                 <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
                   <div className="text-sm font-medium">≤ 200K tokens</div>
                   <div className="text-center font-bold text-destructive">$15.00</div>
-                  <div className="text-center font-bold text-destructive">$10.00</div>
                   <div className="text-center font-bold text-primary">$3.00</div>
+                  <div className="text-center font-bold text-destructive">$10.00</div>
                 </div>
                 
                 <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
                   <div className="text-sm font-medium">{`> 200K tokens`}</div>
                   <div className="text-center font-bold text-destructive">$22.50</div>
-                  <div className="text-center font-bold text-destructive">$10.00</div>
                   <div className="text-center font-bold text-primary">$5.50</div>
+                  <div className="text-center font-bold text-destructive">$10.00</div>
                 </div>
               </div>
 
@@ -93,15 +93,15 @@ const Pricing = () => {
                 <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
                   <div className="text-sm font-medium">≤ 200K tokens</div>
                   <div className="text-center font-bold text-destructive">$0.30</div>
-                  <div className="text-center font-bold text-destructive">$0.125</div>
                   <div className="text-center font-bold text-primary">$0.06</div>
+                  <div className="text-center font-bold text-destructive">$0.125</div>
                 </div>
                 
                 <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
                   <div className="text-sm font-medium">{`> 200K tokens`}</div>
                   <div className="text-center font-bold text-destructive">$0.60</div>
-                  <div className="text-center font-bold text-destructive">$0.125</div>
                   <div className="text-center font-bold text-primary">$0.096</div>
+                  <div className="text-center font-bold text-destructive">$0.125</div>
                 </div>
               </div>
             </div>
