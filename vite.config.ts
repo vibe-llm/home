@@ -26,5 +26,5 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
-  base: '/home/', // 设置为 GitHub Pages 上的仓库名称
+  base: '/', // Custom domain uses root path
 }));

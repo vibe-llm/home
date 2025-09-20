@@ -32,7 +32,7 @@ const Pricing = () => {
                             <div className="grid grid-cols-4 gap-4 mb-6 p-4 bg-muted/30 rounded-lg">
                                 <div className="font-semibold text-sm relative pt-6">Category</div>
                                 <div className="text-center relative pt-6">
-                                    <div className="font-semibold text-sm text-primary">Claude Sonnet 4 / 4.1</div>
+                                    <div className="font-semibold text-sm text-primary">Claude 4 / 4.1</div>
                                     <div className="text-xs text-muted-foreground">per 1M tokens</div>
                                 </div>
                                 <div className="text-center relative pt-6">

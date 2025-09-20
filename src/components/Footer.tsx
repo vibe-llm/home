@@ -37,9 +37,9 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Product</h4>
             <ul className="space-y-3 text-muted-foreground">
-              <li><Link to="/building" className="hover:text-primary transition-colors">API Documentation</Link></li>
-              <li><a href="#pricing" className="hover:text-primary transition-colors">Pricing</a></li>
-              <li><Link to="/building" className="hover:text-primary transition-colors">Status Page</Link></li>
+              <li><Link to="/quick-start" className="hover:text-primary transition-colors">API Documentation</Link></li>
+              <li><Link to="/" onClick={() => setTimeout(() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }), 100)} className="hover:text-primary transition-colors">Pricing</Link></li>
+              <li><a href="https://vibe-router.onrender.com/health" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Status Page</a></li>
             </ul>
           </div>
           
@@ -55,7 +55,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-3 text-muted-foreground">
-              <li><a href="#features" className="hover:text-primary transition-colors">About</a></li>
+              <li><Link to="/" onClick={() => setTimeout(() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }), 100)} className="hover:text-primary transition-colors">About</Link></li>
               <li><a className="hover:text-primary transition-colors cursor-pointer" onClick={() => setIsContactFormOpen(true)}>Contact</a></li>
             </ul>
           </div>
