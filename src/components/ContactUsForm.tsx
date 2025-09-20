@@ -51,23 +51,44 @@ const SignupForm: React.FC<SignupFormProps> = ({ isOpen, onOpenChange }) => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log("Sending contact email via Web3Forms:", data);
       
-      console.log("Form submitted:", data);
-      setIsSubmitted(true);
+      // Create FormData for Web3Forms
+      const formData = new FormData();
+      formData.append('access_key', process.env.REACT_APP_WEB3FORMS_ACCESS_KEY || '');
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('message', data.comment);
+      formData.append('subject', '[VibeLLM-ContactUs] Contact Form Submission');
+      formData.append('from_name', data.name);
+      formData.append('redirect', 'false');
       
-      // Auto-close modal after showing success for 3 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-        onOpenChange(false);
-        form.reset();
-      }, 3000);
+      // Send to Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setIsSubmitted(true);
+        
+        // Auto-close modal after showing success for 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          onOpenChange(false);
+          form.reset();
+        }, 3000);
+      } else {
+        throw new Error(result.message || 'Failed to send message');
+      }
       
     } catch (error) {
+      console.error("Error sending contact email:", error);
       toast({
         title: "Error",
-        description: "Something went wrong. Please try again.",
+        description: error instanceof Error ? error.message : "Failed to send message. Please try again.",
         variant: "destructive",
       });
     }

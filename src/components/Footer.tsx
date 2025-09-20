@@ -22,14 +22,12 @@ const Footer = () => {
               Enterprise-grade AI at startup prices. Built for developers who demand performance without compromise.
             </p>
             <div className="flex space-x-4">
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="text-muted-foreground hover:text-primary"
-                onClick={() => setIsContactFormOpen(true)}
+              <a 
+                href="mailto:welcome@vibe-llm.online"
+                className="inline-flex items-center justify-center h-9 w-9 text-muted-foreground hover:text-primary transition-colors rounded-md hover:bg-accent"
               >
                 <Mail className="w-4 h-4" />
-              </Button>
+              </a>
             </div>
           </div>
           
