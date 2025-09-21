@@ -72,13 +72,15 @@ const QuickStart = () => {
             Quick Start Guide
           </h1>
           
+          <p className="text-xl text-muted-foreground mb-1 max-w-2xl mx-auto">
+            Connect Claude Code with Vibe LLM in just 5 simple steps.
+          </p>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Connect Claude Code with Vibe LLM in just 5 simple steps.{" "}
             <Link
               to="/"
               className="text-primary hover:text-primary/80 underline transition-colors"
             >
-              Back to Vibe LLM
+              Back to Home
             </Link>
           </p>
         </div>
@@ -117,8 +119,8 @@ const QuickStart = () => {
                           const isCopied = copiedIndex === copyId;
                           
                           return (
-                            <div key={cmdIndex} className="bg-black/20 rounded-lg p-4 border border-white/10 relative group">
-                              <code className="text-green-400 font-mono text-sm md:text-base pr-12">
+                            <div key={cmdIndex} className="bg-black/20 rounded-lg p-4 border border-white/10 relative group overflow-x-auto">
+                              <code className="text-green-400 font-mono text-sm md:text-base pr-12 overflow-x-auto whitespace-nowrap">
                                 {command}
                               </code>
                               <button
