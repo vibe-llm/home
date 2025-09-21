@@ -78,10 +78,10 @@ const Testimonials = () => {
             <div className="text-2xl font-bold">99.9%</div>
             <div className="text-sm text-muted-foreground">Uptime</div>
             <div className="w-px h-8 bg-border"></div>
-            <div className="text-2xl font-bold">10M+</div>
+            <div className="text-2xl font-bold">7M+</div>
             <div className="text-sm text-muted-foreground">API Calls</div>
             <div className="w-px h-8 bg-border"></div>
-            <div className="text-2xl font-bold">96ms</div>
+            <div className="text-2xl font-bold">93ms</div>
             <div className="text-sm text-muted-foreground">Avg Response</div>
           </div>
         </div>

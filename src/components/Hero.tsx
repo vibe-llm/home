@@ -73,7 +73,7 @@ const Hero = () => {
                         <Button
                             variant="outline"
                             size="lg"
-                            className="border-primary/30 text-foreground hover:bg-primary/5 text-lg px-8 py-6 h-auto"
+                            className="border-primary/30 text-foreground hover:shadow-glow text-lg px-8 py-6 h-auto"
                             onClick={() => navigate('/dashboard')}
                         >
                             Already a User

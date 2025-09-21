@@ -132,7 +132,7 @@ const PrivacyPolicy = () => {
             </div>
             <p className="text-muted-foreground text-lg leading-relaxed">
               If you have any questions about this privacy policy or our data practices, please contact us through 
-              our website's contact form. We're committed to addressing any privacy concerns you may have.
+              our website's contact form or via email `welcome@vibe-llm.online`. We're committed to addressing any privacy concerns you may have.
             </p>
           </section>
 
