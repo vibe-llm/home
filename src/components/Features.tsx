@@ -12,7 +12,7 @@ const features = [
   {
     icon: DollarSign,
     title: "Massive Cost Savings",
-    description: "Access Claude-style capabilities at just 20% the cost of official APIs."
+    description: "Access Claude-style capabilities at just 10% the cost of official APIs."
   },
   {
     icon: Code,

@@ -29,7 +29,7 @@ const Pricing = () => {
                     <div className="overflow-x-auto">
                         <div className="min-w-full">
                             {/* Header Row */}
-                            <div className="grid grid-cols-4 gap-4 mb-6 p-4 bg-muted/30 rounded-lg">
+                            <div className="grid grid-cols-5 gap-4 mb-6 p-4 bg-muted/30 rounded-lg">
                                 <div className="font-semibold text-sm relative pt-6">Category</div>
                                 <div className="text-center relative pt-6">
                                     <div className="font-semibold text-sm text-primary">Input Costs</div>
@@ -40,7 +40,11 @@ const Pricing = () => {
                                     <div className="text-xs text-muted-foreground">per 1M tokens</div>
                                 </div>
                                 <div className="text-center relative pt-6">
-                                    <div className="font-semibold text-sm text-primary">Cache Input Write / Read</div>
+                                    <div className="font-semibold text-sm text-primary">Cache Input Write</div>
+                                    <div className="text-xs text-muted-foreground">per 1M tokens</div>
+                                </div>
+                                <div className="text-center relative pt-6">
+                                    <div className="font-semibold text-sm text-primary">Cache Input Read</div>
                                     <div className="text-xs text-muted-foreground">per 1M tokens</div>
                                 </div>
                             </div>
@@ -51,7 +55,7 @@ const Pricing = () => {
                                     className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-LLM-4
                                 </div>
 
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
+                                <div className="grid grid-cols-5 gap-4 p-3 bg-background/50 rounded-lg">
                                     <div className="text-sm font-medium">
                                         input tokens: (0, 32K]
                                         <br />
@@ -59,10 +63,11 @@ const Pricing = () => {
                                     </div>
                                     <div className="text-center font-bold ">$0.2</div>
                                     <div className="text-center font-bold ">$0.6</div>
-                                    <div className="text-center font-bold ">$0 / $0.05</div>
+                                    <div className="text-center font-bold ">$0</div>
+                                    <div className="text-center font-bold ">$0.05</div>
                                 </div>
 
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
+                                <div className="grid grid-cols-5 gap-4 p-3 bg-background/50 rounded-lg">
                                     <div className="text-sm font-medium">
                                         input tokens: (0, 32K]
                                         <br />
@@ -70,9 +75,10 @@ const Pricing = () => {
                                     </div>
                                     <div className="text-center font-bold ">$0.2</div>
                                     <div className="text-center font-bold ">$1.8</div>
-                                    <div className="text-center font-bold ">$0 / $0.05</div>
+                                    <div className="text-center font-bold ">$0</div>
+                                    <div className="text-center font-bold ">$0.05</div>
                                 </div>
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
+                                <div className="grid grid-cols-5 gap-4 p-3 bg-background/50 rounded-lg">
                                     <div className="text-sm font-medium">
                                         input tokens: (32K+]
                                         <br />
@@ -80,7 +86,8 @@ const Pricing = () => {
                                     </div>
                                     <div className="text-center font-bold ">$0.3</div>
                                     <div className="text-center font-bold ">$2.4</div>
-                                    <div className="text-center font-bold ">$0 / $0.07</div>
+                                    <div className="text-center font-bold ">$0</div>
+                                    <div className="text-center font-bold ">$0.07</div>
                                 </div>
                             </div>
 
@@ -91,7 +98,7 @@ const Pricing = () => {
                                     className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-LLM-4.1
                                 </div>
 
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
+                                <div className="grid grid-cols-5 gap-4 p-3 bg-background/50 rounded-lg">
                                     <div className="text-sm font-medium">
                                         input tokens: (0, 32K]
                                         <br />
@@ -99,10 +106,11 @@ const Pricing = () => {
                                     </div>
                                     <div className="text-center font-bold ">$0.6</div>
                                     <div className="text-center font-bold ">$2.0</div>
-                                    <div className="text-center font-bold ">$0 / $0.1</div>
+                                    <div className="text-center font-bold ">$0</div>
+                                    <div className="text-center font-bold ">$0.1</div>
                                 </div>
 
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
+                                <div className="grid grid-cols-5 gap-4 p-3 bg-background/50 rounded-lg">
                                     <div className="text-sm font-medium">
                                         input tokens: (0, 32K]
                                         <br />
@@ -110,9 +118,10 @@ const Pricing = () => {
                                     </div>
                                     <div className="text-center font-bold ">$0.9</div>
                                     <div className="text-center font-bold ">$3.4</div>
-                                    <div className="text-center font-bold ">$0 / $0.2</div>
+                                    <div className="text-center font-bold ">$0</div>
+                                    <div className="text-center font-bold ">$0.2</div>
                                 </div>
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
+                                <div className="grid grid-cols-5 gap-4 p-3 bg-background/50 rounded-lg">
                                     <div className="text-sm font-medium">
                                         input tokens: (32K+]
                                         <br />
@@ -120,7 +129,8 @@ const Pricing = () => {
                                     </div>
                                     <div className="text-center font-bold ">$1.2</div>
                                     <div className="text-center font-bold ">$4.0</div>
-                                    <div className="text-center font-bold ">$0 / $0.3</div>
+                                    <div className="text-center font-bold ">$0</div>
+                                    <div className="text-center font-bold ">$0.3</div>
                                 </div>
                             </div>
 
@@ -144,87 +154,84 @@ const Pricing = () => {
                     <div className="overflow-x-auto">
                         <div className="min-w-full">
                             {/* Header Row */}
-                            <div className="grid grid-cols-4 gap-4 mb-6 p-4 bg-muted/30 rounded-lg">
-                                <div className="font-semibold text-sm relative pt-6">Category</div>
+                            <div className="grid grid-cols-5 gap-4 mb-6 p-4 bg-muted/30 rounded-lg">
+                                <div className="font-semibold text-sm relative pt-6">Model</div>
                                 <div className="text-center relative pt-6">
-                                    <div className="font-semibold text-sm text-primary">Claude 4 / 4.1</div>
+                                    <div className="font-semibold text-sm text-primary">Input Costs</div>
                                     <div className="text-xs text-muted-foreground">per 1M tokens</div>
                                 </div>
                                 <div className="text-center relative pt-6">
-                                    <div
-                                        className="absolute -top-1 left-1/2 transform -translate-x-1/2 bg-gradient-primary text-primary-foreground px-2 py-1 rounded-full text-xs font-semibold whitespace-nowrap">
-                                        BEST VALUE
+                                    <div className="font-semibold text-sm text-primary">Output Costs</div>
+                                    <div className="text-xs text-muted-foreground">per 1M tokens</div>
+                                </div>
+                                <div className="text-center relative pt-6">
+                                    <div className="font-semibold text-sm text-primary">Cache Input Write</div>
+                                    <div className="text-xs text-muted-foreground">per 1M tokens</div>
+                                </div>
+                                <div className="text-center relative pt-6">
+                                    <div className="font-semibold text-sm text-primary">Cache Input Read</div>
+                                    <div className="text-xs text-muted-foreground">per 1M tokens</div>
+                                </div>
+                            </div>
+
+                            {/* Vibe LLM 4 / 4.1 Row */}
+                            <div className="space-y-3 mb-6">
+                                <div
+                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-LLM
+                                </div>
+                                <div className="grid grid-cols-5 gap-4 p-3 bg-background/50 rounded-lg">
+                                    <div className="text-sm font-medium">
+                                        <div className="font-semibold text-sm">Vibe-LLM-4</div>
                                     </div>
-                                    <div className="font-semibold text-sm text-primary">Vibe LLM 4 / 4.1</div>
-                                    <div className="text-xs text-muted-foreground">per 1M tokens</div>
-                                </div>
-                                <div className="text-center relative pt-6">
-                                    <div className="font-semibold text-sm text-primary">OpenAI GPT-5</div>
-                                    <div className="text-xs text-muted-foreground">per 1M tokens</div>
-                                </div>
-                            </div>
-
-                            {/* Input Pricing */}
-                            <div className="space-y-3 mb-6">
-                                <div
-                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Input
-                                    Tokens
-                                </div>
-
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
-                                    <div className="text-sm font-medium">≤ 128K tokens</div>
-                                    <div className="text-center font-bold text-destructive">$3~$6 / $15</div>
-                                    <div className="text-center font-bold text-primary">$0.2~0.3 / $0.6~$1.2</div>
-                                    <div className="text-center font-bold text-destructive">$1.25</div>
-                                </div>
-                            </div>
-
-                            {/* Output Pricing */}
-                            <div className="space-y-3 mb-6">
-                                <div
-                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Output
-                                    Tokens
-                                </div>
-
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
-                                    <div className="text-sm font-medium"></div>
-                                    <div className="text-center font-bold text-destructive">$15.0 / $75.0</div>
-                                    <div className="text-center font-bold text-primary">$0.6~2.4 / $1.2~$6.4</div>
-                                    <div className="text-center font-bold text-destructive">$10.00</div>
-                                </div>
-
-                            </div>
-
-                            {/* Cached Input Pricing */}
-                            <div className="space-y-3 mb-6">
-                                <div
-                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Cache
-                                    Creation
-                                </div>
-
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
-                                    <div className="text-sm font-medium"></div>
-                                    <div className="text-center font-bold text-destructive">$3.75~$7.5 / $18.75</div>
+                                    <div className="text-center font-bold text-primary">$0.2~0.3</div>
+                                    <div className="text-center font-bold text-primary">$0.6~2.4 </div>
                                     <div className="text-center font-bold text-primary">$0.0</div>
-                                    <div className="text-center font-bold text-destructive">$0.0</div>
+                                    <div className="text-center font-bold text-primary">$0.05</div>
                                 </div>
-
+                                <div className="grid grid-cols-5 gap-4 p-3 bg-background/50 rounded-lg">
+                                    <div className="text-sm font-medium">
+                                        <div className="font-semibold text-sm">Vibe-LLM-4.1</div>
+                                    </div>
+                                    <div className="text-center font-bold text-primary">$0.6~$1.2</div>
+                                    <div className="text-center font-bold text-primary">$2~$4</div>
+                                    <div className="text-center font-bold text-primary">$0.0</div>
+                                    <div className="text-center font-bold text-primary">$0.1~0.3</div>
+                                </div>
                             </div>
 
-                            {/* Cached Read Pricing */}
+                            {/* Claude 4 / 4.1 Row */}
                             <div className="space-y-3 mb-6">
                                 <div
-                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Cache
-                                    Read
+                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Claude
                                 </div>
+                                <div className="grid grid-cols-5 gap-4 p-3 bg-background/50 rounded-lg">
+                                    <div className="text-sm font-medium">Claude Sonnet 4 </div>
+                                    <div className="text-center font-bold text-destructive">$3~$6</div>
+                                    <div className="text-center font-bold text-destructive">$15.0~$22.5</div>
+                                    <div className="text-center font-bold text-destructive">$3.75~$7.5</div>
+                                    <div className="text-center font-bold text-destructive">$0.3~0.6</div>
+                                </div>
+                                <div className="grid grid-cols-5 gap-4 p-3 bg-background/50 rounded-lg">
+                                    <div className="text-sm font-medium">Claude Opus 4.1</div>
+                                    <div className="text-center font-bold text-destructive">$15</div>
+                                    <div className="text-center font-bold text-destructive">$75.0</div>
+                                    <div className="text-center font-bold text-destructive">$18.75</div>
+                                    <div className="text-center font-bold text-destructive">$1.5</div>
+                                </div>
+                            </div>
 
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
-                                    <div className="text-sm font-medium"></div>
-                                    <div className="text-center font-bold text-destructive">$0.3~0.6 / $1.5</div>
-                                    <div className="text-center font-bold text-primary">$0.05 / $0.4~0.8</div>
+                            {/* OpenAI GPT-5 Row */}
+                            <div className="space-y-3 mb-6">
+                                <div
+                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">OpenAI
+                                </div>
+                                <div className="grid grid-cols-5 gap-4 p-3 bg-background/50 rounded-lg">
+                                    <div className="text-sm font-medium">GPT-5</div>
+                                    <div className="text-center font-bold text-destructive">$1.25</div>
+                                    <div className="text-center font-bold text-destructive">$10.00</div>
+                                    <div className="text-center font-bold text-destructive">$0.0</div>
                                     <div className="text-center font-bold text-destructive">$0.125</div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

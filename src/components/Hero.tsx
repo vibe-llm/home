@@ -36,7 +36,7 @@ const Hero = () => {
                     </h1>
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                         Use Claude Code at <span
-                        className="bg-gradient-primary bg-clip-text text-transparent">20%</span> the Cost
+                        className="bg-gradient-primary bg-clip-text text-transparent">10%</span> the Cost
                     </h2>
 
                     {/* Subheadline */}
