@@ -62,7 +62,7 @@ const Pricing = () => {
                                         output tokens: (0, 0.2K]
                                     </div>
                                     <div className="text-center font-bold ">$0.2</div>
-                                    <div className="text-center font-bold ">$0.6</div>
+                                    <div className="text-center font-bold ">$0.5</div>
                                     <div className="text-center font-bold ">$0</div>
                                     <div className="text-center font-bold ">$0.05</div>
                                 </div>
@@ -74,7 +74,7 @@ const Pricing = () => {
                                         output tokens: (0.2K+]
                                     </div>
                                     <div className="text-center font-bold ">$0.2</div>
-                                    <div className="text-center font-bold ">$1.8</div>
+                                    <div className="text-center font-bold ">$1.5</div>
                                     <div className="text-center font-bold ">$0</div>
                                     <div className="text-center font-bold ">$0.05</div>
                                 </div>
@@ -85,7 +85,7 @@ const Pricing = () => {
                                         output tokens: unlimited
                                     </div>
                                     <div className="text-center font-bold ">$0.3</div>
-                                    <div className="text-center font-bold ">$2.4</div>
+                                    <div className="text-center font-bold ">$2.0</div>
                                     <div className="text-center font-bold ">$0</div>
                                     <div className="text-center font-bold ">$0.07</div>
                                 </div>
@@ -184,9 +184,9 @@ const Pricing = () => {
                                         <div className="font-semibold text-sm">Vibe-LLM-4</div>
                                     </div>
                                     <div className="text-center font-bold text-primary">$0.2~0.3</div>
-                                    <div className="text-center font-bold text-primary">$0.6~2.4 </div>
+                                    <div className="text-center font-bold text-primary">$0.5~2.0 </div>
                                     <div className="text-center font-bold text-primary">$0.0</div>
-                                    <div className="text-center font-bold text-primary">$0.05</div>
+                                    <div className="text-center font-bold text-primary">$0.05 ~ $0.07</div>
                                 </div>
                                 <div className="grid grid-cols-5 gap-4 p-3 bg-background/50 rounded-lg">
                                     <div className="text-sm font-medium">
