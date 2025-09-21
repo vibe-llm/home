@@ -21,9 +21,124 @@ const Pricing = () => {
                     </p>
                 </div>
 
+                {/* Our price */}
+                <div className="bg-gradient-secondary rounded-2xl p-8 mb-16 border border-primary/20">
+                    <h3 className="text-2xl font-bold text-center mb-8">Our Price</h3>
+
+                    {/* Mobile-first responsive table */}
+                    <div className="overflow-x-auto">
+                        <div className="min-w-full">
+                            {/* Header Row */}
+                            <div className="grid grid-cols-4 gap-4 mb-6 p-4 bg-muted/30 rounded-lg">
+                                <div className="font-semibold text-sm relative pt-6">Category</div>
+                                <div className="text-center relative pt-6">
+                                    <div className="font-semibold text-sm text-primary">Input Costs</div>
+                                    <div className="text-xs text-muted-foreground">per 1M tokens</div>
+                                </div>
+                                <div className="text-center relative pt-6">
+                                    <div className="font-semibold text-sm text-primary">Output Costs</div>
+                                    <div className="text-xs text-muted-foreground">per 1M tokens</div>
+                                </div>
+                                <div className="text-center relative pt-6">
+                                    <div className="font-semibold text-sm text-primary">Cache Input Write / Read</div>
+                                    <div className="text-xs text-muted-foreground">per 1M tokens</div>
+                                </div>
+                            </div>
+
+                            {/* Vibe-LLM 4 Pricing */}
+                            <div className="space-y-3 mb-6">
+                                <div
+                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-LLM-4
+                                </div>
+
+                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
+                                    <div className="text-sm font-medium">
+                                        input tokens: (0, 32K]
+                                        <br />
+                                        output tokens: (0, 0.2K]
+                                    </div>
+                                    <div className="text-center font-bold ">$0.2</div>
+                                    <div className="text-center font-bold ">$0.6</div>
+                                    <div className="text-center font-bold ">$0 / $0.05</div>
+                                </div>
+
+                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
+                                    <div className="text-sm font-medium">
+                                        input tokens: (0, 32K]
+                                        <br />
+                                        output tokens: (0.2K+]
+                                    </div>
+                                    <div className="text-center font-bold ">$0.2</div>
+                                    <div className="text-center font-bold ">$1.8</div>
+                                    <div className="text-center font-bold ">$0 / $0.05</div>
+                                </div>
+                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
+                                    <div className="text-sm font-medium">
+                                        input tokens: (32K+]
+                                        <br />
+                                        output tokens: unlimited
+                                    </div>
+                                    <div className="text-center font-bold ">$0.3</div>
+                                    <div className="text-center font-bold ">$2.4</div>
+                                    <div className="text-center font-bold ">$0 / $0.07</div>
+                                </div>
+                            </div>
+
+
+                            {/* Vibe-LLM 4.1 Pricing */}
+                            <div className="space-y-3 mb-6">
+                                <div
+                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-LLM-4.1
+                                </div>
+
+                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
+                                    <div className="text-sm font-medium">
+                                        input tokens: (0, 32K]
+                                        <br />
+                                        output tokens: (0, 0.2K]
+                                    </div>
+                                    <div className="text-center font-bold ">$0.6</div>
+                                    <div className="text-center font-bold ">$2.0</div>
+                                    <div className="text-center font-bold ">$0 / $0.1</div>
+                                </div>
+
+                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
+                                    <div className="text-sm font-medium">
+                                        input tokens: (0, 32K]
+                                        <br />
+                                        output tokens: (0.2K+]
+                                    </div>
+                                    <div className="text-center font-bold ">$0.9</div>
+                                    <div className="text-center font-bold ">$3.4</div>
+                                    <div className="text-center font-bold ">$0 / $0.2</div>
+                                </div>
+                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
+                                    <div className="text-sm font-medium">
+                                        input tokens: (32K+]
+                                        <br />
+                                        output tokens: unlimited
+                                    </div>
+                                    <div className="text-center font-bold ">$1.2</div>
+                                    <div className="text-center font-bold ">$4.0</div>
+                                    <div className="text-center font-bold ">$0 / $0.3</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {/* Summary */}
+                    <div className="text-center mt-8 p-6 bg-primary/10 rounded-lg border border-primary/20">
+                        <div className="text-sm text-muted-foreground">
+                            * If you are using Vibe-LLM-4.1 with 1k input tokens and 1k output tokens,
+                            it costs $0.0033 (0.9/1M * 1k + 3.4/1M * 1k)
+                        </div>
+                    </div>
+                </div>
+
                 {/* Detailed Cost Comparison */}
                 <div className="bg-gradient-secondary rounded-2xl p-8 mb-16 border border-primary/20">
-                    <h3 className="text-2xl font-bold text-center mb-8">Detailed Pricing Comparison</h3>
+                    <h3 className="text-2xl font-bold text-center mb-8">Pricing Comparison</h3>
 
                     {/* Mobile-first responsive table */}
                     <div className="overflow-x-auto">
