@@ -20,10 +20,10 @@ export const walletHelpers = {
     return `$${wallet.total_spent.toFixed(2)}`;
   },
 
-  // Calculate tokens remaining based on balance (1M tokens = ~$3.8)
+  // Calculate tokens remaining based on balance (6M tokens = ~$5)
   getTokensRemaining: (wallet: UserWallet): string => {
     const balanceRemaining = wallet.total_deposit - wallet.total_spent;
-    const tokensRemaining = Math.floor((balanceRemaining / 3.8) * 1000000);
+    const tokensRemaining = Math.floor((balanceRemaining * 1.2) * 1000000);
     
     if (tokensRemaining >= 100000) {
       return `~${(tokensRemaining / 1000000).toFixed(2)} M`;

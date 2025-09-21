@@ -34,8 +34,8 @@ const faqs = [
     answer: "Billing is transparent and usage-based. You're charged per token at $10 per million tokens (input and output combined). We provide detailed usage analytics. Invoices are generated per payment with no hidden fees."
   },
   {
-    question: "What if I want to withdraw unused credit?",
-    answer: "You can withdraw unused credit at any time. Simply contact our team and we'll process the refund. No questions asked."
+    question: "What if I want to withdraw unused credit or request a refund?",
+    answer: "You can withdraw unused credit at any time. Simply contact us via `welcome@vibe-llm.online` and we'll process the refund. No questions asked."
   },
   {
     question: "Can I use Vibe LLM for commercial projects?",

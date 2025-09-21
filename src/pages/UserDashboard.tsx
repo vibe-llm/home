@@ -232,19 +232,19 @@ const UserDashboard = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <h4 className="text-foreground font-semibold">Available Top-Up Options:</h4>
+                  <h4 className="text-foreground font-semibold">Top-Up Options:</h4>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                      <span className="text-foreground">$10.00</span>
-                      <span className="text-muted-foreground text-sm">~10M tokens</span>
+                      <span className="text-foreground">$5.00</span>
+                      <span className="text-muted-foreground text-sm">~6M tokens</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                      <span className="text-foreground">$25.00</span>
-                      <span className="text-muted-foreground text-sm">~25M tokens</span>
+                      <span className="text-foreground">$20.00</span>
+                      <span className="text-muted-foreground text-sm">~24M tokens</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
                       <span className="text-foreground">$50.00</span>
-                      <span className="text-muted-foreground text-sm">~50M tokens</span>
+                      <span className="text-muted-foreground text-sm">~60M tokens</span>
                     </div>
                   </div>
                 </div>
@@ -261,6 +261,10 @@ const UserDashboard = () => {
                 <p className="text-xs text-muted-foreground text-center">
                   Payments are processed securely by Stripe. You will be redirected to complete your payment.
                 </p>
+                <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-4">
+                  <p className="font-bold">Important Notice:</p>
+                  <p>Please ensure you enter the email associated with your API token when making a payment to avoid delays in processing credits.</p>
+                </div>
               </div>
             </CardContent>
           </Card>
