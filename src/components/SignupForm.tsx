@@ -73,6 +73,21 @@ const SignupForm: React.FC<SignupFormProps> = ({ isOpen, onOpenChange }) => {
       }
       
       const result = await response.json();
+
+      const formData = new FormData();
+      formData.append('access_key', "556de76b-68cc-44b7-a870-bcae38c23fa2");
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('message', data.comment);
+      formData.append('subject', '[VibeLLM-Signup] Signup Form Submission');
+      formData.append('redirect', 'false');
+
+      // Send to Web3Forms
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+
       setIsSubmitted(true);
       
       // Auto-close modal after showing success for 3 seconds

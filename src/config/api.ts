@@ -2,7 +2,7 @@
 export const API_CONFIG = {
   // Base URL for the API
   // Use local development URL when running locally, production URL when deployed
-  BASE_URL: "https://account-hub-aj8p.onrender.com", // "http://0.0.0.0:8000", //for local development
+  BASE_URL: "https://vibe-llm-account.onrender.com", // "http://0.0.0.0:8000", //for local development
   
   // API endpoints
   ENDPOINTS: {
