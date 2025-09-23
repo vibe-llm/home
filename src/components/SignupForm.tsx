@@ -99,15 +99,21 @@ const SignupForm: React.FC<SignupFormProps> = ({ isOpen, onOpenChange }) => {
       
     } catch (error) {
       // Provide specific error message for CORS issues
-      const errorMessage = error instanceof Error && error.message.includes('CORS')
-        ? "Unable to connect to the API due to browser security restrictions. Please try again or contact support."
-        : "Something went wrong. Please try again.";
+      // const errorMessage = error instanceof Error && error.message.includes('CORS')
+      //   ? "Unable to connect to the API due to browser security restrictions. Please try again or contact support."
+      //   : "Something went wrong. Please try again.";
         
-      toast({
-        title: "Error",
-        description: errorMessage,
-        variant: "destructive",
-      });
+      // toast({
+      //   title: "Error",
+      //   description: errorMessage,
+      //   variant: "destructive",
+      // });
+      console.log(error);
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        onOpenChange(false);
+      }, 1000);
     }
   };
 
