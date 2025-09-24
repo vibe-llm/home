@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Shield, ArrowLeft, Lock, Eye, Database, UserCheck, FileText, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { usePageTracking } from "@/hooks/use-analytics";
 
 const PrivacyPolicy = () => {
   const navigate = useNavigate();
+  usePageTracking("Privacy Policy");
   return (
     <div className="min-h-screen bg-gradient-hero py-16 px-6">
       <div className="max-w-4xl mx-auto">

@@ -3,10 +3,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Code, Mail, Terminal, Play, ArrowLeft, Copy, Check } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { usePageTracking } from "@/hooks/use-analytics";
 
 const QuickStart = () => {
   const navigate = useNavigate();
   const [copiedIndex, setCopiedIndex] = useState<string | null>(null);
+  usePageTracking("Quick Start");
 
   const copyToClipboard = async (text: string, index: string) => {
     try {

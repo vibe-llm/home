@@ -2,10 +2,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import astronautImage from "@/assets/404-astronaut.png";
+import { usePageTracking } from "@/hooks/use-analytics";
 
 const NotFound = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  usePageTracking("404 Not Found");
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);

@@ -4,6 +4,7 @@ import {ArrowRight, Zap, Code, DollarSign} from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 import SignupForm from "./SignupForm";
 import {useNavigate} from "react-router-dom";
+import { trackButtonClick } from "@/lib/analytics";
 
 const Hero = () => {
     const navigate = useNavigate();
@@ -65,7 +66,10 @@ const Hero = () => {
                         <Button
                             size="lg"
                             className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 h-auto"
-                            onClick={() => setIsSignupFormOpen(true)}
+                            onClick={() => {
+                                trackButtonClick("hero_join_waitlist");
+                                setIsSignupFormOpen(true);
+                            }}
                         >
                             Join Waitlist
                             <ArrowRight className="w-5 h-5 ml-2"/>

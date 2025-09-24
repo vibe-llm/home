@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Scale, ArrowLeft, Shield, Users, FileText, AlertTriangle, Gavel, Mail } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { usePageTracking } from "@/hooks/use-analytics";
 
 const TermsOfService = () => {
   const navigate = useNavigate();
+  usePageTracking("Terms of Service");
   return (
     <div className="min-h-screen bg-gradient-hero py-16 px-6">
       <div className="max-w-4xl mx-auto">

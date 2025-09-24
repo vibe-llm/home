@@ -9,9 +9,11 @@ import { User, CreditCard, DollarSign, ArrowLeft, CheckCircle, ExternalLink } fr
 import { UserWallet, walletHelpers } from "@/lib/user_crm";
 import { API_CONFIG, apiRequest } from "@/config/api";
 import { useNavigate } from "react-router-dom";
+import { usePageTracking } from "@/hooks/use-analytics";
 
 const UserDashboard = () => {
   const navigate = useNavigate();
+  usePageTracking("User Dashboard");
   const [email, setEmail] = useState("");
   const [apiToken, setApiToken] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);

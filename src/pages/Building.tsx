@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Construction, ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { usePageTracking } from "@/hooks/use-analytics";
 
 const Building = () => {
   const navigate = useNavigate();
+  usePageTracking("Building");
   return (
     <div className="min-h-screen bg-gradient-hero flex items-center justify-center px-6">
       <div className="max-w-2xl mx-auto text-center">

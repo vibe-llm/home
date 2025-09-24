@@ -3,6 +3,7 @@ import {Button} from "@/components/ui/button";
 import {Card, CardContent} from "@/components/ui/card";
 import {Check, ArrowRight, Gift, Rocket} from "lucide-react";
 import SignupForm from "./SignupForm";
+import { trackButtonClick } from "@/lib/analytics";
 
 const Pricing = () => {
     const [isSignupFormOpen, setIsSignupFormOpen] = useState(false);
@@ -283,7 +284,10 @@ const Pricing = () => {
 
                             <Button
                                 className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg py-6 h-auto"
-                                onClick={() => setIsSignupFormOpen(true)}
+                                onClick={() => {
+                                    trackButtonClick("pricing_starter_join_waitlist");
+                                    setIsSignupFormOpen(true);
+                                }}
                             >
                                 Join Waitlist Now
                                 <ArrowRight className="w-5 h-5 ml-2"/>
@@ -331,7 +335,10 @@ const Pricing = () => {
 
                             <Button
                                 className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg py-6 h-auto"
-                                onClick={() => setIsSignupFormOpen(true)}
+                                onClick={() => {
+                                    trackButtonClick("pricing_payasyougo_join_waitlist");
+                                    setIsSignupFormOpen(true);
+                                }}
                             >
                                 Join Waitlist Now
                                 <ArrowRight className="w-5 h-5 ml-2"/>

@@ -10,6 +10,8 @@ import QuickStart from "./pages/QuickStart";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import UserDashboard from "./pages/UserDashboard";
+// Initialize analytics
+import "./lib/analytics";
 
 const queryClient = new QueryClient();
 

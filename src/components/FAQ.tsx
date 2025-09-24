@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import ContactUsForm from "./ContactUsForm";
 import SignupForm from "./SignupForm";
+import { trackButtonClick } from "@/lib/analytics";
 
 const faqs = [
   {
@@ -57,7 +58,10 @@ const FAQ = () => {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Everything you need to know about switching to Vibe LLM. Can't find your answer? 
             <button 
-              onClick={() => setIsContactFormOpen(true)}
+              onClick={() => {
+                trackButtonClick("faq_contact_team");
+                setIsContactFormOpen(true);
+              }}
               className="text-primary hover:underline ml-1 cursor-pointer"
             >
               Contact our team
@@ -87,7 +91,10 @@ const FAQ = () => {
         {/* CTA at bottom of FAQ */}
         <div className="text-center mt-16">
           <button 
-            onClick={() => setIsSignupFormOpen(true)}
+            onClick={() => {
+              trackButtonClick("faq_join_waitlist");
+              setIsSignupFormOpen(true);
+            }}
             className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-primary text-primary-foreground font-semibold shadow-glow hover:shadow-glow-lg transition-all duration-300 cursor-pointer"
           >
             Ready to get started? Join the waitlist!
