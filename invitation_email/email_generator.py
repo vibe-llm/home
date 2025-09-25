@@ -24,15 +24,15 @@ def main():
     parser = argparse.ArgumentParser(description='Generate invitation email with user credentials.')
     parser.add_argument('account', default='test@gmail.com',  help='User account ID')
     parser.add_argument('access_token', default='test-token', help='User access token')
-    parser.add_argument('--output', '-o', default='invitation-email-rendered.html',
-                       help='Output filename (default: invitation-email-rendered.html)')
+    parser.add_argument('--output', '-o', default='', help='Output filename')
 
     args = parser.parse_args()
     # Generate the email
     rendered_content = render_invitation_email(args.account, args.access_token)
 
     # Save the result
-    save_email(rendered_content, args.output)
+    output = args.output or f'rendered-{args.account}.html'
+    save_email(rendered_content, output)
 
 if __name__ == '__main__':
     main()
