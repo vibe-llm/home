@@ -3,13 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-// import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { User, CreditCard, DollarSign, ArrowLeft, CheckCircle, ExternalLink } from "lucide-react";
 import { UserWallet, walletHelpers } from "@/lib/user_crm";
 import { API_CONFIG, apiRequest } from "@/config/api";
 import { useNavigate } from "react-router-dom";
 import { usePageTracking } from "@/hooks/use-analytics";
+
+// Configuration constant for usage history lookback period
+const USAGE_LOOKBACK_DAYS = 3;
 
 const UserDashboard = () => {
   const navigate = useNavigate();
@@ -20,6 +23,8 @@ const UserDashboard = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [walletData, setWalletData] = useState<UserWallet | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [usageHistory, setUsageHistory] = useState<any[]>([]);
+  const [usageLoading, setUsageLoading] = useState(false);
 
   const fetchWalletData = async (userEmail: string, userApiToken: string) => {
     try {
@@ -46,6 +51,62 @@ const UserDashboard = () => {
     }
   };
 
+  const fetchUsageHistory = async (userEmail: string) => {
+    try {
+      setUsageLoading(true);
+      
+      // Make parallel API calls for past N days
+      const today = new Date();
+      
+      // Create array of promises for parallel execution
+      const apiPromises = Array.from({ length: USAGE_LOOKBACK_DAYS }, (_, i) => {
+        const date = new Date(today);
+        date.setDate(date.getDate() - i);
+        
+        // Format date as YYYY-MM-DD for API
+        const dateStr = date.toISOString().split('T')[0];
+        
+        const params = new URLSearchParams({ 
+          email: userEmail,
+          p_start: dateStr,
+          p_end: dateStr
+        });
+        
+        return apiRequest(
+          API_CONFIG.ENDPOINTS.USER_COST,
+          { method: 'GET' },
+          params
+        )
+          .then(async (response) => {
+            if (response.ok) {
+              const data = await response.json();
+              // Add the date to the response for easier processing
+              return {
+                ...data,
+                date: dateStr
+              };
+            }
+            return null; // Return null for failed requests
+          })
+          .catch((dayErr) => {
+            console.error(`Error fetching data for ${dateStr}:`, dayErr);
+            return null; // Return null for failed requests
+          });
+      });
+      
+      // Execute all API calls in parallel and filter out null results
+      const results = await Promise.all(apiPromises);
+      const usageData = results.filter(result => result !== null);
+      
+      setUsageHistory(usageData);
+    } catch (err) {
+      console.error('Error fetching usage history:', err);
+      setUsageHistory([]);
+    } finally {
+      setUsageLoading(false);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !apiToken) return;
@@ -57,6 +118,9 @@ const UserDashboard = () => {
       const data = await fetchWalletData(email, apiToken);
       setWalletData(data);
       setIsSubmitted(true);
+      
+      // Fetch usage history after successful wallet data fetch
+      await fetchUsageHistory(email);
     } catch (err) {
       setError('Failed to fetch wallet data. Please check your email and API token.');
     } finally {
@@ -67,6 +131,23 @@ const UserDashboard = () => {
   const handleTopUp = () => {
     // Redirect to Stripe payment link
     window.open("https://buy.stripe.com/aFa8wR8Tv3yKbnjbiYcQU00", "_blank");
+  };
+
+  // Helper function to format usage data for display
+  const formatUsageData = (data: any[]) => {
+    if (!data || data.length === 0) return [];
+    
+    // Process the new API response format
+    return data.map((item: any) => {
+      const displayDate = new Date(item.date || item.period_start).toLocaleDateString();
+      
+      return {
+        date: displayDate,
+        tokens: item.token_used || 0,
+        cost: item.estimated_cost || 0,
+        requests: item.request_count || 0
+      };
+    }).sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
   };
 
   return (
@@ -171,35 +252,59 @@ const UserDashboard = () => {
 
                   {/* Usage History Table */}
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-4">Recent Usage</h3>
-                    <div className="bg-white/5 rounded-lg p-8 flex items-center justify-center">
-                      <p className="text-muted-foreground text-lg">Feature coming soon</p>
-                    </div>
-                    {/* <div className="bg-white/5 rounded-lg overflow-hidden">
-                      <Table>
-                        <TableHeader>
-                          <TableRow className="border-white/10">
-                            <TableHead className="text-muted-foreground">Date</TableHead>
-                            <TableHead className="text-muted-foreground">Tokens Used</TableHead>
-                            <TableHead className="text-muted-foreground">Cost</TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {fakeData.usageHistory.map((row, index) => (
-                            <TableRow key={index} className="border-white/10">
-                              <TableCell className="text-foreground">{row.date}</TableCell>
-                              <TableCell className="text-foreground">{row.tokens}</TableCell>
-                              <TableCell className="text-foreground">{row.cost}</TableCell>
+                    <h3 className="text-lg font-semibold text-foreground mb-4">Recent Usage (Last {USAGE_LOOKBACK_DAYS} Days)</h3>
+                    {usageLoading ? (
+                      <div className="bg-white/5 rounded-lg p-8 flex items-center justify-center">
+                        <p className="text-muted-foreground text-lg">Loading usage data...</p>
+                      </div>
+                    ) : (
+                      <div className="bg-white/5 rounded-lg overflow-hidden">
+                        <Table>
+                          <TableHeader>
+                            <TableRow className="border-white/10">
+                              <TableHead className="text-muted-foreground">Date</TableHead>
+                              <TableHead className="text-muted-foreground">Tokens Used</TableHead>
+                              <TableHead className="text-muted-foreground">Requests</TableHead>
+                              <TableHead className="text-muted-foreground">Est. Cost</TableHead>
                             </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </div> */}
+                          </TableHeader>
+                          <TableBody>
+                            {formatUsageData(usageHistory).length > 0 ? (
+                              formatUsageData(usageHistory).map((row: any, index: number) => (
+                                <TableRow key={index} className="border-white/10">
+                                  <TableCell className="text-foreground">{row.date}</TableCell>
+                                  <TableCell className="text-foreground">
+                                    {row.tokens.toLocaleString()}
+                                  </TableCell>
+                                  <TableCell className="text-foreground">
+                                    {row.requests.toLocaleString()}
+                                  </TableCell>
+                                  <TableCell className="text-foreground">
+                                    ${row.cost.toFixed(4)}
+                                  </TableCell>
+                                </TableRow>
+                              ))
+                            ) : (
+                              <TableRow className="border-white/10">
+                                <TableCell colSpan={4} className="text-center text-muted-foreground py-8">
+                                  No usage data available for the past {USAGE_LOOKBACK_DAYS} days
+                                </TableCell>
+                              </TableRow>
+                            )}
+                          </TableBody>
+                        </Table>
+                      </div>
+                    )}
                   </div>
 
                   <Button 
                     variant="outline"
-                    onClick={() => setIsSubmitted(false)}
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setUsageHistory([]);
+                      setWalletData(null);
+                      setError(null);
+                    }}
                     className="w-full border-primary/30 text-foreground hover:bg-primary/5"
                   >
                     Check Different Account

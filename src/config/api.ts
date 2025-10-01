@@ -9,6 +9,7 @@ export const API_CONFIG = {
     SIGNUP_WAITLIST: "/user/email/signup_waitlist",
     USER_CRM: "/user/crm",
     USER_WALLET: "/user/email/wallet",
+    USER_COST: "/user/email/cost",
     // Add more endpoints here as needed
   },
   
