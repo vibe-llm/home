@@ -1,0 +1,1 @@
+const n=()=>"https://vibe-llm.online",o=()=>n(),e=()=>`${o()}/callback`,i=()=>{{const t="https://vibe-llm.online";if(window.location.origin!==t)return console.warn(`⚠️ Domain mismatch: expected ${t}, got ${window.location.origin}`),!1}return!0};export{o as getBaseUrl,e as getOAuthCallbackUrl,i as validateProductionDomain};
