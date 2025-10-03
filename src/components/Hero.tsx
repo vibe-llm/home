@@ -61,28 +61,41 @@ const Hero = () => {
                         </div>
                     </div>
 
-                    {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <Button
-                            size="lg"
-                            className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 h-auto"
-                            onClick={() => {
-                                trackButtonClick("hero_join_waitlist");
-                                setIsSignupFormOpen(true);
-                            }}
-                        >
-                            Join Waitlist
-                            <ArrowRight className="w-5 h-5 ml-2"/>
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="border-primary/30 text-foreground hover:shadow-glow text-lg px-8 py-6 h-auto"
-                            onClick={() => navigate('/dashboard')}
-                        >
-                            Already a User
-                        </Button>
-                    </div>
+                  {/* CTA Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <Button
+                      size="lg"
+                      className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 h-auto"
+                      onClick={() => {
+                        trackButtonClick("hero_join_waitlist");
+                        setIsSignupFormOpen(true);
+                      }}
+                    >
+                      Join Waitlist
+                      <ArrowRight className="w-5 h-5 ml-2"/>
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="border-primary/30 text-foreground hover:shadow-glow text-lg px-8 py-6 h-auto"
+                      onClick={() => navigate('/dashboard')}
+                    >
+                      Already a User
+                    </Button>
+                  </div>
+
+
+                   {/*CTA Buttons*/}
+                  {/*<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">*/}
+                  {/*  <Button*/}
+                  {/*    variant="outline"*/}
+                  {/*    size="lg"*/}
+                  {/*    className="border-primary/30 text-foreground hover:shadow-glow text-lg px-8 py-6 h-auto"*/}
+                  {/*    onClick={() => navigate('/dashboard2')}*/}
+                  {/*  >*/}
+                  {/*    Login to User Dashboard*/}
+                  {/*  </Button>*/}
+                  {/*</div>*/}
 
                     {/* Free Credit Badge */}
                     <p className="text-muted-foreground mt-6">

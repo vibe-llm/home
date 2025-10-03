@@ -6,6 +6,7 @@
   "homepage": "https://vibe-llm.online",
   "scripts": {
     "dev": "vite",
+    "dev-fe": "VITE_API_BASE_URL=https://vibe-llm-account.onrender.com vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",

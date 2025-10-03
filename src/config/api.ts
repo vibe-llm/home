@@ -1,9 +1,12 @@
 // Centralized API configuration
 export const API_CONFIG = {
   // Base URL for the API
-  // Use local development URL when running locally, production URL when deployed
-  BASE_URL: "https://vibe-llm-account.onrender.com", // "http://0.0.0.0:8000", //for local development
-  
+  // Use environment variable if set, otherwise fallback to default logic
+  BASE_URL: import.meta.env.VITE_API_BASE_URL ||
+    (import.meta.env.DEV ? "/api" : "https://vibe-llm-account.onrender.com"),
+  // For development: use Vite proxy to avoid CORS issues
+  // For production: use the actual API URL
+
   // API endpoints
   ENDPOINTS: {
     SIGNUP_WAITLIST: "/user/email/signup_waitlist",
