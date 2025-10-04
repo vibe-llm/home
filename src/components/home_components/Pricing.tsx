@@ -1,9 +1,9 @@
 import {useState} from "react";
-import {Button} from "@/components/ui/button";
-import {Card, CardContent} from "@/components/ui/card";
+import {Button} from "@/components/ui/button.tsx";
+import {Card, CardContent} from "@/components/ui/card.tsx";
 import {Check, ArrowRight, Gift, Rocket} from "lucide-react";
-import SignupForm from "./SignupForm";
-import { trackButtonClick } from "@/lib/analytics";
+import SignupForm from "../SignupForm.tsx";
+import { trackButtonClick } from "@/lib/analytics.ts";
 
 const Pricing = () => {
     const [isSignupFormOpen, setIsSignupFormOpen] = useState(false);
@@ -184,19 +184,19 @@ const Pricing = () => {
                                 </div>
                             </div>
 
-                            {/* Claude 4 / 4.1 Row */}
+                            {/* Claude Sonnet / Opus Row */}
                             <div className="space-y-3 mb-6">
                                 <div
                                     className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Claude
                                 </div>
                                 <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
-                                    <div className="text-sm font-medium">Claude Sonnet 4 </div>
+                                    <div className="text-sm font-medium">Claude Sonnet </div>
                                     <div className="text-center font-bold text-destructive">$3~$6</div>
                                     <div className="text-center font-bold text-destructive">$15.0~$22.5</div>
                                     <div className="text-center font-bold text-destructive">$3.75~$7.5 / $0.3~0.6 </div>
                                 </div>
                                 <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
-                                    <div className="text-sm font-medium">Claude Opus 4.1</div>
+                                    <div className="text-sm font-medium">Claude Opus</div>
                                     <div className="text-center font-bold text-destructive">$15</div>
                                     <div className="text-center font-bold text-destructive">$75.0</div>
                                     <div className="text-center font-bold text-destructive">$18.75 / $1.5</div>
@@ -291,7 +291,7 @@ const Pricing = () => {
                             <div className="text-center mb-8">
                                 <div className="text-5xl font-bold text-primary mb-2">Top up from $5</div>
                                 <div className="text-sm text-muted-foreground mt-2">
-                                    ~90% cheaper than Claude Sonnet or GPT-5
+                                    ~90% cheaper than Claude or GPT-5
                                 </div>
                             </div>
 

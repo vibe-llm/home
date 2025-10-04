@@ -4,10 +4,10 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import ContactUsForm from "./ContactUsForm";
-import SignupForm from "./SignupForm";
-import { trackButtonClick } from "@/lib/analytics";
+} from "@/components/ui/accordion.tsx";
+import ContactUsForm from "../ContactUsForm.tsx";
+import SignupForm from "../SignupForm.tsx";
+import { trackButtonClick } from "@/lib/analytics.ts";
 
 const faqs = [
   {

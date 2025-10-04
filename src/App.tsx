@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import Home from "./pages/Home.tsx";
 import NotFound from "./pages/NotFound";
 import Building from "./pages/Building";
 import QuickStart from "./pages/QuickStart";
@@ -28,7 +28,7 @@ const App = () => {
   console.log('Pathname:', window.location.pathname)
   console.log('Hash:', window.location.hash)
 
-  console.log('🔥 Using HashRouter routing with Index as callback handler')
+  console.log('🔥 Using HashRouter routing with Home as callback handler')
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
@@ -41,7 +41,7 @@ const App = () => {
             ) : (
               <Routes>
                 <Route path="/" element={<IndexRouter />} />
-                <Route path="/home" element={<Index />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/building" element={<Building />} />
                 <Route path="/quick-start" element={<QuickStart />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />

@@ -1,10 +1,10 @@
 import {useState} from "react";
-import {Button} from "@/components/ui/button";
+import {Button} from "@/components/ui/button.tsx";
 import {ArrowRight, Zap, Code, DollarSign} from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
-import SignupForm from "./SignupForm";
+import SignupForm from "../SignupForm.tsx";
 import {useNavigate} from "react-router-dom";
-import { trackButtonClick } from "@/lib/analytics";
+import { trackButtonClick } from "@/lib/analytics.ts";
 
 const Hero = () => {
     const navigate = useNavigate();

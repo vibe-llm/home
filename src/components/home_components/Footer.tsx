@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button.tsx";
 import { ArrowRight, Code, Github, Twitter, Mail } from "lucide-react";
-import ContactUsForm from "./ContactUsForm";
+import ContactUsForm from "../ContactUsForm.tsx";
 import { Link } from "react-router-dom";
-import { trackButtonClick } from "@/lib/analytics";
+import { trackButtonClick } from "@/lib/analytics.ts";
 
 const Footer = () => {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
