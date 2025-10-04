@@ -86,16 +86,18 @@ const Hero = () => {
 
 
                    {/*CTA Buttons*/}
-                  {/*<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">*/}
-                  {/*  <Button*/}
-                  {/*    variant="outline"*/}
-                  {/*    size="lg"*/}
-                  {/*    className="border-primary/30 text-foreground hover:shadow-glow text-lg px-8 py-6 h-auto"*/}
-                  {/*    onClick={() => navigate('/dashboard2')}*/}
-                  {/*  >*/}
-                  {/*    Login to User Dashboard*/}
-                  {/*  </Button>*/}
-                  {/*</div>*/}
+                  {import.meta.env.DEV && (
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="border-primary/30 text-foreground hover:shadow-glow text-lg px-8 py-6 h-auto"
+                        onClick={() => navigate('/dashboard2')}
+                      >
+                        Login to User Dashboard
+                      </Button>
+                    </div>
+                  )}
 
                     {/* Free Credit Badge */}
                     <p className="text-muted-foreground mt-6">

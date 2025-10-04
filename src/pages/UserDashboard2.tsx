@@ -9,28 +9,27 @@ import GoogleSignInButton from "@/components/GoogleSignInButton";
 import {useEffect, useState} from "react";
 import {supabase} from "@/lib/supabase.ts";
 import {Session} from "@supabase/supabase-js";
+import { UserWallet, walletHelpers } from "@/lib/user_crm";
+import { API_CONFIG, apiRequest } from "@/config/api";
+import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table";
+
+// Usage history item type
+interface UsageHistoryItem {
+  date: string;
+  tokens: number;
+  cost: number;
+  requests: number;
+}
+const USAGE_LOOKBACK_DAYS = 3;
 
 const UserDashboard2 = () => {
   const navigate = useNavigate();
   const { user, session, signOut } = useAuth();
-  // const { signOut } = useAuth();
-  // const [session, setSession] = useState<Session | null>(null)
-
   usePageTracking("User Dashboard");
 
   console.log('OAuth data');
   console.log('User:', user);
   console.log('session:', session);
-
-  // 初始化 session
-  // useEffect(() => {
-  //   // Get initial session
-  //   const getInitialSession = async () => {
-  //     const {data: {session}} = await supabase.auth.getSession()
-  //     setSession(session)
-  //   }
-  //   getInitialSession()
-  // }, [])
 
 
   // 检查并显示 OAuth 回调日志
@@ -74,6 +73,99 @@ const UserDashboard2 = () => {
     window.open("https://buy.stripe.com/aFa8wR8Tv3yKbnjbiYcQU00", "_blank");
   };
 
+  const [walletData, setWalletData] = useState<UserWallet | null>(null);
+  const [usageHistory, setUsageHistory] = useState<UsageHistoryItem[]>([]);
+  const [usageLoading, setUsageLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // 自动加载余额和用量
+  useEffect(() => {
+    const fetchWalletData = async (email: string, token: string) => {
+      try {
+        const params = new URLSearchParams({ email });
+        const response = await apiRequest(
+          API_CONFIG.ENDPOINTS.USER_WALLET,
+          { method: 'GET' },
+          params
+        );
+        if (!response.ok) throw new Error('Failed to fetch wallet data');
+        const data = await response.json();
+        setWalletData(data as UserWallet);
+      } catch (err) {
+        setWalletData(null);
+        setError('Failed to fetch wallet data.');
+      }
+    };
+    const fetchUsageHistory = async (email: string) => {
+      try {
+        setUsageLoading(true);
+        const today = new Date();
+        const apiPromises = Array.from({ length: USAGE_LOOKBACK_DAYS }, (_, i) => {
+          const date = new Date(today);
+          date.setDate(date.getDate() - i);
+          const dateStr = date.toISOString().split('T')[0];
+          const params = new URLSearchParams({
+            email,
+            p_start: dateStr,
+            p_end: dateStr
+          });
+          return apiRequest(
+            API_CONFIG.ENDPOINTS.USER_COST,
+            { method: 'GET' },
+            params
+          )
+            .then(async (response) => {
+              if (response.ok) {
+                const data = await response.json();
+                return {
+                  date: dateStr,
+                  tokens: data.token_used || 0,
+                  cost: data.estimated_cost || 0,
+                  requests: data.request_count || 0
+                } as UsageHistoryItem;
+              }
+              return null;
+            })
+            .catch(() => null);
+        });
+        const results = await Promise.all(apiPromises);
+        const usageData = results.filter((result): result is UsageHistoryItem => result !== null);
+        setUsageHistory(usageData);
+      } catch (err) {
+        setUsageHistory([]);
+      } finally {
+        setUsageLoading(false);
+      }
+    };
+    const load = async () => {
+      setError(null);
+      if (session?.user) {
+        // 获取 accessToken
+        let token = session?.access_token;
+        if (!token && typeof window !== 'undefined') {
+          token = window.localStorage.getItem('sb-access-token') || '';
+        }
+        await fetchWalletData(session.user.email, token || '');
+        await fetchUsageHistory(session.user.email);
+      } else {
+        setWalletData(null);
+        setUsageHistory([]);
+      }
+    };
+    load();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session?.user]);
+
+  const formatUsageData = (data: UsageHistoryItem[]): UsageHistoryItem[] => {
+    if (!data || data.length === 0) return [];
+    return data
+      .map((item) => ({
+        ...item,
+        date: new Date(item.date).toLocaleDateString(),
+      }))
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  };
+
   return (
     <div className="min-h-screen bg-gradient-hero py-16 px-6">
       <div className="max-w-6xl mx-auto">
@@ -91,18 +183,6 @@ const UserDashboard2 = () => {
                 </p>
               </div>
             </div>
-            {session?.user && (
-              <div className="flex gap-2">
-                <Button
-                  variant="outline"
-                  onClick={handleSignOut}
-                  className="border-primary/30 text-foreground hover:bg-primary/5"
-                >
-                  <LogOut className="w-4 h-4 mr-2" />
-                  Sign Out
-                </Button>
-              </div>
-            )}
           </div>
 
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -146,12 +226,70 @@ const UserDashboard2 = () => {
                       <strong>Authenticated:</strong> {session?.user?.email}
                     </AlertDescription>
                   </Alert>
-
-                  <Alert className="border-blue-500/20 bg-blue-500/10">
-                    <AlertDescription className="text-blue-300">
-                      Your account is active and ready to use. Connect your API token in settings to view balance and usage data.
-                    </AlertDescription>
-                  </Alert>
+                </div>
+              )}
+              {session?.user && (
+                <>
+                  {error && (
+                    <Alert className="border-red-500/20 bg-red-500/10 mt-4">
+                      <AlertDescription className="text-red-300">{error}</AlertDescription>
+                    </Alert>
+                  )}
+                  {/* Balance Summary */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-white/5 rounded-lg p-4 text-center">
+                      <p className="text-muted-foreground text-sm">Current Balance</p>
+                      <p className="text-2xl font-bold text-primary">{walletData ? walletHelpers.getBalanceRemaining(walletData) : '0'}</p>
+                    </div>
+                    <div className="bg-white/5 rounded-lg p-4 text-center">
+                      <p className="text-muted-foreground text-sm">Total Spend</p>
+                      <p className="text-2xl font-bold text-foreground">{walletData ? walletHelpers.getTotalSpendFormatted(walletData) : '0'}</p>
+                    </div>
+                    <div className="bg-white/5 rounded-lg p-4 text-center">
+                      <p className="text-muted-foreground text-sm">Est. Tokens Available</p>
+                      <p className="text-2xl font-bold text-green-400">{walletData ? walletHelpers.getTokensRemaining(walletData) : '0'}</p>
+                    </div>
+                  </div>
+                  {/* Usage History Table */}
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground mb-4">Recent Usage (Last {USAGE_LOOKBACK_DAYS} Days)</h3>
+                    {usageLoading ? (
+                      <div className="bg-white/5 rounded-lg p-8 flex items-center justify-center">
+                        <p className="text-muted-foreground text-lg">Loading usage data...</p>
+                      </div>
+                    ) : (
+                      <div className="bg-white/5 rounded-lg overflow-hidden">
+                        <Table>
+                          <TableHeader>
+                            <TableRow className="border-white/10">
+                              <TableHead className="text-muted-foreground">Date</TableHead>
+                              <TableHead className="text-muted-foreground">Tokens Used</TableHead>
+                              <TableHead className="text-muted-foreground">Requests</TableHead>
+                              <TableHead className="text-muted-foreground">Est. Cost</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {formatUsageData(usageHistory).length > 0 ? (
+                              formatUsageData(usageHistory).map((row, index) => (
+                                <TableRow key={index} className="border-white/10">
+                                  <TableCell className="text-foreground">{row.date}</TableCell>
+                                  <TableCell className="text-foreground">{row.tokens.toLocaleString()}</TableCell>
+                                  <TableCell className="text-foreground">{row.requests.toLocaleString()}</TableCell>
+                                  <TableCell className="text-foreground">${row.cost.toFixed(4)}</TableCell>
+                                </TableRow>
+                              ))
+                            ) : (
+                              <TableRow className="border-white/10">
+                                <TableCell colSpan={4} className="text-center text-muted-foreground py-8">
+                                  No usage data available for the past {USAGE_LOOKBACK_DAYS} days
+                                </TableCell>
+                              </TableRow>
+                            )}
+                          </TableBody>
+                        </Table>
+                      </div>
+                    )}
+                  </div>
 
                   <Button
                     variant="outline"
@@ -161,7 +299,8 @@ const UserDashboard2 = () => {
                     <LogOut className="w-4 h-4 mr-2" />
                     Sign Out
                   </Button>
-                </div>
+                </>
+
               )}
             </CardContent>
           </Card>

@@ -54,24 +54,24 @@ const UserDashboard = () => {
   const fetchUsageHistory = async (userEmail: string) => {
     try {
       setUsageLoading(true);
-      
+
       // Make parallel API calls for past N days
       const today = new Date();
-      
+
       // Create array of promises for parallel execution
       const apiPromises = Array.from({ length: USAGE_LOOKBACK_DAYS }, (_, i) => {
         const date = new Date(today);
         date.setDate(date.getDate() - i);
-        
+
         // Format date as YYYY-MM-DD for API
         const dateStr = date.toISOString().split('T')[0];
-        
-        const params = new URLSearchParams({ 
+
+        const params = new URLSearchParams({
           email: userEmail,
           p_start: dateStr,
           p_end: dateStr
         });
-        
+
         return apiRequest(
           API_CONFIG.ENDPOINTS.USER_COST,
           { method: 'GET' },
@@ -93,11 +93,11 @@ const UserDashboard = () => {
             return null; // Return null for failed requests
           });
       });
-      
+
       // Execute all API calls in parallel and filter out null results
       const results = await Promise.all(apiPromises);
       const usageData = results.filter(result => result !== null);
-      
+
       setUsageHistory(usageData);
     } catch (err) {
       console.error('Error fetching usage history:', err);
@@ -136,11 +136,11 @@ const UserDashboard = () => {
   // Helper function to format usage data for display
   const formatUsageData = (data: any[]) => {
     if (!data || data.length === 0) return [];
-    
+
     // Process the new API response format
     return data.map((item: any) => {
       const displayDate = new Date(item.date || item.period_start).toLocaleDateString();
-      
+
       return {
         date: displayDate,
         tokens: item.token_used || 0,
