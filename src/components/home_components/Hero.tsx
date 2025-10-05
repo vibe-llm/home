@@ -91,7 +91,7 @@ const Hero = () => {
                       <Button
                         variant="outline"
                         size="lg"
-                        className="border-primary/30 text-foreground hover:shadow-glow text-lg px-8 py-6 h-auto"
+                        className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 h-auto"
                         onClick={() => navigate('/dashboard2')}
                       >
                         Login to User Dashboard
