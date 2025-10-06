@@ -39,7 +39,7 @@ const QuickStart = () => {
       description: "Run the following commands in your terminal that runs Claude Code:",
       icon: <Terminal className="w-6 h-6" />,
       code: [
-        "export ANTHROPIC_BASE_URL=https://vibe-router.onrender.com/api/anthropic",
+        "export ANTHROPIC_BASE_URL=https://api.vibe-llm.online/api/anthropic",
         "export ANTHROPIC_AUTH_TOKEN=<API token from the email>"
       ],
     },
@@ -51,7 +51,7 @@ const QuickStart = () => {
       code: [`claude`],
       output: `Overrides (via env):
    • API Base URL: 
-     https://vibe-router.onrender.com/api/anthropic`,
+     https://api.vibe-llm.online/api/anthropic`,
     },
     {
       number: 5,
