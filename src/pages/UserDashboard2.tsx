@@ -175,10 +175,6 @@ const UserDashboard2 = () => {
               </div>
             </div>
           </div>
-
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Manage your Vibe LLM account and top up your balance
-          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
@@ -261,7 +257,7 @@ const UserDashboard2 = () => {
                       ) : apiToken ? (
                         <>
                           <pre className="bg-black/80 text-green-200 rounded p-4 font-mono text-[10px] overflow-x-auto select-all mb-2 pr-20">
-{`export ANTHROPIC_BASE_URL=https://api.vibe-llm.com/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=${apiToken}`}
+{`export ANTHROPIC_BASE_URL=https://vibe-router.onrender.com/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=${apiToken}`}
                           </pre>
                           <button
                             className="absolute top-1/2 -translate-y-1/2 right-4 px-2 py-1 rounded bg-primary/10 text-primary text-xs font-medium hover:bg-primary/20 transition-colors border border-primary/20 z-10"
