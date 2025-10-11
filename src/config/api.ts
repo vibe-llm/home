@@ -4,6 +4,7 @@ export const API_CONFIG = {
   // Use environment variable if set, otherwise fallback to default logic
   BASE_URL: import.meta.env.VITE_API_BASE_URL ||
     (import.meta.env.DEV ? "/api" : "https://vibe-llm-account.onrender.com"),
+  // (import.meta.env.DEV ? "/api" : "https://api.vibe-router.online"),
   // For development: use Vite proxy to avoid CORS issues
   // For production: use the actual API URL
 

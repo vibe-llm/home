@@ -1,5 +1,5 @@
-import {createContext, useContext, useEffect, useState} from 'react'
-import {User, Session} from '@supabase/supabase-js'
+import {createContext, useEffect, useState} from 'react'
+import {Session, User} from '@supabase/supabase-js'
 import {supabase} from '@/lib/supabase'
 
 interface AuthContextType {
@@ -14,30 +14,7 @@ interface AuthContextType {
   authWithCode: (code: string, redirectParam?: string | null, error?: string | null, errorDescription?: string | null) => Promise<void>
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined)
-
-export const useAuth = () => {
-  const context = useContext(AuthContext)
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider')
-  }
-  return context
-}
-
-export const getBaseUrl = () => {
-  return window.location.origin
-  if (import.meta.env.DEV) {
-    return window.location.origin // 开发环境使用当前 origin
-  }
-
-  // 优先使用环境变量配置
-  if (import.meta.env.VITE_APP_DOMAIN) {
-    return import.meta.env.VITE_APP_DOMAIN
-  }
-
-  // 回退到当前 origin
-  return window.location.origin
-}
+export const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export const AuthProvider = ({children}: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null)
@@ -152,7 +129,7 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
 
   const signInWithGoogle = async (redirectTo: string = '/dashboard2') => {
     // 使用根路径作为回调 URL
-    const baseUrl = getBaseUrl()
+    const baseUrl = window.location.origin
     const callbackUrl = baseUrl // 回调到根路径
     console.log('Environment:', import.meta.env.MODE)
     console.log('Base URL:', baseUrl)

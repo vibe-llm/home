@@ -1,7 +1,7 @@
 import {useEffect, useState, useMemo} from 'react';
-import {useAuth} from '@/contexts/AuthContext';
 import {useNavigate} from 'react-router-dom';
 import {supabase} from "@/lib/supabase.ts";
+import {useAuth} from "@/contexts/authUtil.tsx";
 
 // 规范化 hash 路径，确保 '#////abc' 变成 '#/abc'
 function normalizeHash(hash: string): string {

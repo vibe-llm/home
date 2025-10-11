@@ -4,7 +4,6 @@ import {Alert, AlertDescription} from "@/components/ui/alert";
 import {User, CreditCard, ArrowLeft, LogOut, ExternalLink} from "lucide-react";
 import {useNavigate} from "react-router-dom";
 import {usePageTracking} from "@/hooks/use-analytics";
-import {useAuth} from "@/contexts/AuthContext";
 import GoogleSignInButton from "@/components/GoogleSignInButton";
 import {useEffect, useState} from "react";
 import {supabase} from "@/lib/supabase.ts";
@@ -12,6 +11,7 @@ import {Session} from "@supabase/supabase-js";
 import {UserWallet, walletHelpers} from "@/lib/user_crm";
 import {API_CONFIG, apiRequest} from "@/config/api";
 import {Table, TableHeader, TableBody, TableHead, TableRow, TableCell} from "@/components/ui/table";
+import {useAuth} from "@/contexts/authUtil.tsx";
 
 // Usage history item type
 interface UsageHistoryItem {
