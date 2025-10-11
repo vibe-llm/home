@@ -1,20 +1,7 @@
-import {createContext, useEffect, useState} from 'react'
+import React, {useEffect, useState, useCallback} from 'react'
 import {Session, User} from '@supabase/supabase-js'
 import {supabase} from '@/lib/supabase'
-
-interface AuthContextType {
-  user: User | null
-  session: Session | null
-  loading: boolean
-  signInWithGoogle: (redirectTo?: string) => Promise<void>
-  signOut: () => Promise<void>
-  getAccessToken: () => Promise<string | null>
-  codeError: string | null
-  processedCode: string | null // 新增 processedCode
-  authWithCode: (code: string, redirectParam?: string | null, error?: string | null, errorDescription?: string | null) => Promise<void>
-}
-
-export const AuthContext = createContext<AuthContextType | undefined>(undefined)
+import {AuthContext} from "@/contexts/authUtil.tsx";
 
 export const AuthProvider = ({children}: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null)
@@ -42,12 +29,12 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
     }
   };
 
-  const setSession = (_session: Session | null) => {
+  const setSession = useCallback((_session: Session | null) => {
     if (!session || !_session || session.access_token != _session.access_token) {
       _setSession(_session)
       setUser(_session?.user ?? null)
     }
-  }
+  }, [session])
 
   // 初始化 session
   useEffect(() => {
@@ -59,9 +46,9 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
       setLoading(false)
     }
     if (loading) {
-      getInitialSession()
+      void getInitialSession()
     }
-  }, [loading])
+  }, [loading, setSession])
 
   // 监听 session 的更新
   useEffect(() => {
@@ -69,7 +56,6 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
     if (!loading) {
       const {data: {subscription}} = supabase.auth.onAuthStateChange(
         async (event, _session) => {
-          // if (!(session == null && _session == null) && (!session || !_session || session.access_token != _session.access_token)) {
           if (session?.access_token != _session?.access_token) {
             console.log('Auth state changed:', event, _session?.user?.email)
 
@@ -87,13 +73,13 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
               setSession(null)
             }
           }
-          // setLoading(false)
+          setLoading(false)
         }
       )
 
       return () => subscription.unsubscribe()
     }
-  }, [loading, session])
+  }, [loading, session, setSession])
 
   // 新增：显式 code 处理方法，供外部调用
   const authWithCode = async (code: string, redirectParam?: string | null, error?: string | null, errorDescription?: string | null) => {
@@ -182,7 +168,6 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
         if (localError) {
           console.error('Error signing out:', localError)
           await forceLocalSignOut()
-          throw localError
         }
       }
     } catch (error) {
