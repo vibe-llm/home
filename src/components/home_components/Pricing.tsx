@@ -49,7 +49,7 @@ const Pricing = () => {
                             {/* Vibe-LLM 4 Pricing */}
                             <div className="space-y-3 mb-6">
                                 <div
-                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-LLM-4
+                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-Air
                                 </div>
 
                                 <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
@@ -89,7 +89,7 @@ const Pricing = () => {
                             {/* Vibe-LLM 4.1 Pricing */}
                             <div className="space-y-3 mb-6">
                                 <div
-                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-LLM-4.1
+                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-Normal
                                 </div>
 
                                 <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
@@ -131,7 +131,7 @@ const Pricing = () => {
                     {/* Summary */}
                     <div className="text-center mt-8 p-6 bg-primary/10 rounded-lg border border-primary/20">
                         <div className="text-sm text-muted-foreground">
-                            * If you are using Vibe-LLM-4.1 with 1k input tokens and 1k output tokens,
+                            * If you are using Vibe-Normal with 1k input tokens and 1k output tokens,
                             it costs $0.0033 (0.9/1M * 1k + 3.4/1M * 1k)
                         </div>
                     </div>
@@ -168,7 +168,7 @@ const Pricing = () => {
                                 </div>
                                 <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
                                     <div className="text-sm font-medium">
-                                        <div className="font-semibold text-sm">Vibe-LLM-4</div>
+                                        <div className="font-semibold text-sm">Vibe-Air</div>
                                     </div>
                                     <div className="text-center font-bold text-primary">$0.2~0.3</div>
                                     <div className="text-center font-bold text-primary">$0.6~2.4 </div>
@@ -176,7 +176,7 @@ const Pricing = () => {
                                 </div>
                                 <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
                                     <div className="text-sm font-medium">
-                                        <div className="font-semibold text-sm">Vibe-LLM-4.1</div>
+                                        <div className="font-semibold text-sm">Vibe-Normal</div>
                                     </div>
                                     <div className="text-center font-bold text-primary">$0.6~$1.2</div>
                                     <div className="text-center font-bold text-primary">$2~$4</div>
