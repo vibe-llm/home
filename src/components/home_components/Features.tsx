@@ -11,18 +11,33 @@ import {
 const features = [
   {
     icon: DollarSign,
-    title: "Massive Cost Savings",
-    description: "Access Claude-style capabilities at just 10% the cost of official APIs."
+    title: "Up to 50% Cost Savings",
+    description: "Full GLM-4.7 model at significantly lower prices than official APIs. Same capabilities, optimized infrastructure."
+  },
+  {
+    icon: Zap,
+    title: "GLM-4.7: Production-Ready Intelligence",
+    description: "GLM-4.7 excels at code generation, complex reasoning, and Chinese language tasks. Proven performance in real-world applications."
+  },
+  {
+    icon: Shield,
+    title: "Why We're Cheaper",
+    description: "Engineering optimizations, not model degradation. We reduce costs through GPU scheduling, request batching, and efficient resource utilization."
   },
   {
     icon: Code,
-    title: "Drop-In Replacement",
-    description: "Works seamlessly with your existing AI tools. E.g. Connect Claude client with just an API key change."
+    title: "Easy Integration",
+    description: "Standard API format compatible with popular AI tools. Switch endpoints and keys - no code changes required."
   },
   {
     icon: CreditCard,
     title: "Pay-as-You-Go",
     description: "No monthly commitments or minimum usage requirements. Scale up or down instantly and pay only for what you use."
+  },
+  {
+    icon: Rocket,
+    title: "Ideal For",
+    description: "Individual developers, early-stage startups, side projects, and internal tools where cost efficiency matters."
   }
 ];
 

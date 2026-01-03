@@ -28,7 +28,7 @@ const Hero = () => {
                     <div
                         className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-primary text-primary-foreground text-sm font-medium mb-8 shadow-glow">
                         <Zap className="w-4 h-4 mr-2"/>
-                        Enterprise AI Power at Startup Prices
+                        Powered by Open-Source GLM-4.7
                     </div>
 
                     {/* Main Headline */}
@@ -36,13 +36,13 @@ const Hero = () => {
                         <span className="bg-gradient-primary bg-clip-text text-transparent">Vibe LLM</span>
                     </h1>
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                        Use Claude Code at <span
-                        className="bg-gradient-primary bg-clip-text text-transparent">10%</span> the Cost
+                        Access <span className="bg-gradient-primary bg-clip-text text-transparent">GLM-4.7</span> at Up to <span
+                        className="bg-gradient-primary bg-clip-text text-transparent">50% Off</span>
                     </h2>
 
                     {/* Subheadline */}
                     <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-                        Built for developers who want Claude-level AI without breaking the bank.
+                        Full GLM-4.7 model capabilities, optimized through engineering. Same intelligence, lower cost.
                     </p>
 
                     {/* Key Benefits */}

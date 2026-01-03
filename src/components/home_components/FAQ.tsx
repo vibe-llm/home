@@ -11,36 +11,36 @@ import { trackButtonClick } from "@/lib/analytics.ts";
 
 const faqs = [
   {
-    question: "How does Vibe LLM compare to Claude Sonnet and GPT-5 in terms of performance?",
-    answer: "Vibe LLM delivers comparable performance to Claude Sonnet and GPT-5 across all major benchmarks including reasoning, coding, and creative tasks. Our models are fine-tuned for efficiency while maintaining the same level of intelligence and accuracy you expect from top-tier LLMs."
+    question: "What is GLM-4.7 and why should I use it?",
+    answer: "GLM-4.7 is a production-ready open-source large language model that excels at code generation, complex reasoning, and Chinese language tasks. It delivers stable, mature performance covering most general conversation and code-related use cases."
   },
   {
-    question: "How easy is it to switch from Anthropic to Vibe LLM?",
-    answer: "Extremely easy. Vibe LLM is fully compatible with Claude's API format. Simply change your API endpoint and key - no code changes required. Whether you're using the OpenAI Python library, Cursor, Claude for Work, or any other tool, it will work seamlessly."
+    question: "Why is Vibe LLM cheaper than the official GLM-4.7 API?",
+    answer: "We reduce costs through engineering optimizations, not by degrading the model. Our infrastructure uses GPU scheduling optimization, request batching, efficient resource utilization, and load balancing. This allows us to offer up to 50% savings while maintaining full model capabilities."
+  },
+  {
+    question: "Do you modify or weaken the GLM-4.7 model?",
+    answer: "No. We use the complete GLM-4.7 model - the weights and architecture are fully compliant with the open-source agreement. Model capabilities remain identical to the original version."
+  },
+  {
+    question: "How easy is it to integrate Vibe LLM?",
+    answer: "Very easy. We provide a standard API format compatible with popular AI tools. Simply change the API endpoint and key - no code changes required."
   },
   {
     question: "Are there any usage limits or minimum commitments?",
-    answer: "No minimum commitments whatsoever. You pay only for what you use, down to the token. There are decent rate limits for free tier users, and we offer higher limits for all paid users."
+    answer: "No minimum commitments whatsoever. You pay only for what you use, down to the token. Free tier users have reasonable rate limits, and paid users enjoy higher limits."
   },
   {
     question: "What's included in the $3 free credit?",
-    answer: "The $3 free credit gives you approximately 300,000 tokens to test our service - enough to process about 150 pages of text or have hundreds of conversations. No credit card required to sign up, and there's no expiration date on your free credit."
+    answer: "The $3 free credit gives you approximately 300,000 tokens to test our service - enough to process about 150 pages of text or have hundreds of conversations. No credit card required to sign up."
   },
   {
     question: "How do you ensure reliability and uptime?",
-    answer: "We maintain 99.9% uptime with redundant infrastructure across multiple regions. Our average response time is under 50ms, and we provide real-time status monitoring. Plus, we offer enterprise SLAs for mission-critical applications."
-  },
-  {
-    question: "How does billing work?",
-    answer: "Billing is transparent and usage-based. You're charged per token at $10 per million tokens (input and output combined). We provide detailed usage analytics. Invoices are generated per payment with no hidden fees."
-  },
-  {
-    question: "What if I want to withdraw unused credit or request a refund?",
-    answer: "You can withdraw unused credit at any time. Simply contact us via `welcome@vibe-llm.online` and we'll process the refund. No questions asked."
+    answer: "We maintain 99.9% uptime with redundant infrastructure. Our system optimizes request lifecycle management and context handling to ensure stable performance."
   },
   {
     question: "Can I use Vibe LLM for commercial projects?",
-    answer: "Absolutely. Vibe LLM is designed for production use in commercial applications. We offer standard commercial licensing with no restrictions on use cases (following our acceptable use policy). Many startups already rely on us for their AI needs."
+    answer: "Absolutely. Vibe LLM is designed for production use in commercial applications. Our service is ideal for individual developers, early-stage startups, side projects, and internal tools where cost efficiency matters."
   }
 ];
 
