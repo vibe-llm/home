@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {Button} from "@/components/ui/button.tsx";
 import {Card, CardContent} from "@/components/ui/card.tsx";
-import {Check, ArrowRight, Gift, Rocket} from "lucide-react";
+import {Check, ArrowRight, Rocket} from "lucide-react";
 import SignupForm from "../SignupForm.tsx";
 import { trackButtonClick } from "@/lib/analytics.ts";
 
@@ -23,119 +23,119 @@ const Pricing = () => {
                 </div>
 
                 {/* Our price */}
-                <div className="bg-gradient-secondary rounded-2xl p-8 mb-16 border border-primary/20">
-                    <h3 className="text-2xl font-bold text-center mb-8">Our Price</h3>
+                {/*<div className="bg-gradient-secondary rounded-2xl p-8 mb-16 border border-primary/20">*/}
+                {/*    <h3 className="text-2xl font-bold text-center mb-8">Our Price</h3>*/}
 
-                    {/* Mobile-first responsive table */}
-                    <div className="overflow-x-auto">
-                        <div className="min-w-full">
-                            {/* Header Row */}
-                            <div className="grid grid-cols-4 gap-4 mb-6 p-4 bg-muted/30 rounded-lg">
-                                <div className="font-semibold text-sm relative pt-6">Category</div>
-                                <div className="text-center relative pt-6">
-                                    <div className="font-semibold text-sm text-primary">Input Costs</div>
-                                    <div className="text-xs text-muted-foreground">per 1M tokens</div>
-                                </div>
-                                <div className="text-center relative pt-6">
-                                    <div className="font-semibold text-sm text-primary">Output Costs</div>
-                                    <div className="text-xs text-muted-foreground">per 1M tokens</div>
-                                </div>
-                                <div className="text-center relative pt-6">
-                                    <div className="font-semibold text-sm text-primary">Cache Input Write / Read</div>
-                                    <div className="text-xs text-muted-foreground">per 1M tokens</div>
-                                </div>
-                            </div>
+                {/*    /!* Mobile-first responsive table *!/*/}
+                {/*    <div className="overflow-x-auto">*/}
+                {/*        <div className="min-w-full">*/}
+                {/*            /!* Header Row *!/*/}
+                {/*            <div className="grid grid-cols-4 gap-4 mb-6 p-4 bg-muted/30 rounded-lg">*/}
+                {/*                <div className="font-semibold text-sm relative pt-6">Category</div>*/}
+                {/*                <div className="text-center relative pt-6">*/}
+                {/*                    <div className="font-semibold text-sm text-primary">Input Costs</div>*/}
+                {/*                    <div className="text-xs text-muted-foreground">per 1M tokens</div>*/}
+                {/*                </div>*/}
+                {/*                <div className="text-center relative pt-6">*/}
+                {/*                    <div className="font-semibold text-sm text-primary">Output Costs</div>*/}
+                {/*                    <div className="text-xs text-muted-foreground">per 1M tokens</div>*/}
+                {/*                </div>*/}
+                {/*                <div className="text-center relative pt-6">*/}
+                {/*                    <div className="font-semibold text-sm text-primary">Cache Input Write / Read</div>*/}
+                {/*                    <div className="text-xs text-muted-foreground">per 1M tokens</div>*/}
+                {/*                </div>*/}
+                {/*            </div>*/}
 
-                            {/* Vibe-LLM 4 Pricing */}
-                            <div className="space-y-3 mb-6">
-                                <div
-                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-Air
-                                </div>
+                {/*            /!* Vibe-LLM 4 Pricing *!/*/}
+                {/*            <div className="space-y-3 mb-6">*/}
+                {/*                <div*/}
+                {/*                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-Air*/}
+                {/*                </div>*/}
 
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
-                                    <div className="text-sm font-medium">
-                                        input tokens: (0, 32K]
-                                        <br />
-                                        output tokens: (0, 0.2K]
-                                    </div>
-                                    <div className="text-center font-bold ">$0.2</div>
-                                    <div className="text-center font-bold ">$0.6</div>
-                                    <div className="text-center font-bold ">$0 / $0.05</div>
-                                </div>
+                {/*                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">*/}
+                {/*                    <div className="text-sm font-medium">*/}
+                {/*                        input tokens: (0, 32K]*/}
+                {/*                        <br />*/}
+                {/*                        output tokens: (0, 0.2K]*/}
+                {/*                    </div>*/}
+                {/*                    <div className="text-center font-bold ">$0.2</div>*/}
+                {/*                    <div className="text-center font-bold ">$0.6</div>*/}
+                {/*                    <div className="text-center font-bold ">$0 / $0.05</div>*/}
+                {/*                </div>*/}
 
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
-                                    <div className="text-sm font-medium">
-                                        input tokens: (0, 32K]
-                                        <br />
-                                        output tokens: (0.2K+]
-                                    </div>
-                                    <div className="text-center font-bold ">$0.2</div>
-                                    <div className="text-center font-bold ">$1.8</div>
-                                    <div className="text-center font-bold ">$0 / $0.05</div>
-                                </div>
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
-                                    <div className="text-sm font-medium">
-                                        input tokens: (32K+]
-                                        <br />
-                                        output tokens: unlimited
-                                    </div>
-                                    <div className="text-center font-bold ">$0.3</div>
-                                    <div className="text-center font-bold ">$2.4</div>
-                                    <div className="text-center font-bold ">$0 / $0.07</div>
-                                </div>
-                            </div>
+                {/*                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">*/}
+                {/*                    <div className="text-sm font-medium">*/}
+                {/*                        input tokens: (0, 32K]*/}
+                {/*                        <br />*/}
+                {/*                        output tokens: (0.2K+]*/}
+                {/*                    </div>*/}
+                {/*                    <div className="text-center font-bold ">$0.2</div>*/}
+                {/*                    <div className="text-center font-bold ">$1.8</div>*/}
+                {/*                    <div className="text-center font-bold ">$0 / $0.05</div>*/}
+                {/*                </div>*/}
+                {/*                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">*/}
+                {/*                    <div className="text-sm font-medium">*/}
+                {/*                        input tokens: (32K+]*/}
+                {/*                        <br />*/}
+                {/*                        output tokens: unlimited*/}
+                {/*                    </div>*/}
+                {/*                    <div className="text-center font-bold ">$0.3</div>*/}
+                {/*                    <div className="text-center font-bold ">$2.4</div>*/}
+                {/*                    <div className="text-center font-bold ">$0 / $0.07</div>*/}
+                {/*                </div>*/}
+                {/*            </div>*/}
 
 
-                            {/* Vibe-LLM 4.1 Pricing */}
-                            <div className="space-y-3 mb-6">
-                                <div
-                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-Normal
-                                </div>
+                {/*            /!* Vibe-LLM 4.1 Pricing *!/*/}
+                {/*            <div className="space-y-3 mb-6">*/}
+                {/*                <div*/}
+                {/*                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-Normal*/}
+                {/*                </div>*/}
 
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
-                                    <div className="text-sm font-medium">
-                                        input tokens: (0, 32K]
-                                        <br />
-                                        output tokens: (0, 0.2K]
-                                    </div>
-                                    <div className="text-center font-bold ">$0.6</div>
-                                    <div className="text-center font-bold ">$2.0</div>
-                                    <div className="text-center font-bold ">$0 / $0.1</div>
-                                </div>
+                {/*                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">*/}
+                {/*                    <div className="text-sm font-medium">*/}
+                {/*                        input tokens: (0, 32K]*/}
+                {/*                        <br />*/}
+                {/*                        output tokens: (0, 0.2K]*/}
+                {/*                    </div>*/}
+                {/*                    <div className="text-center font-bold ">$0.6</div>*/}
+                {/*                    <div className="text-center font-bold ">$2.0</div>*/}
+                {/*                    <div className="text-center font-bold ">$0 / $0.1</div>*/}
+                {/*                </div>*/}
 
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
-                                    <div className="text-sm font-medium">
-                                        input tokens: (0, 32K]
-                                        <br />
-                                        output tokens: (0.2K+]
-                                    </div>
-                                    <div className="text-center font-bold ">$0.9</div>
-                                    <div className="text-center font-bold ">$3.4</div>
-                                    <div className="text-center font-bold ">$0 / $0.2</div>
-                                </div>
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
-                                    <div className="text-sm font-medium">
-                                        input tokens: (32K+]
-                                        <br />
-                                        output tokens: unlimited
-                                    </div>
-                                    <div className="text-center font-bold ">$1.2</div>
-                                    <div className="text-center font-bold ">$4.0</div>
-                                    <div className="text-center font-bold ">$0 / $0.3</div>
-                                </div>
-                            </div>
+                {/*                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">*/}
+                {/*                    <div className="text-sm font-medium">*/}
+                {/*                        input tokens: (0, 32K]*/}
+                {/*                        <br />*/}
+                {/*                        output tokens: (0.2K+]*/}
+                {/*                    </div>*/}
+                {/*                    <div className="text-center font-bold ">$0.9</div>*/}
+                {/*                    <div className="text-center font-bold ">$3.4</div>*/}
+                {/*                    <div className="text-center font-bold ">$0 / $0.2</div>*/}
+                {/*                </div>*/}
+                {/*                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">*/}
+                {/*                    <div className="text-sm font-medium">*/}
+                {/*                        input tokens: (32K+]*/}
+                {/*                        <br />*/}
+                {/*                        output tokens: unlimited*/}
+                {/*                    </div>*/}
+                {/*                    <div className="text-center font-bold ">$1.2</div>*/}
+                {/*                    <div className="text-center font-bold ">$4.0</div>*/}
+                {/*                    <div className="text-center font-bold ">$0 / $0.3</div>*/}
+                {/*                </div>*/}
+                {/*            </div>*/}
 
-                        </div>
-                    </div>
+                {/*        </div>*/}
+                {/*    </div>*/}
 
-                    {/* Summary */}
-                    <div className="text-center mt-8 p-6 bg-primary/10 rounded-lg border border-primary/20">
-                        <div className="text-sm text-muted-foreground">
-                            * If you are using Vibe-Normal with 1k input tokens and 1k output tokens,
-                            it costs $0.0033 (0.9/1M * 1k + 3.4/1M * 1k)
-                        </div>
-                    </div>
-                </div>
+                {/*    /!* Summary *!/*/}
+                {/*    <div className="text-center mt-8 p-6 bg-primary/10 rounded-lg border border-primary/20">*/}
+                {/*        <div className="text-sm text-muted-foreground">*/}
+                {/*            * If you are using Vibe-Normal with 1k input tokens and 1k output tokens,*/}
+                {/*            it costs $0.0033 (0.9/1M * 1k + 3.4/1M * 1k)*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
                 {/* Detailed Cost Comparison */}
                 <div className="bg-gradient-secondary rounded-2xl p-8 mb-16 border border-primary/20">
@@ -164,26 +164,39 @@ const Pricing = () => {
                             {/* Vibe LLM 4 / 4.1 Row */}
                             <div className="space-y-3 mb-6">
                                 <div
-                                    className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-LLM
+                                  className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">Vibe-LLM
                                 </div>
                                 <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
                                     <div className="text-sm font-medium">
-                                        <div className="font-semibold text-sm">Vibe-Air</div>
+                                        <div className="font-semibold text-sm">GLM-4.7</div>
                                     </div>
-                                    <div className="text-center font-bold text-primary">$0.2~0.3</div>
-                                    <div className="text-center font-bold text-primary">$0.6~2.4 </div>
-                                    <div className="text-center font-bold text-primary">$0.0 / $0.05</div>
-                                </div>
-                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
-                                    <div className="text-sm font-medium">
-                                        <div className="font-semibold text-sm">Vibe-Normal</div>
-                                    </div>
-                                    <div className="text-center font-bold text-primary">$0.6~$1.2</div>
-                                    <div className="text-center font-bold text-primary">$2~$4</div>
-                                    <div className="text-center font-bold text-primary">$0.0 / $0.1~0.3</div>
+                                    <div className="text-center font-bold text-primary">$0.5</div>
+                                    <div className="text-center font-bold text-primary">$1.1</div>
+                                    <div className="text-center font-bold text-primary">$0.0 / $0.11</div>
                                 </div>
                             </div>
 
+
+                            {/* Claude Sonnet / Opus Row */}
+                            <div className="space-y-3 mb-6">
+                                <div
+                                  className="text-lg font-semibold text-primary border-b border-primary/20 pb-2">
+                                    <a
+                                      href="https://docs.z.ai/guides/overview/pricing"
+                                      className="text-primary hover:underline"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                        Z.AI
+                                    </a>
+                                </div>
+                                <div className="grid grid-cols-4 gap-4 p-3 bg-background/50 rounded-lg">
+                                    <div className="text-sm font-medium"> GLM-4.7 </div>
+                                    <div className="text-center font-bold text-destructive">$0.6</div>
+                                    <div className="text-center font-bold text-destructive">$2.2</div>
+                                    <div className="text-center font-bold text-destructive">$0 / $0.11 </div>
+                                </div>
+                            </div>
                             {/* Claude Sonnet / Opus Row */}
                             <div className="space-y-3 mb-6">
                                 <div
@@ -222,10 +235,16 @@ const Pricing = () => {
                     <div className="text-center mt-8 p-6 bg-primary/10 rounded-lg border border-primary/20">
                         <div className="text-sm text-muted-foreground">
                             * Pricing based on official rates from{" "}
+                            <a href="https://docs.z.ai/guides/overview/pricing" className="text-primary hover:underline"
+                               target="_blank" rel="noopener noreferrer">
+                                Z.AI
+                            </a>{", "}
+
                             <a href="https://www.anthropic.com/pricing#api" className="text-primary hover:underline"
                                target="_blank" rel="noopener noreferrer">
                                 Anthropic
                             </a>{" "}
+
                             and{" "}
                             <a href="https://openai.com/api/pricing/" className="text-primary hover:underline"
                                target="_blank" rel="noopener noreferrer">

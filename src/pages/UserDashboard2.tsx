@@ -6,8 +6,6 @@ import {useNavigate} from "react-router-dom";
 import {usePageTracking} from "@/hooks/use-analytics";
 import GoogleSignInButton from "@/components/GoogleSignInButton";
 import {useEffect, useState} from "react";
-import {supabase} from "@/lib/supabase.ts";
-import {Session} from "@supabase/supabase-js";
 import {UserWallet, walletHelpers} from "@/lib/user_crm";
 import {API_CONFIG, apiRequest} from "@/config/api";
 import {Table, TableHeader, TableBody, TableHead, TableRow, TableCell} from "@/components/ui/table";
@@ -20,8 +18,6 @@ interface UsageHistoryItem {
   total_cost: number;
   request_count?: number;
 }
-
-const USAGE_LOOKBACK_DAYS = 30;
 
 const UserDashboard2 = () => {
   const navigate = useNavigate();
@@ -72,7 +68,14 @@ const UserDashboard2 = () => {
             },
           },
         );
-        if (!response.ok) throw new Error('Failed to fetch wallet data');
+        if (!response.ok) {
+          // 不抛出异常，改为设置错误状态以避免被本地捕获后产生警告
+          const text = await response.text().catch(() => '');
+          setError('Failed to fetch wallet data' + (text ? `: ${text}` : ''));
+          setWalletData(null);
+          setApiToken(null);
+          return;
+        }
         const data = await response.json();
         setWalletData(data as UserWallet);
         if (data.api_token) setApiToken(data.api_token); // 这里保存api_token
@@ -256,22 +259,25 @@ const UserDashboard2 = () => {
                         </div>
                       ) : apiToken ? (
                         <>
-                          <pre className="bg-black/80 text-green-200 rounded p-4 font-mono text-[10px] overflow-x-auto select-all mb-2 pr-20">
+                          <div className="mb-2">
+                            <pre className="bg-black/80 text-green-200 rounded p-4 font-mono text-[10px] overflow-x-auto select-all min-h-[48px]">
 {`export ANTHROPIC_MODEL=vibe-normal\nexport ANTHROPIC_BASE_URL=https://api.vibe-llm.online/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=${apiToken}`}
-                          </pre>
-                          <button
-                            className="absolute top-1/2 -translate-y-1/2 right-4 px-2 py-1 rounded bg-primary/10 text-primary text-xs font-medium hover:bg-primary/20 transition-colors border border-primary/20 z-10"
-                            style={{ pointerEvents: 'auto' }}
-                            onClick={() => {
-                              navigator.clipboard.writeText(
-                                `export ANTHROPIC_BASE_URL=https://api.vibe-llm.online/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=${apiToken}`
-                              );
-                            }}
-                            type="button"
-                            aria-label="Copy API token script"
-                          >
-                            Copy
-                          </button>
+                            </pre>
+                          </div>
+                          <div className="flex justify-end">
+                            <button
+                              className="px-2 py-1 rounded bg-primary/10 text-primary text-xs font-medium hover:bg-primary/20 transition-colors border border-primary/20"
+                              onClick={() => {
+                                navigator.clipboard.writeText(
+                                  `export ANTHROPIC_BASE_URL=https://api.vibe-llm.online/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=${apiToken}`
+                                );
+                              }}
+                              type="button"
+                              aria-label="Copy API token script"
+                            >
+                              Copy
+                            </button>
+                          </div>
                         </>
                       ) : (
                         <div className="bg-black/80 rounded p-4 mb-2 pr-20 min-h-[48px] flex items-center">
