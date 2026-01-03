@@ -12,11 +12,11 @@ const Pricing = () => {
         <section className="py-20 bg-gradient-secondary">
             <div className="container mx-auto px-6">
                 {/* Header */}
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-5">
                         Simple, Transparent Pricing
                     </h2>
-                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                         Pay only for what you use. No hidden fees, no monthly commitments.
                     </p>
                 </div>
@@ -49,7 +49,7 @@ const Pricing = () => {
                                     </div>
 
                                     {/* Vibe LLM Row - Highlighted */}
-                                    <div className="grid grid-cols-5 gap-3 px-6 py-5 bg-primary/5 border-b border-primary/20">
+                                    <div className="grid grid-cols-5 gap-3 px-6 py-5 bg-primary/[0.03] border-b border-primary/20">
                                         <div>
                                             <div className="flex items-center gap-2">
                                                 <div className="w-2 h-2 rounded-full bg-primary" />
@@ -152,32 +152,32 @@ const Pricing = () => {
                     {/* Free Trial */}
                     <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300">
                         <div className="h-1 bg-primary w-full" />
-                        <CardContent className="p-8">
-                            <div className="text-center mb-6">
-                                <h3 className="text-2xl font-bold mb-2">Free Trial</h3>
-                                <div className="text-5xl font-bold text-primary mb-2">$3</div>
-                                <div className="text-sm text-muted-foreground">
+                        <CardContent className="p-9">
+                            <div className="text-center mb-7">
+                                <h3 className="text-3xl font-bold mb-3">Free Trial</h3>
+                                <div className="text-6xl font-bold text-primary mb-3">$3</div>
+                                <div className="text-base text-muted-foreground">
                                     Free credit to try our product
                                 </div>
                             </div>
 
-                            <div className="space-y-3 mb-6">
+                            <div className="space-y-4 mb-7">
                                 <div className="flex items-center">
                                     <Check className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                                    <span className="text-sm">GLM-4.7 full model capabilities</span>
+                                    <span className="text-base">GLM-4.7 full model capabilities</span>
                                 </div>
                                 <div className="flex items-center">
                                     <Check className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                                    <span className="text-sm">Standard API format</span>
+                                    <span className="text-base">Standard API format</span>
                                 </div>
                                 <div className="flex items-center">
                                     <Check className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                                    <span className="text-sm">~300,000 tokens included</span>
+                                    <span className="text-base">~300,000 tokens included</span>
                                 </div>
                             </div>
 
                             <Button
-                                className="w-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-base py-6 h-auto"
+                                className="w-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-lg px-8 py-7 h-auto"
                                 onClick={() => {
                                     trackButtonClick("pricing_starter_join_waitlist");
                                     setIsSignupFormOpen(true);
@@ -187,7 +187,7 @@ const Pricing = () => {
                                 <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
 
-                            <p className="text-center text-xs text-muted-foreground mt-4">
+                            <p className="text-center text-sm text-muted-foreground mt-5">
                                 No credit card required
                             </p>
                         </CardContent>
@@ -195,40 +195,40 @@ const Pricing = () => {
 
                     {/* Pay-as-You-Go */}
                     <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-bl-lg">
+                        <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-sm font-bold px-4 py-2 rounded-bl-lg">
                             POPULAR
                         </div>
                         <div className="h-1 bg-primary w-full" />
-                        <CardContent className="p-8">
-                            <div className="text-center mb-6">
-                                <h3 className="text-2xl font-bold mb-2">Pay-as-You-Go</h3>
-                                <div className="text-5xl font-bold text-primary mb-2">$5+</div>
-                                <div className="text-sm text-muted-foreground">
+                        <CardContent className="p-9">
+                            <div className="text-center mb-7">
+                                <h3 className="text-3xl font-bold mb-3">Pay-as-You-Go</h3>
+                                <div className="text-6xl font-bold text-primary mb-3">$5+</div>
+                                <div className="text-base text-muted-foreground">
                                     Top up any amount, use as needed
                                 </div>
                             </div>
 
-                            <div className="space-y-3 mb-6">
+                            <div className="space-y-4 mb-7">
                                 <div className="flex items-center">
                                     <Check className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                                    <span className="text-sm">Everything in Free Trial</span>
+                                    <span className="text-base">Everything in Free Trial</span>
                                 </div>
                                 <div className="flex items-center">
                                     <Check className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                                    <span className="text-sm">99.9% uptime SLA</span>
+                                    <span className="text-base">99.9% uptime SLA</span>
                                 </div>
                                 <div className="flex items-center">
                                     <Check className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                                    <span className="text-sm">No monthly commitments</span>
+                                    <span className="text-base">No monthly commitments</span>
                                 </div>
                                 <div className="flex items-center">
                                     <Check className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                                    <span className="text-sm">Priority support</span>
+                                    <span className="text-base">Priority support</span>
                                 </div>
                             </div>
 
                             <Button
-                                className="w-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-base py-6 h-auto"
+                                className="w-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-lg px-8 py-7 h-auto"
                                 onClick={() => {
                                     trackButtonClick("pricing_payasyougo_join_waitlist");
                                     setIsSignupFormOpen(true);
@@ -238,7 +238,7 @@ const Pricing = () => {
                                 <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
 
-                            <p className="text-center text-xs text-muted-foreground mt-4">
+                            <p className="text-center text-sm text-muted-foreground mt-5">
                                 Scale from prototype to production
                             </p>
                         </CardContent>

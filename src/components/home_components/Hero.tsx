@@ -11,25 +11,23 @@ const Hero = () => {
 
     return (
         <section className="relative min-h-[70vh] bg-gradient-hero flex items-center">
-            {/* Subtle background */}
-            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
-                 style={{ backgroundImage: `url(${heroImage})` }} />
+            {/* Subtle background - removed for light theme */}
 
             {/* Content */}
             <div className="relative container mx-auto px-6 py-20">
                 <div className="max-w-4xl mx-auto text-center">
 
                     {/* Badge */}
-                    <div className="inline-flex items-center px-4 py-2 rounded-full bg-card/80 border border-border text-sm font-medium mb-8">
+                    <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/70 backdrop-blur-sm border border-border/50 text-sm font-medium mb-8 shadow-sm">
                         <Zap className="w-4 h-4 mr-2 text-primary" />
                         Powered by Open-Source GLM-4.7
                     </div>
 
                     {/* Main Headline */}
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                        <span className="text-foreground">Vibe LLM</span>
+                    <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
+                        Vibe LLM
                     </h1>
-                    <h2 className="text-3xl md:text-5xl font-semibold mb-6 leading-tight text-foreground">
+                    <h2 className="text-3xl md:text-5xl font-semibold mb-6 leading-tight tracking-tight">
                         Access <span className="text-primary">GLM-4.7</span> at up to <span className="text-primary">50% Off</span>
                     </h2>
 
