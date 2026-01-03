@@ -5,43 +5,58 @@ import {
     Zap,
     CreditCard,
     Shield,
-    Rocket
+    Rocket,
+    CheckCircle2,
+    Server,
+    Gauge
 } from "lucide-react";
 
 const features = [
     {
         icon: DollarSign,
-        title: "Up to 50% Cost Savings",
-        description: "Full GLM-4.7 model at significantly lower prices than official APIs. Same capabilities, optimized infrastructure.",
+        title: "Save Up to 50% on Output Costs",
+        description: "Output at $1.10/M tokens vs Z.AI's $2.20. Same GLM-4.7 model, optimized infrastructure.",
         size: "large"
     },
     {
         icon: Zap,
-        title: "GLM-4.7 Intelligence",
-        description: "Excels at code generation, complex reasoning, and Chinese language tasks.",
+        title: "GLM-4.7 Production Ready",
+        description: "Excels at code generation, complex reasoning, and Chinese language tasks. Stable and mature.",
         size: "small"
     },
     {
         icon: Shield,
-        title: "Why Cheaper?",
-        description: "Engineering optimizations: GPU scheduling, request batching, efficient resource utilization.",
+        title: "No Model Compromises",
+        description: "We use the complete GLM-4.7 model. Full capabilities, full intelligence.",
+        size: "small"
+    },
+    {
+        icon: Server,
+        title: "Engineering Optimizations",
+        description: "Cost savings from GPU scheduling, request batching, and efficient resource utilization.",
         size: "small"
     },
     {
         icon: Code,
-        title: "Easy Integration",
-        description: "Standard API format. Switch endpoints and keys - no code changes required.",
+        title: "Drop-In Integration",
+        description: "Standard API format. Change endpoints and keys - no code modifications needed.",
+        size: "small"
+    },
+    {
+        icon: Gauge,
+        title: "99.9% Uptime SLA",
+        description: "Reliable infrastructure with redundant systems. Real-time status monitoring included.",
         size: "small"
     },
     {
         icon: CreditCard,
-        title: "Pay-as-You-Go",
-        description: "No monthly commitments or minimum usage requirements. Pay only for what you use.",
+        title: "Pay-As-You-Go",
+        description: "No monthly commitments or minimums. Top up from $5, scale up or down instantly.",
         size: "small"
     },
     {
         icon: Rocket,
-        title: "Built For",
+        title: "Built For Developers",
         description: "Individual developers, early-stage startups, side projects, and internal tools where cost efficiency matters.",
         size: "large"
     }
@@ -57,7 +72,7 @@ const Features = () => {
                         Why Choose Vibe LLM?
                     </h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Production-ready GLM-4.7 at a fraction of the cost
+                        Production-ready GLM-4.7 without the premium price tag
                     </p>
                 </div>
 
@@ -70,9 +85,9 @@ const Features = () => {
                             <div className="p-3 rounded-lg bg-primary/10 w-fit mb-4">
                                 <DollarSign className="w-6 h-6 text-primary" />
                             </div>
-                            <h3 className="text-xl font-semibold mb-3">Up to 50% Cost Savings</h3>
+                            <h3 className="text-xl font-semibold mb-3">Save Up to 50% on Output Costs</h3>
                             <p className="text-muted-foreground leading-relaxed flex-1">
-                                Full GLM-4.7 model at significantly lower prices than official APIs. Same capabilities, optimized infrastructure.
+                                Output at $1.10/M tokens vs Z.AI's $2.20. Same GLM-4.7 model, optimized infrastructure.
                             </p>
                         </CardContent>
                     </Card>
@@ -83,7 +98,7 @@ const Features = () => {
                             <div className="p-2 rounded-lg bg-primary/10 w-fit mb-3">
                                 <Zap className="w-5 h-5 text-primary" />
                             </div>
-                            <h3 className="font-semibold mb-2">GLM-4.7 Intelligence</h3>
+                            <h3 className="font-semibold mb-2">GLM-4.7 Production Ready</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
                                 Excels at code generation, complex reasoning, and Chinese language tasks.
                             </p>
@@ -95,9 +110,21 @@ const Features = () => {
                             <div className="p-2 rounded-lg bg-primary/10 w-fit mb-3">
                                 <Shield className="w-5 h-5 text-primary" />
                             </div>
-                            <h3 className="font-semibold mb-2">Why Cheaper?</h3>
+                            <h3 className="font-semibold mb-2">No Model Compromises</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                                Engineering optimizations: GPU scheduling, request batching, efficient resource utilization.
+                                We use the complete GLM-4.7 model. Full capabilities, full intelligence.
+                            </p>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300">
+                        <CardContent className="p-6">
+                            <div className="p-2 rounded-lg bg-primary/10 w-fit mb-3">
+                                <Server className="w-5 h-5 text-primary" />
+                            </div>
+                            <h3 className="font-semibold mb-2">Engineering Optimizations</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                Cost savings from GPU scheduling, request batching, and efficient resource utilization.
                             </p>
                         </CardContent>
                     </Card>
@@ -107,9 +134,21 @@ const Features = () => {
                             <div className="p-2 rounded-lg bg-primary/10 w-fit mb-3">
                                 <Code className="w-5 h-5 text-primary" />
                             </div>
-                            <h3 className="font-semibold mb-2">Easy Integration</h3>
+                            <h3 className="font-semibold mb-2">Drop-In Integration</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                                Standard API format. Switch endpoints and keys - no code changes required.
+                                Standard API format. Change endpoints and keys - no code modifications.
+                            </p>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300">
+                        <CardContent className="p-6">
+                            <div className="p-2 rounded-lg bg-primary/10 w-fit mb-3">
+                                <Gauge className="w-5 h-5 text-primary" />
+                            </div>
+                            <h3 className="font-semibold mb-2">99.9% Uptime SLA</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                Reliable infrastructure with redundant systems. Real-time status monitoring.
                             </p>
                         </CardContent>
                     </Card>
@@ -119,9 +158,9 @@ const Features = () => {
                             <div className="p-2 rounded-lg bg-primary/10 w-fit mb-3">
                                 <CreditCard className="w-5 h-5 text-primary" />
                             </div>
-                            <h3 className="font-semibold mb-2">Pay-as-You-Go</h3>
+                            <h3 className="font-semibold mb-2">Pay-As-You-Go</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                                No monthly commitments. Pay only for what you use.
+                                No monthly commitments. Top up from $5, scale instantly.
                             </p>
                         </CardContent>
                     </Card>
@@ -134,7 +173,7 @@ const Features = () => {
                                     <Rocket className="w-6 h-6 text-primary" />
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="text-lg font-semibold mb-2">Built For</h3>
+                                    <h3 className="text-lg font-semibold mb-2">Built For Developers</h3>
                                     <p className="text-sm text-muted-foreground leading-relaxed">
                                         Individual developers, early-stage startups, side projects, and internal tools where cost efficiency matters.
                                     </p>
