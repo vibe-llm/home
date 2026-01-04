@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button.tsx";
 import { Card, CardContent } from "@/components/ui/card.tsx";
-import { Check, ArrowRight, TrendingDown, BadgeCheck } from "lucide-react";
-import SignupForm from "../SignupForm.tsx";
+import { Check, ArrowRight, BadgeCheck } from "lucide-react";
 import { trackButtonClick } from "@/lib/analytics.ts";
 
 const Pricing = () => {
-    const [isSignupFormOpen, setIsSignupFormOpen] = useState(false);
+    const navigate = useNavigate();
 
     return (
         <section className="py-20 bg-gradient-secondary">
@@ -150,9 +149,9 @@ const Pricing = () => {
                 {/* Pricing Cards - Bento Grid */}
                 <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto mb-8">
                     {/* Free Trial */}
-                    <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300">
+                    <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300 flex flex-col">
                         <div className="h-1 bg-primary w-full" />
-                        <CardContent className="p-9">
+                        <CardContent className="p-9 flex flex-col flex-1">
                             <div className="text-center mb-7">
                                 <h3 className="text-3xl font-bold mb-3">Free Trial</h3>
                                 <div className="text-6xl font-bold text-primary mb-3">$3</div>
@@ -177,10 +176,10 @@ const Pricing = () => {
                             </div>
 
                             <Button
-                                className="w-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-lg px-8 py-7 h-auto"
+                                className="w-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-lg px-8 h-20 rounded-xl font-medium shadow-lg shadow-primary/20 mt-auto"
                                 onClick={() => {
-                                    trackButtonClick("pricing_starter_join_waitlist");
-                                    setIsSignupFormOpen(true);
+                                    trackButtonClick("pricing_starter_dashboard");
+                                    navigate("/dashboard2");
                                 }}
                             >
                                 Get Started Free
@@ -194,12 +193,12 @@ const Pricing = () => {
                     </Card>
 
                     {/* Pay-as-You-Go */}
-                    <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300 relative overflow-hidden">
+                    <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300 relative overflow-hidden flex flex-col">
                         <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-sm font-bold px-4 py-2 rounded-bl-lg">
                             POPULAR
                         </div>
                         <div className="h-1 bg-primary w-full" />
-                        <CardContent className="p-9">
+                        <CardContent className="p-9 flex flex-col flex-1">
                             <div className="text-center mb-7">
                                 <h3 className="text-3xl font-bold mb-3">Pay-as-You-Go</h3>
                                 <div className="text-6xl font-bold text-primary mb-3">$5+</div>
@@ -228,10 +227,10 @@ const Pricing = () => {
                             </div>
 
                             <Button
-                                className="w-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-lg px-8 py-7 h-auto"
+                                className="w-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-lg px-8 h-20 rounded-xl font-medium shadow-lg shadow-primary/20 mt-auto"
                                 onClick={() => {
-                                    trackButtonClick("pricing_payasyougo_join_waitlist");
-                                    setIsSignupFormOpen(true);
+                                    trackButtonClick("pricing_payasyougo_dashboard");
+                                    navigate("/dashboard2");
                                 }}
                             >
                                 Start Using
@@ -245,11 +244,6 @@ const Pricing = () => {
                     </Card>
                 </div>
             </div>
-
-            <SignupForm
-                isOpen={isSignupFormOpen}
-                onOpenChange={setIsSignupFormOpen}
-            />
         </section>
     );
 };

@@ -1,13 +1,10 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button.tsx";
 import { ArrowRight, Zap } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
-import SignupForm from "../SignupForm.tsx";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
     const navigate = useNavigate();
-    const [isSignupFormOpen, setIsSignupFormOpen] = useState(false);
 
     return (
         <section className="relative min-h-[70vh] bg-gradient-hero flex items-center">
@@ -56,11 +53,6 @@ const Hero = () => {
 
                 </div>
             </div>
-
-            <SignupForm
-                isOpen={isSignupFormOpen}
-                onOpenChange={setIsSignupFormOpen}
-            />
         </section>
     );
 };

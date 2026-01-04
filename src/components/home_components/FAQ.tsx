@@ -6,7 +6,6 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion.tsx";
 import ContactUsForm from "../ContactUsForm.tsx";
-import SignupForm from "../SignupForm.tsx";
 import { trackButtonClick } from "@/lib/analytics.ts";
 
 const faqs = [
@@ -38,7 +37,6 @@ const faqs = [
 
 const FAQ = () => {
     const [isContactFormOpen, setIsContactFormOpen] = useState(false);
-    const [isSignupFormOpen, setIsSignupFormOpen] = useState(false);
 
     return (
         <section className="py-20 bg-background">
@@ -93,10 +91,6 @@ const FAQ = () => {
             <ContactUsForm
                 isOpen={isContactFormOpen}
                 onOpenChange={setIsContactFormOpen}
-            />
-            <SignupForm
-                isOpen={isSignupFormOpen}
-                onOpenChange={setIsSignupFormOpen}
             />
         </section>
     );
