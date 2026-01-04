@@ -186,7 +186,7 @@ const Pricing = () => {
               {/* CTA */}
               <div className="mt-auto">
                 <Button
-                  className="w-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity px-8 h-14 rounded-xl font-medium shadow-lg shadow-primary/20"
+                  className="w-full bg-[#D97757] text-primary-foreground hover:bg-[#D97757]/90 transition-opacity px-8 h-14 rounded-xl font-medium shadow-lg shadow-[#D97757]/20"
                   onClick={() => {
                     trackButtonClick("pricing_free_trial_dashboard");
                     navigate("/dashboard");
@@ -246,13 +246,13 @@ const Pricing = () => {
               {/* CTA */}
               <div className="mt-auto">
                 <Button
-                  className="w-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity px-8 h-14 rounded-xl font-medium shadow-lg shadow-primary/20"
+                  className="w-full bg-[#D97757] text-primary-foreground hover:bg-[#D97757]/90 transition-opacity px-8 h-14 rounded-xl font-medium shadow-lg shadow-[#D97757]/20"
                   onClick={() => {
                     trackButtonClick("pricing_payasyougo_dashboard");
                     navigate("/dashboard");
                   }}
                 >
-                  Start using
+                  Get started
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
 

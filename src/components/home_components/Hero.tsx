@@ -1,4 +1,4 @@
-import { Zap } from "lucide-react";
+import { Zap, Brain } from "lucide-react";
 import GoogleSignInButton from "@/components/GoogleSignInButton";
 import { useEffect, useRef, useState } from "react";
 
@@ -40,9 +40,20 @@ const Hero = () => {
                         at up to <span className="font-bold italic text-[#D97757]">50% Off</span>
                     </h1>
 
-                    <p className="text-bodyLg text-muted-foreground max-w-lg leading-relaxed font-light">
-                        Same intelligence, lower cost. Optimized through engineering.
-                    </p>
+                    <div className="space-y-4 max-w-lg">
+                        <div className="flex items-center gap-3 text-bodyLg text-muted-foreground font-light">
+                            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary shrink-0">
+                                <Brain className="w-4 h-4" />
+                            </span>
+                            Same intelligence, lower cost. Optimized through engineering.
+                        </div>
+                        <div className="flex items-center gap-3 text-bodyLg text-muted-foreground font-light">
+                            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary shrink-0">
+                                <Zap className="w-4 h-4" />
+                            </span>
+                            Integrate in just 10 seconds
+                        </div>
+                    </div>
 
                     <div className="max-w-xs">
                         <GoogleSignInButton />
@@ -55,7 +66,10 @@ const Hero = () => {
                 </div>
 
                 {/* Right Column - Video Placeholder */}
-                <div className="flex-1 w-full max-w-xl">
+                <div className="flex-1 w-full max-w-xl space-y-3">
+                    <p className="text-sm font-medium text-muted-foreground text-center md:text-left pl-1">
+                        Watch: How to integrate in seconds
+                    </p>
                     <div className="rounded-2xl border border-border overflow-hidden shadow-2xl relative">
                         <video
                             ref={videoRef}

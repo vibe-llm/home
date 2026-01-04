@@ -34,7 +34,7 @@ const GoogleSignInButton = ({
     return (
       <Button
         onClick={() => navigate('/dashboard')}
-        className={cn("w-full bg-gradient-primary hover:shadow-glow transition-all duration-300", className)}
+        className={cn("w-full bg-[#D97757] hover:bg-[#D97757]/90 hover:shadow-glow transition-all duration-300", className)}
         size={size}
         variant={variant}
       >
@@ -48,7 +48,7 @@ const GoogleSignInButton = ({
     <Button
       onClick={handleSignIn}
       disabled={loading}
-      className={cn("w-full bg-gradient-primary hover:shadow-glow transition-all duration-300", className)}
+      className={cn("w-full bg-[#D97757] hover:bg-[#D97757]/90 hover:shadow-glow transition-all duration-300", className)}
       size={size}
       variant={variant}
     >
