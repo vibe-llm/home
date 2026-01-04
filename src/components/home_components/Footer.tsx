@@ -36,6 +36,7 @@ const Footer = () => {
           <div>
             <h4 className="text-h4 font-serif font-medium mb-4">Product</h4>
             <ul className="space-y-3 text-body text-muted-foreground">
+              <li><Link to="/dashboard" className="hover:text-primary transition-colors">User Dashboard</Link></li>
               <li><Link to="/status" className="hover:text-primary transition-colors">Status Page</Link></li>
             </ul>
           </div>
@@ -48,6 +49,8 @@ const Footer = () => {
                 trackButtonClick("footer_contact");
                 setIsContactFormOpen(true);
               }}>Contact</a></li>
+              <li><Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
@@ -59,10 +62,6 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-muted-foreground text-sm mb-4 md:mb-0">
               © 2025 Vibe LLM. All rights reserved.
-            </div>
-            <div className="flex space-x-6 text-sm text-muted-foreground">
-              <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-              <Link to="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>
