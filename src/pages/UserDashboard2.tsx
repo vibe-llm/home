@@ -38,14 +38,14 @@ const UserDashboard2 = () => {
   const handleSignOut = async () => {
     try {
       await signOut();
-      console.log('Sign out successful, navigating to dashboard2');
+      console.log('Sign out successful, navigating to dashboard');
     } catch (error) {
       console.error('Error signing out:', error);
-      console.log('Sign out failed, but still navigating to dashboard2');
+      console.log('Sign out failed, but still navigating to dashboard');
     } finally {
-      // Always navigate to dashboard2 page, regardless of success or failure
+      // Always navigate to dashboard page, regardless of success or failure
       // Use hash navigation for consistent behavior
-      window.location.hash = '/dashboard2';
+      window.location.hash = '/dashboard';
     }
   };
 
@@ -161,7 +161,7 @@ const UserDashboard2 = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background py-12 px-6">
+    <div className="min-h-screen bg-background pt-24 pb-12 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12">
@@ -177,14 +177,6 @@ const UserDashboard2 = () => {
                 </p>
               </div>
             </div>
-            <Button
-                variant="ghost"
-                onClick={() => navigate('/')}
-                className="text-muted-foreground hover:text-foreground"
-            >
-                <ArrowLeft className="w-4 h-4 mr-2"/>
-                Back to Home
-            </Button>
           </div>
         </div>
 
@@ -223,7 +215,7 @@ const UserDashboard2 = () => {
                         {walletLoading ? (
                           <span className="inline-block w-8 h-8 mx-auto animate-pulse bg-primary/10 rounded" />
                         ) : (
-                          <p className="text-3xl font-serif font-medium text-primary">{walletData ? walletHelpers.getBalanceRemaining(walletData) : '0'}</p>
+                          <p className="text-2xl font-serif font-medium text-primary">{walletData ? walletHelpers.getBalanceRemaining(walletData) : '0'}</p>
                         )}
                       </div>
                       <div className="bg-secondary/30 rounded-xl p-5 text-center flex flex-col justify-between h-32 border border-border/50">
@@ -231,7 +223,7 @@ const UserDashboard2 = () => {
                         {walletLoading ? (
                           <span className="inline-block w-8 h-8 mx-auto animate-pulse bg-primary/10 rounded" />
                         ) : (
-                          <p className="text-3xl font-serif font-medium text-foreground">{walletData ? walletHelpers.getTotalSpendFormatted(walletData) : '0'}</p>
+                          <p className="text-2xl font-serif font-medium text-foreground">{walletData ? walletHelpers.getTotalSpendFormatted(walletData) : '0'}</p>
                         )}
                       </div>
                       <div className="bg-secondary/30 rounded-xl p-5 text-center flex flex-col justify-between h-32 border border-border/50">
@@ -239,7 +231,7 @@ const UserDashboard2 = () => {
                         {walletLoading ? (
                           <span className="inline-block w-8 h-8 mx-auto animate-pulse bg-primary/10 rounded" />
                         ) : (
-                          <p className="text-3xl font-serif font-medium text-green-600">{walletData ? walletHelpers.getTokensRemaining(walletData) : '0'}</p>
+                          <p className="text-2xl font-serif font-medium text-green-600">{walletData ? walletHelpers.getTokensRemaining(walletData) : '0'}</p>
                         )}
                       </div>
                     </div>
@@ -264,7 +256,7 @@ const UserDashboard2 = () => {
                         <>
                           <div className="mb-2">
                             <pre className="bg-secondary/50 text-foreground rounded-xl p-4 font-mono text-xs overflow-x-auto select-all min-h-[48px] border border-border/50">
-{`export ANTHROPIC_MODEL=vibe-normal\nexport ANTHROPIC_BASE_URL=https://api.vibe-llm.online/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=${apiToken}`}
+{`export ANTHROPIC_BASE_URL=https://api.vibe-llm.online/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=${apiToken}`}
                             </pre>
                           </div>
                           <div className="flex justify-end">

@@ -113,7 +113,7 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
     }
   }
 
-  const signInWithGoogle = async (redirectTo: string = '/dashboard2') => {
+  const signInWithGoogle = async (redirectTo: string = '/dashboard') => {
     // 使用根路径作为回调 URL
     const baseUrl = window.location.origin
     const callbackUrl = baseUrl // 回调到根路径

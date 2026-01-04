@@ -26,10 +26,10 @@ const Testimonials = () => {
     <section id="testimonials" className="py-24 bg-gradient-secondary">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-h1 font-serif font-normal mb-6 text-foreground tracking-tight">
             Trusted by Developers Worldwide
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-bodyLg text-muted-foreground max-w-3xl mx-auto font-light">
             Join thousands of developers and startups who've already made the switch to affordable, high-performance AI.
           </p>
         </div>

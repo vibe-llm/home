@@ -44,10 +44,10 @@ const FAQ = () => {
                 <div className="max-w-3xl mx-auto">
                     {/* Header */}
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-serif font-medium mb-4 text-foreground">
+                        <h2 className="text-h1 font-serif font-normal mb-6 text-foreground tracking-tight">
                             Frequently Asked Questions
                         </h2>
-                        <p className="text-lg text-muted-foreground font-light">
+                        <p className="text-bodyLg text-muted-foreground font-light">
                             Everything you need to know about Vibe LLM
                         </p>
                     </div>

@@ -1,57 +1,81 @@
-import { Button } from "@/components/ui/button.tsx";
-import { ArrowRight, Zap } from "lucide-react";
-import heroImage from "@/assets/hero-bg.jpg";
-import { useNavigate } from "react-router-dom";
+import { Zap } from "lucide-react";
+import GoogleSignInButton from "@/components/GoogleSignInButton";
+import { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
-    const navigate = useNavigate();
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [progress, setProgress] = useState(0);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const handleTimeUpdate = () => {
+            if (video.duration) {
+                const currentProgress = (video.currentTime / video.duration) * 100;
+                setProgress(currentProgress);
+            }
+        };
+
+        video.addEventListener("timeupdate", handleTimeUpdate);
+        return () => video.removeEventListener("timeupdate", handleTimeUpdate);
+    }, []);
 
     return (
-        <section className="relative min-h-[70vh] bg-gradient-hero flex items-center">
-            {/* Subtle background - removed for light theme */}
+        <section className="relative min-h-screen bg-background flex flex-col pt-20">
 
-            {/* Content */}
-            <div className="relative container mx-auto px-6 py-20">
-                <div className="max-w-4xl mx-auto text-center">
+            {/* Main Content */}
+            <div className="flex-1 container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 pb-20">
 
+                {/* Left Column */}
+                <div className="flex-1 text-left space-y-8">
                     {/* Badge */}
-                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-sm font-medium mb-8 border border-border/50">
+                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-footnote font-medium border border-border/50">
                         <Zap className="w-3.5 h-3.5 mr-2 text-primary" />
                         Powered by Open-Source GLM-4.7
                     </div>
 
-                    {/* Main Headline */}
-                    <h1 className="text-5xl md:text-7xl font-serif font-medium mb-6 leading-tight tracking-tight text-foreground">
-                        Vibe LLM
+                    <h1 className="text-[3.5rem] font-serif font-normal leading-tight tracking-tight text-foreground">
+                        Access <span className="font-bold">Full GLM-4.7</span> <br/>
+                        at up to <span className="font-bold italic text-[#D97757]">50% Off</span>
                     </h1>
-                    <h2 className="text-3xl md:text-5xl font-serif font-normal mb-6 leading-tight tracking-tight text-foreground/90">
-                        Access <span className="italic text-primary">GLM-4.7</span> at up to <span className="italic text-primary">50% Off</span>
-                    </h2>
 
-                    {/* Description */}
-                    <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10 font-light">
-                        Full GLM-4.7 model capabilities, optimized through engineering.
-                        Same intelligence, lower cost.
+                    <p className="text-bodyLg text-muted-foreground max-w-lg leading-relaxed font-light">
+                        Same intelligence, lower cost. Optimized through engineering.
                     </p>
 
-                    {/* CTA Button */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button
-                            size="lg"
-                            className="bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-lg px-8 py-6 h-auto rounded-xl font-medium shadow-lg shadow-primary/20"
-                            onClick={() => navigate('/dashboard2')}
-                        >
-                            Login to Dashboard
-                            <ArrowRight className="w-5 h-5 ml-2" />
-                        </Button>
+                    <div className="max-w-xs">
+                        <GoogleSignInButton />
                     </div>
 
-                    {/* Free credit note */}
-                    <p className="text-muted-foreground mt-8">
+                     {/* Free credit note */}
+                    <p className="text-footnote text-muted-foreground">
                         <span className="text-primary font-semibold">$3 free credit</span> for new users
                     </p>
-
                 </div>
+
+                {/* Right Column - Video Placeholder */}
+                <div className="flex-1 w-full max-w-xl">
+                    <div className="rounded-2xl border border-border overflow-hidden shadow-2xl relative">
+                        <video
+                            ref={videoRef}
+                            src="/demo.mp4"
+                            className="w-full h-auto pointer-events-none"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        />
+                        {/* Progress Bar */}
+                        <div className="absolute bottom-0 left-0 w-full h-1 bg-secondary/30">
+                            <div
+                                className="h-full bg-primary transition-all duration-100 ease-linear"
+                                style={{ width: `${progress}%` }}
+                            />
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     );

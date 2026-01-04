@@ -7,7 +7,7 @@ const TermsOfService = () => {
   const navigate = useNavigate();
   usePageTracking("Terms of Service");
   return (
-    <div className="min-h-screen bg-gradient-hero py-16 px-6">
+    <div className="min-h-screen bg-gradient-hero pt-24 pb-16 px-6">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -193,7 +193,7 @@ const TermsOfService = () => {
         <div className="text-center">
           <Button 
             size="lg" 
-            className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-bodyLg px-8 py-6 h-auto"
+            className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 h-auto"
             onClick={() => navigate('/')}
           >
             <ArrowLeft className="w-5 h-5 mr-2" />

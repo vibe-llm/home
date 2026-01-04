@@ -16,9 +16,9 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <Code className="w-8 h-8 text-primary mr-2" />
-              <span className="text-2xl font-serif font-bold text-foreground">Vibe LLM</span>
+              <span className="text-h3 font-serif font-bold text-foreground">Vibe LLM</span>
             </div>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
+            <p className="text-body text-muted-foreground mb-6 leading-relaxed">
               Enterprise-grade AI at startup prices. Built for developers who demand performance without compromise.
             </p>
             <div className="flex space-x-4">
@@ -27,23 +27,23 @@ const Footer = () => {
                 className="inline-flex items-center gap-2 px-3 h-9 text-muted-foreground hover:text-primary transition-colors rounded-md"
               >
                 <Mail className="w-4 h-4" />
-                <span className="text-sm">welcome@vibe-llm.online</span>
+                <span className="text-footnote">welcome@vibe-llm.online</span>
               </a>
             </div>
           </div>
           
           {/* Product */}
           <div>
-            <h4 className="font-semibold mb-4">Product</h4>
-            <ul className="space-y-3 text-muted-foreground">
+            <h4 className="text-h4 font-serif font-medium mb-4">Product</h4>
+            <ul className="space-y-3 text-body text-muted-foreground">
               <li><Link to="/status" className="hover:text-primary transition-colors">Status Page</Link></li>
             </ul>
           </div>
           
           {/* Company */}
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-3 text-muted-foreground">
+            <h4 className="text-h4 font-serif font-medium mb-4">Company</h4>
+            <ul className="space-y-3 text-body text-muted-foreground">
               <li><a className="hover:text-primary transition-colors cursor-pointer" onClick={() => {
                 trackButtonClick("footer_contact");
                 setIsContactFormOpen(true);

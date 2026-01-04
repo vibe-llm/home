@@ -126,6 +126,16 @@ export default {
           '"Courier New"',
           "monospace",
         ],
+        serif: [
+          '"Anthropic Serif"',
+          "Charter",
+          "Bitstream Charter",
+          "Sitka Text",
+          "Cambria",
+          "Georgia",
+          "ui-serif",
+          "serif",
+        ],
       },
       fontSize: {
         // 小字/标签（表格、辅助说明）

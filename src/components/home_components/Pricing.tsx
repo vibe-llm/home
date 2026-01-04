@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button.tsx";
 import { Card, CardContent } from "@/components/ui/card.tsx";
-import { Check, ArrowRight, BadgeCheck, Sparkles, BadgePercent } from "lucide-react";
+import { Check, ArrowRight, BadgeCheck, Sparkles, BadgePercent, ExternalLink } from "lucide-react";
 import { trackButtonClick } from "@/lib/analytics.ts";
 
 const Pricing = () => {
@@ -12,10 +12,10 @@ const Pricing = () => {
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-medium mb-5 text-foreground">
+          <h2 className="text-h1 font-serif font-normal mb-6 text-foreground tracking-tight">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
+          <p className="text-bodyLg text-muted-foreground max-w-2xl mx-auto font-light">
             Pay only for what you use. No hidden fees, no monthly commitments.
           </p>
         </div>
@@ -28,9 +28,9 @@ const Pricing = () => {
               <div className="bg-secondary/30 p-6 border-b border-border/50">
                 <div className="flex items-center justify-center gap-3">
                   <BadgeCheck className="w-6 h-6 text-primary" />
-                  <h3 className="text-xl font-serif font-medium">GLM-4.7 Pricing Comparison</h3>
+                  <h3 className="text-h3 font-serif font-medium">GLM-4.7 Pricing Comparison</h3>
                 </div>
-                <p className="text-center text-sm text-muted-foreground mt-2">
+                <p className="text-center text-footnote text-muted-foreground mt-2">
                   Output cost at <span className="text-primary font-semibold">50% of Z.AI</span> pricing
                 </p>
               </div>
@@ -40,96 +40,93 @@ const Pricing = () => {
                 <div className="min-w-full">
                   {/* Header Row */}
                   <div className="grid grid-cols-12 gap-3 px-6 py-4 bg-secondary/50 border-b border-border/50">
-                    <div className="col-span-4 font-medium text-sm text-muted-foreground">Provider & Model</div>
-                    <div className="col-span-2 text-center font-medium text-sm text-muted-foreground">Input</div>
-                    <div className="col-span-2 text-center font-medium text-sm text-muted-foreground">Cache Write</div>
-                    <div className="col-span-2 text-center font-medium text-sm text-muted-foreground">Cache Read</div>
-                    <div className="col-span-2 text-center font-medium text-sm text-muted-foreground">Output</div>
+                    <div className="col-span-4 font-medium text-base text-foreground">Provider & Model</div>
+                    <div className="col-span-2 text-center font-medium text-base text-foreground">Input</div>
+                    <div className="col-span-2 text-center font-medium text-base text-foreground">Cache Write</div>
+                    <div className="col-span-2 text-center font-medium text-base text-foreground">Cache Read</div>
+                    <div className="col-span-2 text-center font-medium text-base text-foreground">Output</div>
                   </div>
 
                   {/* Vibe LLM Row - Highlighted */}
-                  <div className="grid grid-cols-12 gap-3 px-6 py-5 bg-primary/5 border-b border-primary/10">
+                  <div className="grid grid-cols-12 gap-3 px-6 py-6 bg-primary/5 border-b border-primary/10 items-center">
                     <div className="col-span-4">
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-primary" />
-                        <span className="font-semibold text-primary">Our Price</span>
+                        <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+                        <span className="font-bold text-lg text-primary">Our Price</span>
                       </div>
-                      <div className="text-xs text-muted-foreground ml-4 mt-1">GLM-4.7</div>
+                      <div className="text-sm text-muted-foreground ml-5 mt-1">GLM-4.7</div>
                     </div>
-                    <div className="col-span-2 text-center font-mono font-medium">$0.50</div>
-                    <div className="col-span-2 text-center font-mono font-medium">Free</div>
-                    <div className="col-span-2 text-center font-mono font-medium">$0.10</div>
+                    <div className="col-span-2 text-center font-mono font-medium text-lg">$0.50</div>
+                    <div className="col-span-2 text-center font-mono font-medium text-lg">Free</div>
+                    <div className="col-span-2 text-center font-mono font-medium text-lg">$0.10</div>
                     <div className="col-span-2 text-center">
-                      <span className="font-mono font-bold text-primary text-lg">$1.10</span>
-                      <div className="text-xs text-primary font-semibold">50% OFF</div>
+                      <span className="font-mono font-bold text-primary text-xl">$1.10</span>
+                      <div className="text-sm text-[#D97757] font-bold italic">50% OFF</div>
                     </div>
                   </div>
 
                   {/* Z.AI Row */}
-                  <div className="grid grid-cols-12 gap-3 px-6 py-4 border-b border-border hover:bg-muted/20 transition-colors">
+                  <div className="grid grid-cols-12 gap-3 px-6 py-5 border-b border-border hover:bg-muted/20 transition-colors items-center">
                     <div className="col-span-4">
-                      <div className="flex items-center gap-1">
-                        <span className="text-muted-foreground">Z.AI</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-foreground font-medium text-base">Z.AI</span>
                         <a href="https://docs.z.ai/guides/overview/pricing"
-                           className="text-primary hover:underline flex items-center gap-1 text-xs"
-                           target="_blank" rel="noopener noreferrer">
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
+                           className="text-blue-500 hover:text-blue-600 hover:underline flex items-center gap-1 text-sm font-medium ml-1"
+                           target="_blank" rel="noopener noreferrer"
+                           title="View official pricing">
+                          <ExternalLink className="w-3.5 h-3.5" />
                         </a>
                       </div>
-                      <div className="text-xs text-muted-foreground ml-4 mt-1">GLM-4.7</div>
+                      <div className="text-sm text-muted-foreground mt-1">GLM-4.7</div>
                     </div>
-                    <div className="col-span-2 text-center font-mono text-muted-foreground">$0.60</div>
-                    <div className="col-span-2 text-center font-mono text-muted-foreground">Free</div>
-                    <div className="col-span-2 text-center font-mono text-muted-foreground">$0.11</div>
+                    <div className="col-span-2 text-center font-mono text-base text-muted-foreground">$0.60</div>
+                    <div className="col-span-2 text-center font-mono text-base text-muted-foreground">Free</div>
+                    <div className="col-span-2 text-center font-mono text-base text-muted-foreground">$0.11</div>
                     <div className="col-span-2 text-center">
-                      <span className="font-mono text-muted-foreground line-through text-sm mr-2">$2.20</span>
-                      <span className="text-xs text-destructive font-semibold">2x price</span>
+                      <span className="font-mono text-muted-foreground line-through text-base mr-2">$2.20</span>
+                      <span className="text-sm text-destructive font-semibold">2x price</span>
                     </div>
                   </div>
 
                   {/* OpenAI Row */}
-                  <div className="grid grid-cols-12 gap-3 px-6 py-4 border-b border-border hover:bg-muted/20 transition-colors">
+                  <div className="grid grid-cols-12 gap-3 px-6 py-5 border-b border-border hover:bg-muted/20 transition-colors items-center">
                     <div className="col-span-4">
-                      <div className="flex items-center gap-1">
-                        <span className="text-muted-foreground">OpenAI</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-foreground font-medium text-base">OpenAI</span>
                         <a href="https://openai.com/api/pricing/"
-                           className="text-primary hover:underline flex items-center gap-1 text-xs"
-                           target="_blank" rel="noopener noreferrer">
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
+                           className="text-blue-500 hover:text-blue-600 hover:underline flex items-center gap-1 text-sm font-medium ml-1"
+                           target="_blank" rel="noopener noreferrer"
+                           title="View official pricing">
+                          <ExternalLink className="w-3.5 h-3.5" />
                         </a>
                       </div>
-                      <div className="text-xs text-muted-foreground ml-4 mt-1">GPT-5.2</div>
+                      <div className="text-sm text-muted-foreground mt-1">GPT-5.2</div>
                     </div>
-                    <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$1.75</div>
-                    <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">Free</div>
-                    <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$0.175</div>
-                    <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$14.00</div>
+                    <div className="col-span-2 text-center font-mono text-base text-muted-foreground">$1.75</div>
+                    <div className="col-span-2 text-center font-mono text-base text-muted-foreground">Free</div>
+                    <div className="col-span-2 text-center font-mono text-base text-muted-foreground">$0.175</div>
+                    <div className="col-span-2 text-center font-mono text-base text-muted-foreground">$14.00</div>
                   </div>
 
 
                   {/* Claude Row */}
-                  <div className="grid grid-cols-12 gap-3 px-6 py-4 hover:bg-muted/20 transition-colors">
+                  <div className="grid grid-cols-12 gap-3 px-6 py-5 hover:bg-muted/20 transition-colors items-center">
                     <div className="col-span-4">
-                      <div className="flex items-center gap-1">
-                        <span className="text-muted-foreground">Claude</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-foreground font-medium text-base">Claude</span>
                         <a href="https://www.anthropic.com/pricing#api"
-                           className="text-primary hover:underline flex items-center gap-1 text-xs"
-                           target="_blank" rel="noopener noreferrer">
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
+                           className="text-blue-500 hover:text-blue-600 hover:underline flex items-center gap-1 text-sm font-medium ml-1"
+                           target="_blank" rel="noopener noreferrer"
+                           title="View official pricing">
+                          <ExternalLink className="w-3.5 h-3.5" />
                         </a>
                       </div>
-                      <div className="text-xs text-muted-foreground ml-4 mt-1">Sonnet 4.5</div>
+                      <div className="text-sm text-muted-foreground mt-1">Sonnet 4.5</div>
                     </div>
-                    <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$3~$6</div>
-                    <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$3.75~$7.50</div>
-                    <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$0.30~$0.60</div>
-                    <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$15~$22.50</div>
+                    <div className="col-span-2 text-center font-mono text-base text-muted-foreground">$3~$6</div>
+                    <div className="col-span-2 text-center font-mono text-base text-muted-foreground">$3.75~$7.50</div>
+                    <div className="col-span-2 text-center font-mono text-base text-muted-foreground">$0.30~$0.60</div>
+                    <div className="col-span-2 text-center font-mono text-base text-muted-foreground">$15~$22.50</div>
                   </div>
 
                 </div>
@@ -192,7 +189,7 @@ const Pricing = () => {
                   className="w-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity px-8 h-14 rounded-xl font-medium shadow-lg shadow-primary/20"
                   onClick={() => {
                     trackButtonClick("pricing_free_trial_dashboard");
-                    navigate("/dashboard2");
+                    navigate("/dashboard");
                   }}
                 >
                   Get started
@@ -252,7 +249,7 @@ const Pricing = () => {
                   className="w-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity px-8 h-14 rounded-xl font-medium shadow-lg shadow-primary/20"
                   onClick={() => {
                     trackButtonClick("pricing_payasyougo_dashboard");
-                    navigate("/dashboard2");
+                    navigate("/dashboard");
                   }}
                 >
                   Start using

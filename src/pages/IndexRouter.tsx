@@ -40,7 +40,7 @@ function getRedirectTarget({code, locationHash}: { code: string | null, location
     return locationHash
   }
   if (code) {
-    return '/dashboard2';
+    return '/dashboard';
   }
   return '/home';
 }

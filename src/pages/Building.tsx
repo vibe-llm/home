@@ -7,7 +7,7 @@ const Building = () => {
   const navigate = useNavigate();
   usePageTracking("Building");
   return (
-    <div className="min-h-screen bg-gradient-hero flex items-center justify-center px-6">
+    <div className="min-h-screen bg-gradient-hero flex items-center justify-center px-6 pt-20">
       <div className="max-w-2xl mx-auto text-center">
         {/* Construction Icon */}
         <div className="mb-8">
