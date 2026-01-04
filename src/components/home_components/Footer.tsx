@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button.tsx";
-import { ArrowRight, Code, Github, Twitter, Mail } from "lucide-react";
+import { Code, Mail } from "lucide-react";
 import ContactUsForm from "../ContactUsForm.tsx";
 import { Link } from "react-router-dom";
 import { trackButtonClick } from "@/lib/analytics.ts";
@@ -17,7 +16,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <Code className="w-8 h-8 text-primary mr-2" />
-              <span className="text-2xl font-bold">Vibe LLM</span>
+              <span className="text-2xl font-serif font-bold text-foreground">Vibe LLM</span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Enterprise-grade AI at startup prices. Built for developers who demand performance without compromise.

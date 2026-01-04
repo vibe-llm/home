@@ -46,21 +46,21 @@ const FAQ = () => {
                 <div className="max-w-3xl mx-auto">
                     {/* Header */}
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                        <h2 className="text-3xl md:text-4xl font-serif font-medium mb-4 text-foreground">
                             Frequently Asked Questions
                         </h2>
-                        <p className="text-lg text-muted-foreground">
+                        <p className="text-lg text-muted-foreground font-light">
                             Everything you need to know about Vibe LLM
                         </p>
                     </div>
 
                     {/* FAQ Accordion */}
-                    <Accordion type="single" collapsible className="space-y-3">
+                    <Accordion type="single" collapsible className="space-y-4">
                         {faqs.map((faq, index) => (
                             <AccordionItem
                                 key={index}
                                 value={`item-${index}`}
-                                className="bg-card border border-border rounded-lg px-6 hover:border-primary/40 hover:shadow-sm transition-all"
+                                className="bg-card border border-border rounded-xl px-6 shadow-sm hover:shadow-md transition-all duration-300"
                             >
                                 <AccordionTrigger className="text-left font-semibold hover:text-primary py-5">
                                     {faq.question}

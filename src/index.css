@@ -8,59 +8,59 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Apple-inspired light theme design system */
-    --background: 0 0% 98%;          /* #F5F5F7 */
-    --foreground: 220 25% 15%;       /* #1D1D1F */
+    /* Claude-inspired warm theme design system */
+    --background: 30 14% 97%;        /* #F9F7F5 - Warm beige/off-white */
+    --foreground: 24 10% 10%;        /* #1C1A19 - Warm black */
 
     --card: 0 0% 100%;               /* #FFFFFF */
-    --card-foreground: 220 25% 15%;
+    --card-foreground: 24 10% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 15%;
+    --popover-foreground: 24 10% 10%;
 
-    /* Apple blue as primary */
-    --primary: 211 100% 48%;         /* #0071E3 */
-    --primary-foreground: 0 0% 100%;
+    /* Warm black/brown as primary for high contrast & elegance */
+    --primary: 24 10% 10%;           /* #1C1A19 */
+    --primary-foreground: 30 14% 97%;
 
-    --secondary: 220 15% 94%;        /* #EFEFF1 */
-    --secondary-foreground: 220 25% 15%;
+    --secondary: 30 10% 92%;         /* #EBE9E6 */
+    --secondary-foreground: 24 10% 10%;
 
-    --muted: 220 15% 92%;            /* #EBEBED */
-    --muted-foreground: 215 10% 45%; /* #6E6E73 */
+    --muted: 30 10% 94%;             /* #F0EEEB */
+    --muted-foreground: 24 5% 45%;   /* #757370 */
 
-    --accent: 211 100% 48%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 28 30% 90%;            /* #F2EBE6 - Soft warm accent */
+    --accent-foreground: 24 10% 10%;
 
-    --destructive: 0 70% 55%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 88%;           /* #D2D2D7 */
-    --input: 220 15% 92%;
-    --ring: 211 100% 48%;
+    --border: 30 6% 88%;             /* #E3E1DE */
+    --input: 30 6% 88%;
+    --ring: 24 10% 10%;
 
-    /* Radius */
+    /* Radius - slightly larger for friendly feel */
     --radius: 0.75rem;
 
-    /* Apple-style design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(211 100% 48%), hsl(215 95% 55%));
-    --gradient-secondary: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 15% 96%));
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    /* Warm gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(24 10% 10%), hsl(24 10% 20%));
+    --gradient-secondary: linear-gradient(180deg, hsl(30 14% 97%), hsl(30 10% 92%));
+    --gradient-hero: linear-gradient(180deg, hsl(30 14% 97%) 0%, hsl(30 20% 94%) 100%);
 
-    /* Soft multi-layer shadows */
-    --shadow-card: 0 2px 8px hsl(0 0% 0% / 0.04), 0 1px 2px hsl(0 0% 0% / 0.06);
-    --shadow-card-hover: 0 8px 30px hsl(0 0% 0% / 0.08), 0 4px 10px hsl(0 0% 0% / 0.04);
-    --shadow-bento: 0 1px 3px hsl(0 0% 0% / 0.04), 0 1px 2px hsl(0 0% 0% / 0.06);
+    /* Soft, diffused shadows */
+    --shadow-card: 0 2px 12px -2px hsl(24 10% 10% / 0.06), 0 1px 3px -1px hsl(24 10% 10% / 0.04);
+    --shadow-card-hover: 0 12px 32px -4px hsl(24 10% 10% / 0.08), 0 4px 12px -2px hsl(24 10% 10% / 0.04);
+    --shadow-bento: 0 1px 3px hsl(24 10% 10% / 0.05);
 
-    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 30 14% 96%;
+    --sidebar-foreground: 24 10% 10%;
+    --sidebar-primary: 24 10% 10%;
+    --sidebar-primary-foreground: 30 14% 97%;
+    --sidebar-accent: 30 10% 90%;
+    --sidebar-accent-foreground: 24 10% 10%;
+    --sidebar-border: 30 6% 88%;
+    --sidebar-ring: 24 10% 10%;
   }
 }
 

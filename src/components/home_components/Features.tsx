@@ -6,61 +6,9 @@ import {
     CreditCard,
     Shield,
     Rocket,
-    CheckCircle2,
     Server,
     Gauge
 } from "lucide-react";
-
-const features = [
-    {
-        icon: DollarSign,
-        title: "Save Up to 50% on Output Costs",
-        description: "Output at $1.10/M tokens vs Z.AI's $2.20. Same GLM-4.7 model, optimized infrastructure.",
-        size: "large"
-    },
-    {
-        icon: Zap,
-        title: "GLM-4.7 Production Ready",
-        description: "Excels at code generation, complex reasoning, and Chinese language tasks. Stable and mature.",
-        size: "small"
-    },
-    {
-        icon: Shield,
-        title: "No Model Compromises",
-        description: "We use the complete GLM-4.7 model. Full capabilities, full intelligence.",
-        size: "small"
-    },
-    {
-        icon: Server,
-        title: "Engineering Optimizations",
-        description: "Cost savings from GPU scheduling, request batching, and efficient resource utilization.",
-        size: "small"
-    },
-    {
-        icon: Code,
-        title: "Drop-In Integration",
-        description: "Standard API format. Change endpoints and keys - no code modifications needed.",
-        size: "small"
-    },
-    {
-        icon: Gauge,
-        title: "99.9% Uptime SLA",
-        description: "Reliable infrastructure with redundant systems. Real-time status monitoring included.",
-        size: "small"
-    },
-    {
-        icon: CreditCard,
-        title: "Pay-As-You-Go",
-        description: "No monthly commitments or minimums. Top up from $5, scale up or down instantly.",
-        size: "small"
-    },
-    {
-        icon: Rocket,
-        title: "Built For Developers",
-        description: "Individual developers, early-stage startups, side projects, and internal tools where cost efficiency matters.",
-        size: "large"
-    }
-];
 
 const Features = () => {
     return (
@@ -68,10 +16,10 @@ const Features = () => {
             <div className="container mx-auto px-6">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-5">
+                    <h2 className="text-4xl md:text-5xl font-serif font-medium mb-5 text-foreground">
                         Why Choose Vibe LLM?
                     </h2>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
                         Production-ready GLM-4.7 without the premium price tag
                     </p>
                 </div>

@@ -13,23 +13,23 @@ const Pricing = () => {
             <div className="container mx-auto px-6">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-5">
+                    <h2 className="text-4xl md:text-5xl font-serif font-medium mb-5 text-foreground">
                         Simple, Transparent Pricing
                     </h2>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
                         Pay only for what you use. No hidden fees, no monthly commitments.
                     </p>
                 </div>
 
                 {/* Price Comparison Card */}
-                <div className="max-w-5xl mx-auto mb-12">
-                    <Card className="bg-card border-border shadow-bento overflow-hidden">
+                <div className="max-w-6xl mx-auto mb-12">
+                    <Card className="bg-card border-border shadow-card overflow-hidden rounded-2xl">
                         <CardContent className="p-0">
                             {/* Header */}
-                            <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 border-b border-border">
+                            <div className="bg-secondary/30 p-6 border-b border-border/50">
                                 <div className="flex items-center justify-center gap-3">
                                     <BadgeCheck className="w-6 h-6 text-primary" />
-                                    <h3 className="text-xl font-semibold">GLM-4.7 Pricing Comparison</h3>
+                                    <h3 className="text-xl font-serif font-medium">GLM-4.7 Pricing Comparison</h3>
                                 </div>
                                 <p className="text-center text-sm text-muted-foreground mt-2">
                                     Output cost at <span className="text-primary font-semibold">50% of Z.AI</span> pricing
@@ -40,35 +40,35 @@ const Pricing = () => {
                             <div className="overflow-x-auto">
                                 <div className="min-w-full">
                                     {/* Header Row */}
-                                    <div className="grid grid-cols-5 gap-3 px-6 py-4 bg-muted/30 border-b border-border">
-                                        <div className="font-semibold text-sm">Provider & Model</div>
-                                        <div className="text-center font-semibold text-sm">Input</div>
-                                        <div className="text-center font-semibold text-sm">Cache Write</div>
-                                        <div className="text-center font-semibold text-sm">Cache Read</div>
-                                        <div className="text-center font-semibold text-sm">Output</div>
+                                    <div className="grid grid-cols-12 gap-3 px-6 py-4 bg-secondary/50 border-b border-border/50">
+                                        <div className="col-span-4 font-medium text-sm text-muted-foreground">Provider & Model</div>
+                                        <div className="col-span-2 text-center font-medium text-sm text-muted-foreground">Input</div>
+                                        <div className="col-span-2 text-center font-medium text-sm text-muted-foreground">Cache Write</div>
+                                        <div className="col-span-2 text-center font-medium text-sm text-muted-foreground">Cache Read</div>
+                                        <div className="col-span-2 text-center font-medium text-sm text-muted-foreground">Output</div>
                                     </div>
 
                                     {/* Vibe LLM Row - Highlighted */}
-                                    <div className="grid grid-cols-5 gap-3 px-6 py-5 bg-primary/[0.03] border-b border-primary/20">
-                                        <div>
+                                    <div className="grid grid-cols-12 gap-3 px-6 py-5 bg-primary/5 border-b border-primary/10">
+                                        <div className="col-span-4">
                                             <div className="flex items-center gap-2">
                                                 <div className="w-2 h-2 rounded-full bg-primary" />
                                                 <span className="font-semibold text-primary">Our Price</span>
                                             </div>
                                             <div className="text-xs text-muted-foreground ml-4 mt-1">GLM-4.7</div>
                                         </div>
-                                        <div className="text-center font-mono font-medium">$0.50</div>
-                                        <div className="text-center font-mono font-medium">Free</div>
-                                        <div className="text-center font-mono font-medium">$0.10</div>
-                                        <div className="text-center">
+                                        <div className="col-span-2 text-center font-mono font-medium">$0.50</div>
+                                        <div className="col-span-2 text-center font-mono font-medium">Free</div>
+                                        <div className="col-span-2 text-center font-mono font-medium">$0.10</div>
+                                        <div className="col-span-2 text-center">
                                             <span className="font-mono font-bold text-primary text-lg">$1.10</span>
                                             <div className="text-xs text-primary font-semibold">50% OFF</div>
                                         </div>
                                     </div>
 
                                     {/* Z.AI Row */}
-                                    <div className="grid grid-cols-5 gap-3 px-6 py-4 border-b border-border hover:bg-muted/20 transition-colors">
-                                        <div>
+                                    <div className="grid grid-cols-12 gap-3 px-6 py-4 border-b border-border hover:bg-muted/20 transition-colors">
+                                        <div className="col-span-4">
                                             <div className="flex items-center gap-1">
                                                 <span className="text-muted-foreground">Z.AI</span>
                                                 <a href="https://docs.z.ai/guides/overview/pricing"
@@ -81,18 +81,18 @@ const Pricing = () => {
                                             </div>
                                             <div className="text-xs text-muted-foreground ml-4 mt-1">GLM-4.7</div>
                                         </div>
-                                        <div className="text-center font-mono text-muted-foreground">$0.60</div>
-                                        <div className="text-center font-mono text-muted-foreground">Free</div>
-                                        <div className="text-center font-mono text-muted-foreground">$0.11</div>
-                                        <div className="text-center">
+                                        <div className="col-span-2 text-center font-mono text-muted-foreground">$0.60</div>
+                                        <div className="col-span-2 text-center font-mono text-muted-foreground">Free</div>
+                                        <div className="col-span-2 text-center font-mono text-muted-foreground">$0.11</div>
+                                        <div className="col-span-2 text-center">
                                             <span className="font-mono text-muted-foreground line-through text-sm mr-2">$2.20</span>
                                             <span className="text-xs text-destructive font-semibold">2x price</span>
                                         </div>
                                     </div>
 
                                     {/* OpenAI Row */}
-                                    <div className="grid grid-cols-5 gap-3 px-6 py-4 border-b border-border hover:bg-muted/20 transition-colors">
-                                        <div>
+                                    <div className="grid grid-cols-12 gap-3 px-6 py-4 border-b border-border hover:bg-muted/20 transition-colors">
+                                        <div className="col-span-4">
                                             <div className="flex items-center gap-1">
                                                 <span className="text-muted-foreground">OpenAI</span>
                                                 <a href="https://openai.com/api/pricing/"
@@ -105,16 +105,16 @@ const Pricing = () => {
                                             </div>
                                             <div className="text-xs text-muted-foreground ml-4 mt-1">GPT-5.2</div>
                                         </div>
-                                        <div className="text-center font-mono text-xs text-muted-foreground">$1.75</div>
-                                        <div className="text-center font-mono text-xs text-muted-foreground">Free</div>
-                                        <div className="text-center font-mono text-xs text-muted-foreground">$0.175</div>
-                                        <div className="text-center font-mono text-xs text-muted-foreground">$14.00</div>
+                                        <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$1.75</div>
+                                        <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">Free</div>
+                                        <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$0.175</div>
+                                        <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$14.00</div>
                                     </div>
 
 
                                   {/* Claude Row */}
-                                  <div className="grid grid-cols-5 gap-3 px-6 py-4 hover:bg-muted/20 transition-colors">
-                                    <div>
+                                  <div className="grid grid-cols-12 gap-3 px-6 py-4 hover:bg-muted/20 transition-colors">
+                                    <div className="col-span-4">
                                       <div className="flex items-center gap-1">
                                         <span className="text-muted-foreground">Claude</span>
                                         <a href="https://www.anthropic.com/pricing#api"
@@ -127,10 +127,10 @@ const Pricing = () => {
                                       </div>
                                       <div className="text-xs text-muted-foreground ml-4 mt-1">Sonnet 4.5</div>
                                     </div>
-                                    <div className="text-center font-mono text-xs text-muted-foreground">$3~$6</div>
-                                    <div className="text-center font-mono text-xs text-muted-foreground">$3.75~$7.50</div>
-                                    <div className="text-center font-mono text-xs text-muted-foreground">$0.30~$0.60</div>
-                                    <div className="text-center font-mono text-xs text-muted-foreground">$15~$22.50</div>
+                                    <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$3~$6</div>
+                                    <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$3.75~$7.50</div>
+                                    <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$0.30~$0.60</div>
+                                    <div className="col-span-2 text-center font-mono text-xs text-muted-foreground">$15~$22.50</div>
                                   </div>
 
                                 </div>
@@ -148,7 +148,7 @@ const Pricing = () => {
                 </div>
 
                 {/* Pricing Cards - Bento Grid */}
-                <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
+                <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto mb-8">
                     {/* Free Trial */}
                     <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300">
                         <div className="h-1 bg-primary w-full" />

@@ -161,90 +161,93 @@ const UserDashboard2 = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-hero py-16 px-6">
+    <div className="min-h-screen bg-background py-12 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="flex justify-between items-start mb-8">
+        <div className="mb-12">
+          <div className="flex justify-between items-center mb-8">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-gradient-primary/10 flex items-center justify-center">
-                <User className="w-8 h-8 text-primary"/>
+              <div className="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center border border-primary/10">
+                <User className="w-7 h-7 text-primary"/>
               </div>
               <div className="text-left">
-                <h1 className="text-3xl font-bold text-foreground">User Dashboard</h1>
-                <p className="text-muted-foreground">
-                  {session?.user ? `Welcome, ${session?.user?.email}` : "Sign in to access your dashboard"}
+                <h1 className="text-3xl font-serif font-medium text-foreground">User Dashboard</h1>
+                <p className="text-muted-foreground font-light">
+                  {session?.user ? `Welcome back, ${session?.user?.email}` : "Sign in to access your dashboard"}
                 </p>
               </div>
             </div>
+            <Button
+                variant="ghost"
+                onClick={() => navigate('/')}
+                className="text-muted-foreground hover:text-foreground"
+            >
+                <ArrowLeft className="w-4 h-4 mr-2"/>
+                Back to Home
+            </Button>
           </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {/* Account Section */}
-          <Card className="bg-white/5 border-white/10 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl">
-                <User className="w-6 h-6 text-primary"/>
+          <Card className="bg-card border-border shadow-card hover:shadow-card-hover transition-all duration-300">
+            <CardHeader className="pb-4 border-b border-border/50">
+              <CardTitle className="flex items-center gap-3 text-xl font-serif font-medium">
+                <User className="w-5 h-5 text-primary"/>
                 Account Status
               </CardTitle>
               {/* 移除月份选择器 */}
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-8 pt-6">
               {session?.user ? (
                 <>
                   {error && (
-                    <Alert className="border-red-500/20 bg-red-500/10 mt-4">
-                      <AlertDescription className="text-red-300">{error}</AlertDescription>
+                    <Alert variant="destructive" className="mt-4">
+                      <AlertDescription>{error}</AlertDescription>
                     </Alert>
                   )}
                   {/* 1. Current Balance Section */}
-                  <div className="mb-8">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="inline-block w-1.5 h-6 bg-primary rounded-sm" />
-                      <h3 className="text-xl font-bold text-foreground tracking-tight">Current Balance</h3>
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <h3 className="text-lg font-medium text-foreground tracking-tight">Current Balance</h3>
                       {walletLoading && (
-                        <svg className="animate-spin ml-2 h-5 w-5 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <svg className="animate-spin ml-2 h-4 w-4 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
                         </svg>
                       )}
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div className="bg-white/5 rounded-lg p-4 text-center flex flex-col justify-end" style={{minHeight: '120px'}}>
-                        <p className="text-muted-foreground text-sm">Current Balance</p>
-                        <div className="flex-1" />
+                      <div className="bg-secondary/30 rounded-xl p-5 text-center flex flex-col justify-between h-32 border border-border/50">
+                        <p className="text-muted-foreground text-sm font-medium">Balance</p>
                         {walletLoading ? (
-                          <span className="inline-block w-6 h-6 align-bottom animate-pulse bg-primary/30 rounded" />
+                          <span className="inline-block w-8 h-8 mx-auto animate-pulse bg-primary/10 rounded" />
                         ) : (
-                          <p className="text-2xl font-bold text-primary leading-none align-bottom">{walletData ? walletHelpers.getBalanceRemaining(walletData) : '0'}</p>
+                          <p className="text-3xl font-serif font-medium text-primary">{walletData ? walletHelpers.getBalanceRemaining(walletData) : '0'}</p>
                         )}
                       </div>
-                      <div className="bg-white/5 rounded-lg p-4 text-center flex flex-col justify-end" style={{minHeight: '120px'}}>
-                        <p className="text-muted-foreground text-sm">Total Spend</p>
-                        <div className="flex-1" />
+                      <div className="bg-secondary/30 rounded-xl p-5 text-center flex flex-col justify-between h-32 border border-border/50">
+                        <p className="text-muted-foreground text-sm font-medium">Total Spend</p>
                         {walletLoading ? (
-                          <span className="inline-block w-6 h-6 align-bottom animate-pulse bg-primary/30 rounded" />
+                          <span className="inline-block w-8 h-8 mx-auto animate-pulse bg-primary/10 rounded" />
                         ) : (
-                          <p className="text-2xl font-bold text-foreground leading-none align-bottom">{walletData ? walletHelpers.getTotalSpendFormatted(walletData) : '0'}</p>
+                          <p className="text-3xl font-serif font-medium text-foreground">{walletData ? walletHelpers.getTotalSpendFormatted(walletData) : '0'}</p>
                         )}
                       </div>
-                      <div className="bg-white/5 rounded-lg p-4 text-center flex flex-col justify-end" style={{minHeight: '120px'}}>
-                        <p className="text-muted-foreground text-sm">Est. Tokens Available</p>
-                        <div className="flex-1" />
+                      <div className="bg-secondary/30 rounded-xl p-5 text-center flex flex-col justify-between h-32 border border-border/50">
+                        <p className="text-muted-foreground text-sm font-medium">Est. Tokens</p>
                         {walletLoading ? (
-                          <span className="inline-block w-6 h-6 align-bottom animate-pulse bg-green-400/30 rounded" />
+                          <span className="inline-block w-8 h-8 mx-auto animate-pulse bg-primary/10 rounded" />
                         ) : (
-                          <p className="text-2xl font-bold text-green-400 leading-none align-bottom">{walletData ? walletHelpers.getTokensRemaining(walletData) : '0'}</p>
+                          <p className="text-3xl font-serif font-medium text-green-600">{walletData ? walletHelpers.getTokensRemaining(walletData) : '0'}</p>
                         )}
                       </div>
                     </div>
                   </div>
                   {/* 2. Use your API Token Section */}
                   <div className="mb-8">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="inline-block w-1.5 h-6 bg-primary rounded-sm" />
-                      <h4 className="text-lg font-bold text-foreground tracking-tight">Use your API Token:</h4>
+                    <div className="flex items-center gap-2 mb-4">
+                      <h4 className="text-lg font-medium text-foreground tracking-tight">Use your API Token</h4>
                       {walletLoading && (
                         <svg className="animate-spin ml-2 h-4 w-4 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -254,19 +257,19 @@ const UserDashboard2 = () => {
                     </div>
                     <div className="relative">
                       {walletLoading ? (
-                        <div className="bg-black/80 rounded p-4 mb-2 pr-20 min-h-[48px] flex items-center">
-                          <span className="inline-block h-4 w-32 bg-primary/20 rounded animate-pulse" />
+                        <div className="bg-secondary/50 rounded-xl p-4 mb-2 pr-20 min-h-[48px] flex items-center border border-border/50">
+                          <span className="inline-block h-4 w-32 bg-primary/10 rounded animate-pulse" />
                         </div>
                       ) : apiToken ? (
                         <>
                           <div className="mb-2">
-                            <pre className="bg-black/80 text-green-200 rounded p-4 font-mono text-[10px] overflow-x-auto select-all min-h-[48px]">
+                            <pre className="bg-secondary/50 text-foreground rounded-xl p-4 font-mono text-xs overflow-x-auto select-all min-h-[48px] border border-border/50">
 {`export ANTHROPIC_MODEL=vibe-normal\nexport ANTHROPIC_BASE_URL=https://api.vibe-llm.online/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=${apiToken}`}
                             </pre>
                           </div>
                           <div className="flex justify-end">
                             <button
-                              className="px-2 py-1 rounded bg-primary/10 text-primary text-xs font-medium hover:bg-primary/20 transition-colors border border-primary/20"
+                              className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-medium hover:opacity-90 transition-opacity shadow-sm"
                               onClick={() => {
                                 navigator.clipboard.writeText(
                                   `export ANTHROPIC_BASE_URL=https://api.vibe-llm.online/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=${apiToken}`
@@ -280,8 +283,8 @@ const UserDashboard2 = () => {
                           </div>
                         </>
                       ) : (
-                        <div className="bg-black/80 rounded p-4 mb-2 pr-20 min-h-[48px] flex items-center">
-                          <span className="inline-block h-4 w-32 bg-primary/20 rounded animate-pulse" />
+                        <div className="bg-secondary/50 rounded-xl p-4 mb-2 pr-20 min-h-[48px] flex items-center border border-border/50">
+                          <span className="inline-block h-4 w-32 bg-primary/10 rounded animate-pulse" />
                         </div>
                       )}
                     </div>
@@ -289,44 +292,43 @@ const UserDashboard2 = () => {
                   </div>
                   {/* 3. Recent Usage Section */}
                   <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="inline-block w-1.5 h-6 bg-primary rounded-sm" />
-                      <h3 className="text-xl font-bold text-foreground tracking-tight">Recent Usage (Last 30 Days)</h3>
+                    <div className="flex items-center gap-2 mb-4">
+                      <h3 className="text-lg font-medium text-foreground tracking-tight">Recent Usage (Last 30 Days)</h3>
                       {usageLoading && (
-                        <svg className="animate-spin ml-2 h-5 w-5 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <svg className="animate-spin ml-2 h-4 w-4 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
                         </svg>
                       )}
                     </div>
                     {usageLoading ? (
-                      <div className="bg-white/5 rounded-lg p-8 flex items-center justify-center">
-                        <p className="text-muted-foreground text-lg">Loading usage data...</p>
+                      <div className="bg-secondary/30 rounded-xl p-8 flex items-center justify-center border border-border/50">
+                        <p className="text-muted-foreground text-sm">Loading usage data...</p>
                       </div>
                     ) : (
-                      <div className="bg-white/5 rounded-lg overflow-hidden">
+                      <div className="bg-secondary/30 rounded-xl overflow-hidden border border-border/50">
                         <Table>
                           <TableHeader>
-                            <TableRow className="border-white/10">
-                              <TableHead className="text-muted-foreground">Date</TableHead>
-                              <TableHead className="text-muted-foreground">Tokens Used</TableHead>
-                              <TableHead className="text-muted-foreground">Requests</TableHead>
-                              <TableHead className="text-muted-foreground">Est. Cost</TableHead>
+                            <TableRow className="border-border/50 hover:bg-transparent">
+                              <TableHead className="text-muted-foreground font-medium">Date</TableHead>
+                              <TableHead className="text-muted-foreground font-medium">Tokens Used</TableHead>
+                              <TableHead className="text-muted-foreground font-medium">Requests</TableHead>
+                              <TableHead className="text-muted-foreground font-medium">Est. Cost</TableHead>
                             </TableRow>
                           </TableHeader>
                           <TableBody>
                             {formatUsageData(usageHistory).length > 0 ? (
                               formatUsageData(usageHistory).map((row, index) => (
-                                <TableRow key={index} className="border-white/10">
-                                  <TableCell className="text-foreground">{row.date}</TableCell>
-                                  <TableCell className="text-foreground">{row.tokens.toLocaleString()}</TableCell>
-                                  <TableCell className="text-foreground">{row.requests.toLocaleString()}</TableCell>
-                                  <TableCell className="text-foreground">${row.cost.toFixed(4)}</TableCell>
+                                <TableRow key={index} className="border-border/50 hover:bg-secondary/50">
+                                  <TableCell className="text-foreground font-mono text-xs">{row.date}</TableCell>
+                                  <TableCell className="text-foreground font-mono text-xs">{row.tokens.toLocaleString()}</TableCell>
+                                  <TableCell className="text-foreground font-mono text-xs">{row.requests.toLocaleString()}</TableCell>
+                                  <TableCell className="text-foreground font-mono text-xs">${row.cost.toFixed(4)}</TableCell>
                                 </TableRow>
                               ))
                             ) : (
-                              <TableRow className="border-white/10">
-                                <TableCell colSpan={4} className="text-center text-muted-foreground py-8">
+                              <TableRow className="border-border/50 hover:bg-transparent">
+                                <TableCell colSpan={4} className="text-center text-muted-foreground py-8 text-sm">
                                   No usage data available for the past 30 days
                                 </TableCell>
                               </TableRow>
@@ -339,48 +341,50 @@ const UserDashboard2 = () => {
                   <Button
                     variant="outline"
                     onClick={handleSignOut}
-                    className="w-full border-primary/30 text-foreground hover:bg-primary/5 mt-8"
+                    className="w-full border-border text-muted-foreground hover:text-foreground hover:bg-secondary mt-8"
                   >
                     <LogOut className="w-4 h-4 mr-2"/>
                     Sign Out
                   </Button>
                 </>
               ) : (
-                <div className="space-y-6">
+                <div className="space-y-8 py-8">
                   <div className="text-center space-y-4">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-gradient-primary/10 flex items-center justify-center">
+                    <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/5 flex items-center justify-center border border-primary/10">
                       <User className="w-8 h-8 text-primary"/>
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground">Sign in to access your account</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="text-xl font-serif font-medium text-foreground">Sign in to access your account</h3>
+                    <p className="text-muted-foreground max-w-xs mx-auto">
                       Use your Google account to sign in and manage your Vibe LLM account.
                     </p>
                   </div>
 
-                  <GoogleSignInButton/>
+                  <div className="flex justify-center">
+                    <GoogleSignInButton/>
+                  </div>
                 </div>
               )}
             </CardContent>
           </Card>
 
           {/* Top Up Section */}
-          <Card className="bg-white/5 border-white/10 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-2xl">
-                <CreditCard className="w-6 h-6 text-primary"/>
+          <Card className="bg-card border-border shadow-card hover:shadow-card-hover transition-all duration-300 h-fit">
+            <CardHeader className="pb-4 border-b border-border/50">
+              <CardTitle className="flex items-center gap-3 text-xl font-serif font-medium">
+                <CreditCard className="w-5 h-5 text-primary"/>
                 Top Up Balance
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="space-y-4">
-                <p className="text-muted-foreground text-lg leading-relaxed">
+            <CardContent className="space-y-8 pt-6">
+              <div className="space-y-6">
+                <p className="text-muted-foreground leading-relaxed">
                   Add credits to your Vibe LLM account to continue using our services. Your balance will be updated
                   within 1 hour after a successful payment.
                 </p>
 
-                <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
-                  <h4 className="text-blue-300 font-semibold mb-2">How it works:</h4>
-                  <ul className="text-blue-200 text-sm space-y-1 list-disc list-inside">
+                <div className="bg-blue-50/50 border border-blue-100 rounded-xl p-5">
+                  <h4 className="text-blue-900 font-medium mb-3 text-sm">How it works:</h4>
+                  <ul className="text-blue-700 text-sm space-y-2 list-disc list-inside">
                     <li>Click the "Top Up" button below</li>
                     <li>Complete your payment securely via Stripe</li>
                     <li>Your balance will be updated within 1 hour</li>
@@ -389,18 +393,18 @@ const UserDashboard2 = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <h4 className="text-foreground font-semibold">Top-Up Options:</h4>
+                  <h4 className="text-foreground font-medium text-sm uppercase tracking-wider">Top-Up Options</h4>
                   <div className="space-y-3">
-                    <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                      <span className="text-foreground">$5.00</span>
+                    <div className="flex justify-between items-center p-4 bg-secondary/30 rounded-xl border border-border/50">
+                      <span className="text-foreground font-medium">$5.00</span>
                       <span className="text-muted-foreground text-sm">~6M tokens</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                      <span className="text-foreground">$20.00</span>
+                    <div className="flex justify-between items-center p-4 bg-secondary/30 rounded-xl border border-border/50">
+                      <span className="text-foreground font-medium">$20.00</span>
                       <span className="text-muted-foreground text-sm">~24M tokens</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                      <span className="text-foreground">$50.00</span>
+                    <div className="flex justify-between items-center p-4 bg-secondary/30 rounded-xl border border-border/50">
+                      <span className="text-foreground font-medium">$50.00</span>
                       <span className="text-muted-foreground text-sm">~60M tokens</span>
                     </div>
                   </div>
@@ -408,7 +412,7 @@ const UserDashboard2 = () => {
 
                 <Button
                   onClick={handleTopUp}
-                  className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg py-6"
+                  className="w-full bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 text-lg py-6 rounded-xl shadow-lg shadow-primary/20"
                   size="lg"
                 >
                   <ExternalLink className="w-5 h-5 mr-2"/>
@@ -423,17 +427,7 @@ const UserDashboard2 = () => {
           </Card>
         </div>
 
-        {/* Back Button */}
-        <div className="text-center">
-          <Button
-            size="lg"
-            className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 h-auto"
-            onClick={() => navigate('/')}
-          >
-            <ArrowLeft className="w-5 h-5 mr-2"/>
-            Back to Vibe LLM
-          </Button>
-        </div>
+        {/* Back Button - Removed as it's now in the header */}
       </div>
     </div>
   );
