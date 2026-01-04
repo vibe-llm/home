@@ -15,11 +15,11 @@ const TermsOfService = () => {
             <Scale className="w-16 h-16 text-primary" />
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
+          <h1 className="text-h1 md:text-5xl font-bold mb-6 text-foreground">
             Terms of Service
           </h1>
           
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-bodyLg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Your rights and responsibilities when using Vibe LLM. We don't own your data - you do.
           </p>
         </div>
@@ -30,10 +30,10 @@ const TermsOfService = () => {
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <Gavel className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold text-foreground">1. Acceptance of Terms</h2>
+              <h2 className="text-h3 font-semibold text-foreground">1. Acceptance of Terms</h2>
             </div>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              By accessing and using Vibe LLM services, you agree to comply with and be bound by these Terms of Service. 
+            <p className="text-muted-foreground text-body leading-body">
+              By accessing and using Vibe LLM services, you agree to comply with and be bound by these Terms of Service.
               If you do not agree to these terms, please do not use our services. Your continued use of our platform 
               constitutes acceptance of any updates to these terms.
             </p>
@@ -43,9 +43,9 @@ const TermsOfService = () => {
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <Shield className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold text-foreground">2. Description of Service</h2>
+              <h2 className="text-h3 font-semibold text-foreground">2. Description of Service</h2>
             </div>
-            <div className="text-muted-foreground text-lg leading-relaxed space-y-4">
+            <div className="text-muted-foreground text-body leading-body space-y-4">
               <p>
                 Vibe LLM provides a secure API proxy service that enables developers to access Claude AI capabilities 
                 at competitive pricing. Our service acts as an intermediary between your applications and Anthropic's Claude API.
@@ -61,11 +61,11 @@ const TermsOfService = () => {
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <Users className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold text-foreground">3. Your Data Ownership Rights</h2>
+              <h2 className="text-h3 font-semibold text-foreground">3. Your Data Ownership Rights</h2>
             </div>
-            <div className="text-muted-foreground text-lg leading-relaxed space-y-4">
+            <div className="text-muted-foreground text-body leading-body space-y-4">
               <p>
-                <strong className="text-primary text-xl">You own your data. We don't store it, period.</strong>
+                <strong className="text-primary text-bodyLg">You own your data. We don't store it, period.</strong>
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>All prompts, code, and content you send through our service remain your intellectual property</li>
@@ -87,9 +87,9 @@ const TermsOfService = () => {
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <AlertTriangle className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold text-foreground">4. Acceptable Use</h2>
+              <h2 className="text-h3 font-semibold text-foreground">4. Acceptable Use</h2>
             </div>
-            <div className="text-muted-foreground text-lg leading-relaxed space-y-4">
+            <div className="text-muted-foreground text-body leading-body space-y-4">
               <p>You agree to use Vibe LLM responsibly and in compliance with all applicable laws. Prohibited activities include:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Attempting to reverse engineer, hack, or compromise our service</li>
@@ -105,9 +105,9 @@ const TermsOfService = () => {
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <Shield className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold text-foreground">5. Service Availability</h2>
+              <h2 className="text-h3 font-semibold text-foreground">5. Service Availability</h2>
             </div>
-            <div className="text-muted-foreground text-lg leading-relaxed space-y-4">
+            <div className="text-muted-foreground text-body leading-body space-y-4">
               <p>
                 We strive to provide reliable service with high uptime. However, we cannot guarantee uninterrupted access due to:
               </p>
@@ -127,9 +127,9 @@ const TermsOfService = () => {
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <FileText className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold text-foreground">6. Intellectual Property</h2>
+              <h2 className="text-h3 font-semibold text-foreground">6. Intellectual Property</h2>
             </div>
-            <div className="text-muted-foreground text-lg leading-relaxed space-y-4">
+            <div className="text-muted-foreground text-body leading-body space-y-4">
               <p>
                 <strong className="text-primary">Your content remains yours.</strong> Vibe LLM and its associated branding, 
                 documentation, and service infrastructure are our intellectual property.
@@ -147,10 +147,10 @@ const TermsOfService = () => {
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <Scale className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold text-foreground">7. Limitation of Liability</h2>
+              <h2 className="text-h3 font-semibold text-foreground">7. Limitation of Liability</h2>
             </div>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Vibe LLM is provided "as is" without warranties of any kind. We are not liable for any damages arising from 
+            <p className="text-muted-foreground text-body leading-body">
+              Vibe LLM is provided "as is" without warranties of any kind. We are not liable for any damages arising from
               service use, including but not limited to data loss, business interruption, or security breaches. 
               Your maximum remedy is limited to the amount paid for our services in the preceding 30 days.
             </p>
@@ -160,10 +160,10 @@ const TermsOfService = () => {
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <FileText className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold text-foreground">8. Changes to Terms</h2>
+              <h2 className="text-h3 font-semibold text-foreground">8. Changes to Terms</h2>
             </div>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              We may update these Terms of Service periodically to reflect changes in our practices or legal requirements. 
+            <p className="text-muted-foreground text-body leading-body">
+              We may update these Terms of Service periodically to reflect changes in our practices or legal requirements.
               Material changes will be communicated via email to registered users at least 30 days before taking effect. 
               Continued use of our service after changes constitutes acceptance of the updated terms.
             </p>
@@ -173,17 +173,17 @@ const TermsOfService = () => {
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <Mail className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold text-foreground">9. Contact Information</h2>
+              <h2 className="text-h3 font-semibold text-foreground">9. Contact Information</h2>
             </div>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              If you have any questions about these Terms of Service, please contact us through our website's contact form. 
+            <p className="text-muted-foreground text-body leading-body">
+              If you have any questions about these Terms of Service, please contact us through our website's contact form.
               We're committed to addressing any concerns you may have about our terms or service.
             </p>
           </section>
 
           {/* Effective Date */}
           <div className="text-center py-8">
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-bodySm">
               <strong>Effective Date:</strong> July 1, 2025
             </p>
           </div>
@@ -193,7 +193,7 @@ const TermsOfService = () => {
         <div className="text-center">
           <Button 
             size="lg" 
-            className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 h-auto"
+            className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-bodyLg px-8 py-6 h-auto"
             onClick={() => navigate('/')}
           >
             <ArrowLeft className="w-5 h-5 mr-2" />

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import * as tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -97,7 +98,57 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        sans: [
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          '"PingFang SC"',
+          '"Hiragino Sans GB"',
+          '"Microsoft YaHei"',
+          '"Noto Sans CJK SC"',
+          '"Noto Sans SC"',
+          '"Helvetica Neue"',
+          "Arial",
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+        ],
+        mono: [
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          '"Liberation Mono"',
+          '"Courier New"',
+          "monospace",
+        ],
+      },
+      fontSize: {
+        // 小字/标签（表格、辅助说明）
+        caption: ["0.8125rem", { lineHeight: "1.4", letterSpacing: "0em" }], // 13px
+        footnote: ["0.875rem", { lineHeight: "1.5", letterSpacing: "-0.005em" }], // 14px
+
+        // 正文阅读档位
+        bodySm: ["0.9375rem", { lineHeight: "1.65", letterSpacing: "-0.005em" }], // 15px
+        body: ["1rem", { lineHeight: "1.7", letterSpacing: "-0.01em" }], // 16px
+        bodyLg: ["1.125rem", { lineHeight: "1.75", letterSpacing: "-0.0125em" }], // 18px
+
+        // 标题档位（克制的 scale，比 text-4xl/6xl 更适合长文阅读页）
+        h4: ["1.25rem", { lineHeight: "1.35", letterSpacing: "-0.02em" }], // 20px
+        h3: ["1.5rem", { lineHeight: "1.25", letterSpacing: "-0.025em" }], // 24px
+        h2: ["1.875rem", { lineHeight: "1.15", letterSpacing: "-0.03em" }], // 30px
+        h1: ["2.25rem", { lineHeight: "1.1", letterSpacing: "-0.035em" }], // 36px
+      },
+      lineHeight: {
+        body: "1.7",
+        bodyLg: "1.75",
+        heading: "1.2",
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
