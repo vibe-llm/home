@@ -3,11 +3,7 @@ import {
     DollarSign,
     Code,
     Zap,
-    CreditCard,
-    Shield,
-    Rocket,
-    Server,
-    Gauge
+    CreditCard
 } from "lucide-react";
 
 const Features = () => {
@@ -28,103 +24,105 @@ const Features = () => {
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
 
                     {/* Large card - spans 2 cols, 2 rows */}
-                    <Card className="md:col-span-2 md:row-span-2 bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300">
-                        <CardContent className="p-8 h-full flex flex-col">
-                            <div className="p-4 rounded-xl bg-primary/5 w-fit mb-5">
+                    <Card className="md:col-span-2 md:row-span-2 bg-card border-border shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col">
+                        <CardContent className="p-8 flex-1 flex flex-col">
+                            <div className="p-4 rounded-xl bg-primary/5 w-fit mb-6">
                                 <DollarSign className="w-8 h-8 text-primary" />
                             </div>
-                            <h3 className="text-2xl font-semibold mb-4 leading-tight">Save Up to 50% on Output Costs</h3>
-                            <p className="text-base text-muted-foreground leading-relaxed flex-1">
-                                Output at $1.10/M tokens vs Z.AI's $2.20. Same GLM-4.7 model, optimized infrastructure.
+                            <h3 className="text-2xl font-serif font-medium mb-4 leading-tight">Save Up to 50% on Output Costs</h3>
+                            <p className="text-base text-muted-foreground leading-relaxed mb-6">
+                                Output at <span className="text-foreground font-medium">$1.10/M tokens</span> vs Z.AI's $2.20.
                             </p>
+                            <p className="text-base text-muted-foreground leading-relaxed mb-8">
+                                Achieved through engineering optimizations like GPU scheduling, request batching, and efficient resource utilization.
+                            </p>
+
+                            <div className="mt-auto space-y-4">
+                                <div className="space-y-2">
+                                    <div className="flex justify-between text-sm font-medium">
+                                        <span className="text-foreground">Vibe LLM</span>
+                                        <span className="text-primary font-bold">$1.10</span>
+                                    </div>
+                                    <div className="h-2.5 bg-secondary rounded-full overflow-hidden">
+                                        <div className="h-full bg-primary w-[50%] rounded-full" />
+                                    </div>
+                                </div>
+                                <div className="space-y-2">
+                                    <div className="flex justify-between text-sm text-muted-foreground">
+                                        <span>Z.AI</span>
+                                        <span>$2.20</span>
+                                    </div>
+                                    <div className="h-2.5 bg-secondary rounded-full overflow-hidden">
+                                        <div className="h-full bg-muted-foreground/20 w-full rounded-full" />
+                                    </div>
+                                </div>
+                            </div>
                         </CardContent>
                     </Card>
 
-                    {/* Small cards */}
-                    <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300">
-                        <CardContent className="p-7">
-                            <div className="p-3 rounded-xl bg-primary/5 w-fit mb-4">
+                    {/* Merged GLM-4.7 Card - spans 2 cols */}
+                    <Card className="md:col-span-2 bg-card border-border shadow-card hover:shadow-card-hover transition-all duration-300">
+                        <CardContent className="p-7 flex items-start gap-5">
+                            <div className="p-3 rounded-xl bg-primary/5 w-fit flex-shrink-0">
                                 <Zap className="w-6 h-6 text-primary" />
                             </div>
-                            <h3 className="text-lg font-semibold mb-3 leading-tight">GLM-4.7 Production Ready</h3>
-                            <p className="text-base text-muted-foreground leading-relaxed">
-                                Excels at code generation, complex reasoning, and Chinese language tasks.
-                            </p>
+                            <div>
+                                <h3 className="text-lg font-serif font-medium mb-2 leading-tight">Full-Fidelity GLM-4.7 Intelligence</h3>
+                                <p className="text-base text-muted-foreground leading-relaxed">
+                                    Excels at code generation, complex reasoning, and Chinese language tasks. We use the complete GLM-4.7 model with no compromises—full capabilities, full intelligence.
+                                </p>
+                            </div>
                         </CardContent>
                     </Card>
 
-                    <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300">
-                        <CardContent className="p-7">
-                            <div className="p-3 rounded-xl bg-primary/5 w-fit mb-4">
-                                <Shield className="w-6 h-6 text-primary" />
+                    {/* Pay-As-You-Go - spans 2 cols (Expanded to fill row) */}
+                    <Card className="md:col-span-2 bg-card border-border shadow-card hover:shadow-card-hover transition-all duration-300">
+                        <CardContent className="p-7 h-full flex flex-col justify-center">
+                            <div className="flex items-center gap-4 mb-3">
+                                <div className="p-3 rounded-xl bg-primary/5 w-fit">
+                                    <CreditCard className="w-6 h-6 text-primary" />
+                                </div>
+                                <h3 className="text-lg font-serif font-medium leading-tight">Pay-As-You-Go</h3>
                             </div>
-                            <h3 className="text-lg font-semibold mb-3 leading-tight">No Model Compromises</h3>
-                            <p className="text-base text-muted-foreground leading-relaxed">
-                                We use the complete GLM-4.7 model. Full capabilities, full intelligence.
-                            </p>
-                        </CardContent>
-                    </Card>
-
-                    <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300">
-                        <CardContent className="p-7">
-                            <div className="p-3 rounded-xl bg-primary/5 w-fit mb-4">
-                                <Server className="w-6 h-6 text-primary" />
-                            </div>
-                            <h3 className="text-lg font-semibold mb-3 leading-tight">Engineering Optimizations</h3>
-                            <p className="text-base text-muted-foreground leading-relaxed">
-                                Cost savings from GPU scheduling, request batching, and efficient resource utilization.
-                            </p>
-                        </CardContent>
-                    </Card>
-
-                    <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300">
-                        <CardContent className="p-7">
-                            <div className="p-3 rounded-xl bg-primary/5 w-fit mb-4">
-                                <Code className="w-6 h-6 text-primary" />
-                            </div>
-                            <h3 className="text-lg font-semibold mb-3 leading-tight">Drop-In Integration</h3>
-                            <p className="text-base text-muted-foreground leading-relaxed">
-                                Standard API format. Change endpoints and keys - no code modifications.
-                            </p>
-                        </CardContent>
-                    </Card>
-
-                    <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300">
-                        <CardContent className="p-7">
-                            <div className="p-3 rounded-xl bg-primary/5 w-fit mb-4">
-                                <Gauge className="w-6 h-6 text-primary" />
-                            </div>
-                            <h3 className="text-lg font-semibold mb-3 leading-tight">99.9% Uptime SLA</h3>
-                            <p className="text-base text-muted-foreground leading-relaxed">
-                                Reliable infrastructure with redundant systems. Real-time status monitoring.
-                            </p>
-                        </CardContent>
-                    </Card>
-
-                    <Card className="bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300">
-                        <CardContent className="p-7">
-                            <div className="p-3 rounded-xl bg-primary/5 w-fit mb-4">
-                                <CreditCard className="w-6 h-6 text-primary" />
-                            </div>
-                            <h3 className="text-lg font-semibold mb-3 leading-tight">Pay-As-You-Go</h3>
                             <p className="text-base text-muted-foreground leading-relaxed">
                                 No monthly commitments. Top up from $5, scale instantly.
                             </p>
                         </CardContent>
                     </Card>
 
-                    {/* Large card - spans 2 cols */}
-                    <Card className="md:col-span-2 bg-card border-border shadow-bento hover:shadow-card-hover transition-all duration-300">
-                        <CardContent className="p-7">
-                            <div className="flex items-start gap-5">
-                                <div className="p-4 rounded-xl bg-primary/5">
-                                    <Rocket className="w-8 h-8 text-primary" />
-                                </div>
+                    {/* Drop-In Integration (Merged with Built For Developers) - spans 4 cols (Full width bottom) */}
+                    <Card className="md:col-span-4 bg-card border-border shadow-card hover:shadow-card-hover transition-all duration-300">
+                        <CardContent className="p-8">
+                            <div className="flex flex-col md:flex-row gap-8 items-center">
                                 <div className="flex-1">
-                                    <h3 className="text-xl font-semibold mb-3 leading-tight">Built For Developers</h3>
-                                    <p className="text-base text-muted-foreground leading-relaxed">
-                                        Individual developers, early-stage startups, side projects, and internal tools where cost efficiency matters.
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <div className="p-3 rounded-xl bg-primary/5 w-fit">
+                                            <Code className="w-6 h-6 text-primary" />
+                                        </div>
+                                        <h3 className="text-2xl font-serif font-medium leading-tight">Drop-In Integration</h3>
+                                    </div>
+                                    <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                                        Standard API format compatible with popular AI tools. Change endpoints and keys - no code modifications needed.
                                     </p>
+                                    <p className="text-base text-muted-foreground leading-relaxed">
+                                        Perfect for individual developers, early-stage startups, side projects, and internal tools where cost efficiency matters.
+                                    </p>
+                                </div>
+                                <div className="w-full md:w-1/2 bg-secondary/50 rounded-xl p-6 border border-border/50 font-mono text-sm text-muted-foreground overflow-hidden shadow-inner">
+                                    <div className="flex gap-3 mb-3">
+                                        <span className="text-primary select-none">$</span>
+                                        <span className="text-foreground">
+                                        export ANTHROPIC_BASE_URL=https://api.vibe-llm.online/api/anthropic
+                                        </span>
+                                    </div>
+                                    <div className="flex gap-3 mb-3">
+                                        <span className="text-primary select-none">$</span>
+                                        <span className="text-foreground">export ANTHROPIC_API_KEY=sk-vibe-...</span>
+                                    </div>
+                                    <div className="flex gap-3">
+                                        <span className="text-primary select-none">$</span>
+                                        <span className="text-green-600">claude # Ready to code!</span>
+                                    </div>
                                 </div>
                             </div>
                         </CardContent>
