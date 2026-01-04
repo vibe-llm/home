@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Shield, ArrowLeft, Lock, Eye, Database, UserCheck, FileText, Mail } from "lucide-react";
+import { Shield, ArrowLeft, Lock, Database, UserCheck, FileText, Mail, Cpu, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { usePageTracking } from "@/hooks/use-analytics";
 
@@ -20,81 +20,87 @@ const PrivacyPolicy = () => {
           </h1>
           
           <p className="text-bodyLg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Your privacy is our priority. We don't store your data, and we're committed to keeping you safe.
+            We take user privacy seriously and aim to minimize data collection to what is strictly necessary
+            to operate and maintain the service.
           </p>
         </div>
 
         {/* Content Sections */}
         <div className="space-y-8 mb-16">
-          {/* Our Commitment */}
+          {/* Overview */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <UserCheck className="w-6 h-6 text-primary" />
-              <h2 className="text-h3 font-semibold text-foreground">Our Commitment to Your Privacy</h2>
+              <h2 className="text-h3 font-semibold text-foreground">Overview</h2>
             </div>
             <p className="text-muted-foreground text-body leading-body">
-              Vibe LLM is designed with privacy by design. We are committed to protecting your personal information
-              and ensuring that your data remains private and secure. This policy explains how we handle your information 
-              when you use our services.
+              Vibe LLM is designed with a privacy-first approach. The service processes requests in real time
+              and does not use user prompts or outputs for model training, fine-tuning, or data resale.
             </p>
           </section>
 
-          {/* Data We Don't Store */}
+          {/* Data We Process */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <Database className="w-6 h-6 text-primary" />
-              <h2 className="text-h3 font-semibold text-foreground">What We Don't Store</h2>
+              <h2 className="text-h3 font-semibold text-foreground">Data We Process</h2>
             </div>
             <div className="text-muted-foreground text-body leading-body space-y-4">
-              <p>
-                <strong className="text-primary">We do not store any of your personal data or conversation history.</strong> 
-                This includes:
-              </p>
+              <p>When you use Vibe LLM, we process the following data:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>Your code or prompts sent to Claude</li>
-                <li>Conversation history or chat logs</li>
-                <li>Personal files or documents</li>
-                <li>Usage patterns or analytics data</li>
-                <li>IP addresses or device information</li>
+                <li>
+                  <strong className="text-primary">Prompts and responses:</strong> processed transiently to generate a response.
+                  Prompts and outputs are not stored persistently and are not used for training or analytics.
+                </li>
+                <li>
+                  <strong className="text-primary">Account information:</strong> email address used for account creation and API access.
+                </li>
+                <li>
+                  <strong className="text-primary">Operational metadata:</strong> limited, short-lived logs such as request counts, error signals,
+                  and latency metrics used solely for reliability, rate limiting, and debugging.
+                </li>
               </ul>
-              <p>
-                When you use Vibe LLM, your requests are processed in real-time and immediately discarded after response delivery.
-              </p>
             </div>
           </section>
 
-          {/* Information We Collect */}
+          {/* What We Do Not Do */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
-              <Eye className="w-6 h-6 text-primary" />
-              <h2 className="text-h3 font-semibold text-foreground">Limited Information Collection</h2>
+              <Shield className="w-6 h-6 text-primary" />
+              <h2 className="text-h3 font-semibold text-foreground">What We Do Not Do</h2>
             </div>
-            <p className="text-muted-foreground text-body leading-body">
-              The only information we collect is what you voluntarily provide when signing up for our service:
-            </p>
-            <ul className="list-disc list-inside space-y-2 ml-4 mt-4 text-muted-foreground text-body">
-              <li>Email address for account creation and API token delivery</li>
-              <li>Basic usage metrics for service monitoring (request counts, not content)</li>
+            <ul className="list-disc list-inside space-y-2 ml-4 text-muted-foreground text-body">
+              <li>We do not train or fine-tune models on user prompts or outputs.</li>
+              <li>We do not sell, share, or monetize user prompt data.</li>
+              <li>We do not scrape user repositories or files.</li>
+              <li>We do not build user profiles or perform behavioral analytics.</li>
             </ul>
           </section>
 
-          {/* Security Measures */}
+          {/* Data Retention */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
-              <Lock className="w-6 h-6 text-primary" />
-              <h2 className="text-h3 font-semibold text-foreground">Security Measures</h2>
+              <Clock className="w-6 h-6 text-primary" />
+              <h2 className="text-h3 font-semibold text-foreground">Data Retention</h2>
             </div>
-            <div className="text-muted-foreground text-body leading-body space-y-4">
-              <p>
-                We implement industry-standard security measures to protect our service:
-              </p>
-              <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>End-to-end encryption for all communications</li>
-                <li>Secure API token generation and management</li>
-                <li>Regular security audits and updates</li>
-                <li>No persistent data storage = no data breach risk</li>
-              </ul>
+            <p className="text-muted-foreground text-body leading-body">
+              Operational logs are retained only for a short period and are automatically rotated.
+              They are used exclusively for service stability and incident investigation,
+              and are not manually inspected unless required to debug a reported issue.
+            </p>
+          </section>
+
+          {/* Model Inference */}
+          <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
+            <div className="flex items-center gap-3 mb-4">
+              <Cpu className="w-6 h-6 text-primary" />
+              <h2 className="text-h3 font-semibold text-foreground">Model Inference</h2>
             </div>
+            <p className="text-muted-foreground text-body leading-body">
+              Vibe LLM provides access to open-source language models (such as GLM-4.7)
+              through a Claude-compatible API interface.
+              Inference is performed on our infrastructure; model weights and architectures are not modified.
+            </p>
           </section>
 
           {/* Third-Party Services */}
@@ -104,12 +110,20 @@ const PrivacyPolicy = () => {
               <h2 className="text-h3 font-semibold text-foreground">Third-Party Services</h2>
             </div>
             <p className="text-muted-foreground text-body leading-body">
-              Vibe LLM acts as a secure proxy to Anthropic's Claude API. Your requests are forwarded directly
-              to Anthropic without logging or storage. We recommend reviewing 
-              <a href="https://www.anthropic.com/privacy" className="text-primary hover:text-primary/80 underline mx-1">
-                Anthropic's Privacy Policy
-              </a>
-              for their data handling practices.
+              We do not share prompt or response data with third parties.
+              Infrastructure providers may process transient data strictly for hosting and networking purposes.
+            </p>
+          </section>
+
+          {/* Security */}
+          <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
+            <div className="flex items-center gap-3 mb-4">
+              <Lock className="w-6 h-6 text-primary" />
+              <h2 className="text-h3 font-semibold text-foreground">Security</h2>
+            </div>
+            <p className="text-muted-foreground text-body leading-body">
+              We use standard industry practices to protect the service, including encrypted transport,
+              secure API key handling, and restricted internal access.
             </p>
           </section>
 
@@ -120,9 +134,7 @@ const PrivacyPolicy = () => {
               <h2 className="text-h3 font-semibold text-foreground">Policy Updates</h2>
             </div>
             <p className="text-muted-foreground text-body leading-body">
-              We may update this privacy policy periodically to reflect changes in our practices or legal requirements.
-              Any changes will be posted on this page with an updated effective date. Since we don't store your contact 
-              information, we encourage you to review this policy periodically.
+              This policy may be updated as the service evolves. Any changes will be published on this page.
             </p>
           </section>
 
@@ -130,20 +142,13 @@ const PrivacyPolicy = () => {
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <Mail className="w-6 h-6 text-primary" />
-              <h2 className="text-h3 font-semibold text-foreground">Contact Us</h2>
+              <h2 className="text-h3 font-semibold text-foreground">Contact</h2>
             </div>
             <p className="text-muted-foreground text-body leading-body">
-              If you have any questions about this privacy policy or our data practices, please contact us through
-              our website's contact form or via email `welcome@vibe-llm.online`. We're committed to addressing any privacy concerns you may have.
+              If you have questions about this policy or encounter a privacy-related issue,
+              you can contact us at <a href="mailto:vibellm.online@gmail.com" className="text-primary hover:underline">vibellm.online@gmail.com</a>.
             </p>
           </section>
-
-          {/* Effective Date */}
-          <div className="text-center py-8">
-            <p className="text-muted-foreground text-bodySm">
-              <strong>Effective Date:</strong> July 1, 2025
-            </p>
-          </div>
         </div>
 
         {/* Back Button */}

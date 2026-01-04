@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Scale, ArrowLeft, Shield, Users, FileText, AlertTriangle, Gavel, Mail } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Scale, ArrowLeft, Shield, Users, FileText, AlertTriangle, Gavel, Mail, AlertCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { usePageTracking } from "@/hooks/use-analytics";
 
 const TermsOfService = () => {
@@ -20,7 +20,7 @@ const TermsOfService = () => {
           </h1>
           
           <p className="text-bodyLg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Your rights and responsibilities when using Vibe LLM. We don't own your data - you do.
+            Your rights and responsibilities when using Vibe LLM.
           </p>
         </div>
 
@@ -33,9 +33,7 @@ const TermsOfService = () => {
               <h2 className="text-h3 font-semibold text-foreground">1. Acceptance of Terms</h2>
             </div>
             <p className="text-muted-foreground text-body leading-body">
-              By accessing and using Vibe LLM services, you agree to comply with and be bound by these Terms of Service.
-              If you do not agree to these terms, please do not use our services. Your continued use of our platform 
-              constitutes acceptance of any updates to these terms.
+              By accessing or using Vibe LLM, you agree to be bound by these Terms of Service. If you do not agree, you may not use the service. Continued use of the service constitutes acceptance of any updated terms.
             </p>
           </section>
 
@@ -45,59 +43,46 @@ const TermsOfService = () => {
               <Shield className="w-6 h-6 text-primary" />
               <h2 className="text-h3 font-semibold text-foreground">2. Description of Service</h2>
             </div>
-            <div className="text-muted-foreground text-body leading-body space-y-4">
-              <p>
-                Vibe LLM provides a secure API proxy service that enables developers to access Claude AI capabilities 
-                at competitive pricing. Our service acts as an intermediary between your applications and Anthropic's Claude API.
-              </p>
-              <p>
-                <strong className="text-primary">We are committed to providing a safe, reliable, and privacy-focused service</strong> 
-                that respects your data ownership rights and maintains the highest security standards.
-              </p>
-            </div>
+            <p className="text-muted-foreground text-body leading-body">
+              Vibe LLM provides a developer-oriented API proxy that enables access to third-party large language model providers at competitive pricing. Vibe LLM acts solely as an intermediary and does not independently generate model outputs.
+            </p>
           </section>
 
-          {/* User Data Ownership */}
+          {/* Data Ownership and Responsibility */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <Users className="w-6 h-6 text-primary" />
-              <h2 className="text-h3 font-semibold text-foreground">3. Your Data Ownership Rights</h2>
+              <h2 className="text-h3 font-semibold text-foreground">3. Data Ownership and Responsibility</h2>
             </div>
             <div className="text-muted-foreground text-body leading-body space-y-4">
-              <p>
-                <strong className="text-primary text-bodyLg">You own your data. We don't store it, period.</strong>
-              </p>
+              <p>You retain full ownership of all content you submit through the service.</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>All prompts, code, and content you send through our service remain your intellectual property</li>
-                <li>We do not store, log, or retain any of your conversations or data</li>
-                <li>Your data is transmitted directly to Anthropic's Claude API and immediately discarded from our systems</li>
-                <li>We have no access to, ownership of, or rights to your content</li>
-                <li>You maintain full control and responsibility for your data at all times</li>
+                <li>All prompts, code, and inputs remain your intellectual property</li>
+                <li>We do not claim ownership of generated outputs</li>
+                <li>We do not persistently store or retain your content</li>
+                <li>You are solely responsible for the legality and appropriateness of your content and usage</li>
               </ul>
-              <p>
-                For complete details on our data handling practices, please review our 
-                <Link to="/privacy-policy" className="text-primary hover:text-primary/80 underline mx-1">
-                  Privacy Policy
-                </Link>.
-              </p>
+              <p>Data transmission and processing are subject to applicable third-party providers’ terms and policies.</p>
             </div>
           </section>
 
-          {/* User Conduct */}
+          {/* Acceptable Use */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <AlertTriangle className="w-6 h-6 text-primary" />
               <h2 className="text-h3 font-semibold text-foreground">4. Acceptable Use</h2>
             </div>
             <div className="text-muted-foreground text-body leading-body space-y-4">
-              <p>You agree to use Vibe LLM responsibly and in compliance with all applicable laws. Prohibited activities include:</p>
+              <p>You agree not to use the service to:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>Attempting to reverse engineer, hack, or compromise our service</li>
-                <li>Using the service for illegal activities or to generate harmful content</li>
-                <li>Attempting to overload or disrupt our infrastructure</li>
-                <li>Sharing your API tokens with unauthorized parties</li>
-                <li>Violating Anthropic's usage policies when using Claude through our service</li>
+                <li>Violate any applicable laws or regulations</li>
+                <li>Generate or distribute unlawful, harmful, or abusive content</li>
+                <li>Attempt to reverse engineer, disrupt, or compromise the service</li>
+                <li>Circumvent rate limits or security controls</li>
+                <li>Share API credentials with unauthorized parties</li>
+                <li>Violate the usage policies of any third-party model provider accessed through the service</li>
               </ul>
+              <p>We reserve the right to suspend or terminate access for violations.</p>
             </div>
           </section>
 
@@ -109,17 +94,14 @@ const TermsOfService = () => {
             </div>
             <div className="text-muted-foreground text-body leading-body space-y-4">
               <p>
-                We strive to provide reliable service with high uptime. However, we cannot guarantee uninterrupted access due to:
+                The service is provided on an “as-available” basis. We do not guarantee uninterrupted operation and are not responsible for downtime caused by:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>Scheduled maintenance and updates</li>
-                <li>Third-party service dependencies (Anthropic's Claude API)</li>
-                <li>Network issues beyond our control</li>
-                <li>Security-related service interruptions</li>
+                <li>Scheduled maintenance</li>
+                <li>Third-party service dependencies</li>
+                <li>Network or infrastructure failures</li>
+                <li>Security-related interruptions</li>
               </ul>
-              <p>
-                We will provide advance notice of planned maintenance whenever possible.
-              </p>
             </div>
           </section>
 
@@ -131,41 +113,49 @@ const TermsOfService = () => {
             </div>
             <div className="text-muted-foreground text-body leading-body space-y-4">
               <p>
-                <strong className="text-primary">Your content remains yours.</strong> Vibe LLM and its associated branding, 
-                documentation, and service infrastructure are our intellectual property.
+                All Vibe LLM branding, documentation, software, and infrastructure are the intellectual property of Vibe LLM.
               </p>
-              <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>You retain all rights to content you create or input into our service</li>
-                <li>We claim no ownership over your prompts, code, or generated outputs</li>
-                <li>Our service name, logo, and documentation are protected by trademark and copyright</li>
-                <li>You may not use our branding without explicit written permission</li>
-              </ul>
+              <p>
+                You may not use our name, logo, or branding without prior written permission.
+              </p>
             </div>
+          </section>
+
+          {/* Disclaimer of Warranties */}
+          <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
+            <div className="flex items-center gap-3 mb-4">
+              <AlertCircle className="w-6 h-6 text-primary" />
+              <h2 className="text-h3 font-semibold text-foreground">7. Disclaimer of Warranties</h2>
+            </div>
+            <p className="text-muted-foreground text-body leading-body">
+              The service is provided “as is” and “as available,” without warranties of any kind, express or implied. We do not warrant that the service will be error-free, secure, or meet your specific requirements.
+            </p>
           </section>
 
           {/* Limitation of Liability */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <Scale className="w-6 h-6 text-primary" />
-              <h2 className="text-h3 font-semibold text-foreground">7. Limitation of Liability</h2>
+              <h2 className="text-h3 font-semibold text-foreground">8. Limitation of Liability</h2>
             </div>
-            <p className="text-muted-foreground text-body leading-body">
-              Vibe LLM is provided "as is" without warranties of any kind. We are not liable for any damages arising from
-              service use, including but not limited to data loss, business interruption, or security breaches. 
-              Your maximum remedy is limited to the amount paid for our services in the preceding 30 days.
-            </p>
+            <div className="text-muted-foreground text-body leading-body space-y-4">
+              <p>
+                To the maximum extent permitted by law, Vibe LLM shall not be liable for any indirect, incidental, special, or consequential damages arising from use of the service.
+              </p>
+              <p>
+                Our total liability for any claim shall not exceed the amount paid by you for the service in the thirty (30) days preceding the claim.
+              </p>
+            </div>
           </section>
 
           {/* Changes to Terms */}
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <FileText className="w-6 h-6 text-primary" />
-              <h2 className="text-h3 font-semibold text-foreground">8. Changes to Terms</h2>
+              <h2 className="text-h3 font-semibold text-foreground">9. Changes to Terms</h2>
             </div>
             <p className="text-muted-foreground text-body leading-body">
-              We may update these Terms of Service periodically to reflect changes in our practices or legal requirements.
-              Material changes will be communicated via email to registered users at least 30 days before taking effect. 
-              Continued use of our service after changes constitutes acceptance of the updated terms.
+              We may modify these Terms from time to time. Material changes will be communicated via email or prominent notice on our website. Continued use of the service after changes take effect constitutes acceptance of the updated Terms.
             </p>
           </section>
 
@@ -173,20 +163,12 @@ const TermsOfService = () => {
           <section className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8">
             <div className="flex items-center gap-3 mb-4">
               <Mail className="w-6 h-6 text-primary" />
-              <h2 className="text-h3 font-semibold text-foreground">9. Contact Information</h2>
+              <h2 className="text-h3 font-semibold text-foreground">10. Contact Information</h2>
             </div>
             <p className="text-muted-foreground text-body leading-body">
-              If you have any questions about these Terms of Service, please contact us through our website's contact form.
-              We're committed to addressing any concerns you may have about our terms or service.
+              If you have questions about these Terms of Service, please contact us at: <a href="mailto:welcome@vibe-llm.online" className="text-primary hover:underline">welcome@vibe-llm.online</a>
             </p>
           </section>
-
-          {/* Effective Date */}
-          <div className="text-center py-8">
-            <p className="text-muted-foreground text-bodySm">
-              <strong>Effective Date:</strong> July 1, 2025
-            </p>
-          </div>
         </div>
 
         {/* Back Button */}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
     Accordion,
     AccordionContent,
@@ -32,6 +33,22 @@ const faqs = [
     {
         question: "What's included in the $3 free credit?",
         answer: "The $3 free credit gives you approximately 300,000 tokens to test our service - enough to process about 150 pages of text or have hundreds of conversations. No credit card required to sign up."
+    },
+    {
+        question: "How do you handle data privacy?",
+        answer: (
+            <span>
+                We do not store or reuse your prompts, code, or model responses, and we do not use any user data for model training. Requests are processed transiently to generate a response and are discarded immediately after completion. We only collect minimal operational metrics (such as request counts and error rates) for service reliability and abuse prevention. Full details are documented in our{" "}
+                <Link to="/privacy" className="text-primary hover:underline">
+                    Privacy Policy
+                </Link>{" "}
+                and{" "}
+                <Link to="/terms" className="text-primary hover:underline">
+                    Terms of Service
+                </Link>
+                .
+            </span>
+        )
     }
 ];
 
