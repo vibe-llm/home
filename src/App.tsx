@@ -6,12 +6,12 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.tsx";
 import NotFound from "./pages/NotFound";
 import Building from "./pages/Building";
-import QuickStart from "./pages/QuickStart";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import UserDashboard from "./pages/UserDashboard";
 import UserDashboard2 from "./pages/UserDashboard2.tsx";
 import IndexRouter from "./pages/IndexRouter.tsx";
+import Status from "./pages/Status.tsx";
 import { AuthProvider } from "./contexts/AuthContext";
 // Initialize analytics
 import "./lib/analytics";
@@ -43,11 +43,11 @@ const App = () => {
                 <Route path="/" element={<IndexRouter />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/building" element={<Building />} />
-                <Route path="/quick-start" element={<QuickStart />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms-of-service" element={<TermsOfService />} />
                 <Route path="/dashboard" element={<UserDashboard />} />
                 <Route path="/dashboard2" element={<UserDashboard2 />} />
+                <Route path="/status" element={<Status />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

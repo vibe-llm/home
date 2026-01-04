@@ -11,7 +11,7 @@ const Footer = () => {
     <footer id="footer" className="bg-gradient-secondary border-t border-primary/10">
       {/* Main Footer */}
       <div className="container mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Company */}
           <div>
             <div className="flex items-center mb-4">
@@ -36,17 +36,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Product</h4>
             <ul className="space-y-3 text-muted-foreground">
-              <li><Link to="/quick-start" className="hover:text-primary transition-colors">API Documentation</Link></li>
-              <li><Link to="/" onClick={() => setTimeout(() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }), 100)} className="hover:text-primary transition-colors">Pricing</Link></li>
-              <li><a href="https://vibe-router.onrender.com/health" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Status Page</a></li>
-            </ul>
-          </div>
-          
-          {/* Developers */}
-          <div>
-            <h4 className="font-semibold mb-4">Developers</h4>
-            <ul className="space-y-3 text-muted-foreground">
-              <li><Link to="/quick-start" className="hover:text-primary transition-colors">Quick Start</Link></li>
+              <li><Link to="/status" className="hover:text-primary transition-colors">Status Page</Link></li>
             </ul>
           </div>
           
@@ -54,7 +44,6 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-3 text-muted-foreground">
-              <li><Link to="/" onClick={() => setTimeout(() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }), 100)} className="hover:text-primary transition-colors">About</Link></li>
               <li><a className="hover:text-primary transition-colors cursor-pointer" onClick={() => {
                 trackButtonClick("footer_contact");
                 setIsContactFormOpen(true);
