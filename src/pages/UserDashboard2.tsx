@@ -256,7 +256,7 @@ const UserDashboard2 = () => {
                         <>
                           <div className="mb-2">
                             <pre className="bg-secondary/50 text-foreground rounded-xl p-4 font-mono text-xs overflow-x-auto select-all min-h-[48px] border border-border/50">
-{`export ANTHROPIC_BASE_URL=https://api.vibe-llm.online/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=${apiToken}`}
+{`export ANTHROPIC_MODEL=glm-4.7\nexport ANTHROPIC_BASE_URL=https://api.vibe-llm.online/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=${apiToken}`}
                             </pre>
                           </div>
                           <div className="flex justify-end">
@@ -264,7 +264,7 @@ const UserDashboard2 = () => {
                               className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-medium hover:opacity-90 transition-opacity shadow-sm"
                               onClick={() => {
                                 navigator.clipboard.writeText(
-                                  `export ANTHROPIC_BASE_URL=https://api.vibe-llm.online/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=${apiToken}`
+                                  `export ANTHROPIC_MODEL=glm-4.7\nexport ANTHROPIC_BASE_URL=https://api.vibe-llm.online/api/anthropic\nexport ANTHROPIC_AUTH_TOKEN=${apiToken}`
                                 );
                               }}
                               type="button"
