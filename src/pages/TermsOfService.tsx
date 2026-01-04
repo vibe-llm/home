@@ -166,7 +166,7 @@ const TermsOfService = () => {
               <h2 className="text-h3 font-semibold text-foreground">10. Contact Information</h2>
             </div>
             <p className="text-muted-foreground text-body leading-body">
-              If you have questions about these Terms of Service, please contact us at: <a href="mailto:welcome@vibe-llm.online" className="text-primary hover:underline">welcome@vibe-llm.online</a>
+              If you have questions about these Terms of Service, please contact us at: <a href="mailto:vibellm.online@gmail.com" className="text-primary hover:underline">vibellm.online@gmail.com</a>
             </p>
           </section>
         </div>

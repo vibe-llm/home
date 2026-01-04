@@ -23,11 +23,11 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="mailto:welcome@vibe-llm.online"
+                href="mailto:vibellm.online@gmail.com"
                 className="inline-flex items-center gap-2 px-3 h-9 text-muted-foreground hover:text-primary transition-colors rounded-md"
               >
                 <Mail className="w-4 h-4" />
-                <span className="text-footnote">welcome@vibe-llm.online</span>
+                <span className="text-footnote">vibellm.online@gmail.com</span>
               </a>
             </div>
           </div>
