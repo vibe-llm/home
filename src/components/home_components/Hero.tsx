@@ -5,20 +5,104 @@ import { useEffect, useRef, useState } from "react";
 const Hero = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [progress, setProgress] = useState(0);
+    const [videoError, setVideoError] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [videoReady, setVideoReady] = useState(false);
 
     useEffect(() => {
         const video = videoRef.current;
-        if (!video) return;
+        if (!video) {
+            console.error('Video ref is null');
+            return;
+        }
 
         const handleTimeUpdate = () => {
-            if (video.duration) {
+            if (video.duration && video.duration > 0) {
                 const currentProgress = (video.currentTime / video.duration) * 100;
                 setProgress(currentProgress);
             }
         };
 
+        const handleError = (e: Event) => {
+            const target = e.target as HTMLVideoElement;
+            const error = target.error;
+            console.error('Video error event:', e);
+            console.error('Video error object:', error);
+            
+            if (error) {
+                const errorMessages = [
+                    'Unknown error',
+                    'Video loading aborted',
+                    'Network error',
+                    'Video decode error',
+                    'Video format not supported'
+                ];
+                const errorMessage = errorMessages[error.code] || errorMessages[0];
+                setVideoError(`${errorMessage} (code: ${error.code})`);
+            } else {
+                setVideoError('Unknown video error');
+            }
+            setIsLoading(false);
+            setVideoReady(false);
+        };
+
+        const handleLoadedData = () => {
+            console.log('Video data loaded successfully');
+            setVideoError(null);
+            setIsLoading(false);
+            setVideoReady(true);
+        };
+
+        const handleLoadStart = () => {
+            console.log('Video loading started');
+            setIsLoading(true);
+        };
+
+        const handleCanPlay = () => {
+            console.log('Video can play - attempting to play');
+            setIsLoading(false);
+            setVideoReady(true);
+            
+            // Attempt to play
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => {
+                        console.log('Video playing successfully');
+                    })
+                    .catch(err => {
+                        console.error('Autoplay failed:', err);
+                        // Even if autoplay fails, the video is ready to be shown
+                    });
+            }
+        };
+
+        const handlePlaying = () => {
+            console.log('Video is now playing');
+            setIsLoading(false);
+            setVideoReady(true);
+        };
+
+
         video.addEventListener("timeupdate", handleTimeUpdate);
-        return () => video.removeEventListener("timeupdate", handleTimeUpdate);
+        video.addEventListener("error", handleError);
+        video.addEventListener("loadeddata", handleLoadedData);
+        video.addEventListener("loadstart", handleLoadStart);
+        video.addEventListener("canplay", handleCanPlay);
+        video.addEventListener("playing", handlePlaying);
+        
+        // Force load the video
+        console.log('Calling video.load()');
+        video.load();
+        
+        return () => {
+            video.removeEventListener("timeupdate", handleTimeUpdate);
+            video.removeEventListener("error", handleError);
+            video.removeEventListener("loadeddata", handleLoadedData);
+            video.removeEventListener("loadstart", handleLoadStart);
+            video.removeEventListener("canplay", handleCanPlay);
+            video.removeEventListener("playing", handlePlaying);
+        };
     }, []);
 
     return (
@@ -70,23 +154,52 @@ const Hero = () => {
                     <p className="text-sm font-medium text-muted-foreground text-center md:text-left pl-1">
                         Watch: How to integrate in seconds
                     </p>
-                    <div className="rounded-2xl border border-border overflow-hidden shadow-2xl relative">
+                    <div className="rounded-2xl border-2 border-border overflow-hidden shadow-2xl relative bg-secondary/20 min-h-[300px]">
                         <video
                             ref={videoRef}
-                            src="/demo.mp4"
-                            className="w-full h-auto pointer-events-none"
+                            className="w-full h-auto pointer-events-none block"
                             autoPlay
                             loop
                             muted
                             playsInline
-                        />
+                            preload="metadata"
+                            style={{ 
+                                minHeight: '300px',
+                                backgroundColor: '#000',
+                                objectFit: 'contain'
+                            }}
+                        >
+                            <source src="/demo.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        {isLoading && !videoError && !videoReady && (
+                            <div className="absolute inset-0 flex flex-col items-center justify-center bg-secondary/90 z-10">
+                                <div className="animate-pulse">
+                                    <p className="text-muted-foreground text-sm mb-2">Loading video...</p>
+                                    <div className="w-48 h-1 bg-primary/20 rounded-full overflow-hidden">
+                                        <div className="h-full bg-primary w-1/2 animate-pulse"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        {videoError && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-destructive/10 border-2 border-destructive p-4 z-10">
+                                <div className="text-center bg-background/90 p-4 rounded-lg">
+                                    <p className="text-destructive text-sm font-semibold mb-2">❌ Video Error</p>
+                                    <p className="text-destructive text-xs mb-2">{videoError}</p>
+                                    <p className="text-xs text-muted-foreground">Check browser console for details</p>
+                                </div>
+                            </div>
+                        )}
                         {/* Progress Bar */}
-                        <div className="absolute bottom-0 left-0 w-full h-1 bg-secondary/30">
-                            <div
-                                className="h-full bg-primary transition-all duration-100 ease-linear"
-                                style={{ width: `${progress}%` }}
-                            />
-                        </div>
+                        {videoReady && !videoError && (
+                            <div className="absolute bottom-0 left-0 w-full h-1 bg-secondary/30 z-10">
+                                <div
+                                    className="h-full bg-primary transition-all duration-100 ease-linear"
+                                    style={{ width: `${progress}%` }}
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
 
