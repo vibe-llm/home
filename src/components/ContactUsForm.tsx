@@ -55,7 +55,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ isOpen, onOpenChange }) => {
       
       // Create FormData for Web3Forms
       const formData = new FormData();
-      formData.append('access_key', "556de76b-68cc-44b7-a870-bcae38c23fa2");
+      formData.append('access_key', "e10c1415-d249-495e-a67b-1efbeb218af5");
       formData.append('name', data.name);
       formData.append('email', data.email);
       formData.append('message', data.comment);
